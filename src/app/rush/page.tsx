@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
 export default function RushPage() {
@@ -113,7 +113,7 @@ export default function RushPage() {
               <div className="w-12 h-12 bg-[var(--blue)] rounded-full flex items-center justify-center mx-auto mb-4 text-[var(--white)] font-bold text-xl">2</div>
               <h3 className="text-lg font-semibold mb-2 text-[var(--navy)]">Receive a Bid</h3>
               <p className="text-[var(--navy)]">
-                If there's mutual interest, you'll receive a bid to join our chapter.
+                If there&apos;s mutual interest, you&apos;ll receive a bid to join our chapter.
               </p>
             </div>
             <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
@@ -141,7 +141,7 @@ export default function RushPage() {
               <h3 className="text-xl font-semibold mb-2 text-[var(--white)]">What is the time commitment?</h3>
               <p className="text-[var(--white)]/80">
                 We understand that academics come first. Our weekly time commitment includes a chapter meeting (2 hours), 
-                occasional study hours, and social/philanthropy events. We work with each brother's schedule to ensure a balance 
+                occasional study hours, and social/philanthropy events. We work with each brother&apos;s schedule to ensure a balance 
                 between fraternity involvement and academic success.
               </p>
             </div>

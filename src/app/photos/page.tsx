@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function PhotosPage() {
   // Sample photo gallery data - replace with your actual photos
