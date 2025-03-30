@@ -43,7 +43,7 @@ const NavBar = () => {
                 <span className="font-bold">ΦΔΘ</span>
               </div>
               <span className="text-foreground font-semibold text-lg">
-                Phi Delta Theta
+                Carnegie Mellon Phi Delta Theta
               </span>
             </Link>
           </div>
