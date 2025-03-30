@@ -59,7 +59,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Brotherhood</h3>
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70">
-                We foster lifelong friendships through shared experiences, support, and a commitment to each other's growth.
+                We foster lifelong friendships through shared experiences, support, and a commitment to each other&#39;s growth.
               </p>
             </div>
             
@@ -111,7 +111,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3">Our Chapter House</h3>
                 <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                  Located in the heart of CMU's campus, our chapter house serves as the center of brotherhood activities and a home away from home for our members.
+                  Located in the heart of CMU&#39;s campus, our chapter house serves as the center of brotherhood activities and a home away from home for our members.
                 </p>
                 <Link 
                   href="/about#chapter-house" 
@@ -134,7 +134,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3">Our Philanthropy</h3>
                 <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                  We're proud to support the LiveLikeLou Foundation in the fight against ALS, honoring Phi Delt brother Lou Gehrig's legacy.
+                  We&#39;re proud to support the LiveLikeLou Foundation in the fight against ALS, honoring Phi Delt brother Lou Gehrig&#39;s legacy.
                 </p>
                 <Link 
                   href="/philanthropy" 
@@ -274,13 +274,13 @@ export default function Home() {
                 <li><a href="https://www.phideltatheta.org/" target="_blank" rel="noopener noreferrer" className="text-[var(--light-blue)] hover:text-[var(--white)]">National Organization</a></li>
                 <li><a href="https://www.cmu.edu/student-affairs/slice/student-activities/greek-life/" target="_blank" rel="noopener noreferrer" className="text-[var(--light-blue)] hover:text-[var(--white)]">CMU Greek Life</a></li>
                 <li><Link href="/alumni" className="text-[var(--light-blue)] hover:text-[var(--white)]">Alumni Network</Link></li>
-                <li><Link href="/parents" className="text-[var(--light-blue)] hover:text-[var(--white)]">Parents' Guide</Link></li>
+                <li><Link href="/parents" className="text-[var(--light-blue)] hover:text-[var(--white)]">Parents&#39; Guide</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="mt-10 pt-6 border-t border-[var(--blue)]/30 text-center text-[var(--light-blue)]/70 text-sm">
-            <p> {new Date().getFullYear()} Phi Delta Theta, Pennsylvania Rho Chapter. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Phi Delta Theta, Pennsylvania Rho Chapter. All rights reserved.</p>
           </div>
         </div>
       </footer>

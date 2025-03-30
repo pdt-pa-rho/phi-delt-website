@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-3">Friendship</h3>
               <p>
                 We foster lifelong bonds among brothers through shared experiences, 
-                mutual support, and a commitment to each other's growth and well-being.
+                mutual support, and a commitment to each other&apos;s growth and well-being.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
