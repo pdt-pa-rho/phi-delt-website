@@ -63,22 +63,10 @@ const NavBar = () => {
               About
             </Link>
             <Link
-              href="/brothers"
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Brothers
-            </Link>
-            <Link
               href="/rush"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
               Rush
-            </Link>
-            <Link
-              href="/events"
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Events
             </Link>
           </div>
 
