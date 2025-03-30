@@ -77,14 +77,15 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-4 gap-6">
             {/* Example leadership positions - customize as needed */}
             {[
-              { title: 'President', name: 'John Doe' },
-              { title: 'Vice President', name: 'James Smith' },
-              { title: 'Treasurer', name: 'Robert Johnson' },
-              { title: 'Secretary', name: 'Michael Brown' },
-              { title: 'Recruitment Chair', name: 'William Davis' },
-              { title: 'Academic Chair', name: 'Richard Wilson' },
-              { title: 'Social Chair', name: 'Joseph Taylor' },
-              { title: 'Philanthropy Chair', name: 'Thomas Anderson' }
+              { title: 'President', name: 'Nathan Vastey' },
+              { title: 'Vice President', name: 'Rohan Wadwha' },
+              { title: 'Secretary', name: 'Aayush Bajaj' },
+              { title: 'Treasurer', name: 'Wade Crum' },
+              { title: 'Recruitment Chair', name: 'Prathik Guduri' },
+              { title: 'Social Chair', name: 'Daniel Lee' },
+              { title: 'Brotherhood Chair', name: 'Cole Schaefer'},
+              { title: 'Risk Management Chair', name: 'Chibueze Ike' },
+              { title: 'Membership Development Chair', name: 'Rohan Jain' },
             ].map((leader, index) => (
               <div key={index} className="bg-white p-4 rounded-lg shadow-md text-center">
                 <div className="bg-gray-200 h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center">
