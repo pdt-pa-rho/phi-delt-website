@@ -98,7 +98,7 @@ export default function AboutPage() {
               <div key={index} className="bg-[var(--light-blue)] p-4 rounded-lg shadow-md text-center">
                 <div className="bg-[var(--white)] h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
                   <Image 
-                    src={`/exec/${leader.name}.jpg`} 
+                    src={`/executive/${leader.name}.jpg`} 
                     alt={leader.name} 
                     width={128}
                     height={128}
