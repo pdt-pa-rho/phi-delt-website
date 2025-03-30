@@ -97,7 +97,13 @@ export default function AboutPage() {
             ].map((leader, index) => (
               <div key={index} className="bg-[var(--light-blue)] p-4 rounded-lg shadow-md text-center">
                 <div className="bg-[var(--white)] h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                  <img src={`/exec/${leader.name}.jpg`} alt={leader.name} className="w-full h-full object-cover rounded-full" />
+                  <Image 
+                    src={`/exec/${leader.name}.jpg`} 
+                    alt={leader.name} 
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover rounded-full" 
+                  />
                 </div>
                 <h3 className="font-semibold text-[var(--navy)]">{leader.title}</h3>
                 <p className="text-[var(--navy)]">{leader.name}</p>
