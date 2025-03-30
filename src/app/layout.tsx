@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import NavBar from "@/components/NavBar";
+import { geist, geistMono } from "./fonts";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: "Phi Delta Theta | Carnegie Mellon University",
@@ -20,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <NavBar />
         {children}
       </body>
