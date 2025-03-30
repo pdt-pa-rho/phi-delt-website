@@ -88,7 +88,7 @@ export default function PhotosPage() {
             Have photos from a recent Phi Delt event? We&apos;d love to add them to our gallery!
           </p>
           <a 
-            href="mailto:phideltcmu@gmail.com" 
+            href="mailto:phideltathetaparho@gmail.com" 
             className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
           >
             Submit Photos

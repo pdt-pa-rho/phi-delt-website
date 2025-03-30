@@ -6,39 +6,25 @@ export default function RushPage() {
   // Sample rush events - update with actual dates and events
   const rushEvents = [
     { 
-      date: "April 15, 2025", 
-      time: "7:00 PM - 9:00 PM", 
-      title: "Meet the Brothers BBQ", 
+      date: "January 20, 2025", 
+      time: "3:00 PM - 5:00 PM", 
+      title: "Pancakes and Phis", 
       location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Join us for a casual BBQ at the chapter house and meet the brothers of Phi Delta Theta."
+      description: "Join us for pancakes and meet the brothers of Phi Delta Theta."
     },
     { 
-      date: "April 16, 2025", 
+      date: "January 21, 2025", 
       time: "6:00 PM - 8:00 PM", 
-      title: "Poker Night", 
+      title: "Wing Night", 
       location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Test your poker skills with the brothers. No experience necessary, we'll teach you how to play!"
+      description: "Join us as we showcase our chef's culinary talents."
     },
     { 
-      date: "April 17, 2025", 
-      time: "5:00 PM - 7:00 PM", 
-      title: "Sports Day", 
-      location: "CMU Intramural Fields",
-      description: "Join us for some friendly competition with football, frisbee, and more."
-    },
-    { 
-      date: "April 18, 2025", 
-      time: "7:00 PM - 9:00 PM", 
-      title: "Game Night", 
-      location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Video games, board games, and more. Come hang out and have fun!"
-    },
-    { 
-      date: "April 19, 2025", 
+      date: "January 22, 2025", 
       time: "6:00 PM - 8:00 PM", 
-      title: "Preference Dinner", 
+      title: "Monte Carlo Night", 
       location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "By invitation only. A more formal dinner to close out Rush Week."
+      description: "Come play some casino games and win prizes while meeting the brothers."
     }
   ];
 
@@ -93,9 +79,6 @@ export default function RushPage() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-[var(--white)]/80 text-center">
-            All events are open to any interested CMU student. No prior invitation needed!
-          </p>
         </section>
 
         {/* Rush Process Section */}
@@ -134,7 +117,7 @@ export default function RushPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="mb-16">
+        {/* <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Frequently Asked Questions</h2>
           <div className="space-y-6">
             <div>
@@ -153,15 +136,8 @@ export default function RushPage() {
                 during the rush process.
               </p>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2 text-[var(--white)]">Do I have to live in the chapter house?</h3>
-              <p className="text-[var(--white)]/80">
-                Living in the chapter house is not required but is an option for members. Many brothers choose to live in the 
-                house for the convenience, community, and reduced housing costs compared to campus housing.
-              </p>
-            </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact CTA */}
         <section className="text-center bg-[var(--blue)] p-8 rounded-lg">
@@ -171,18 +147,11 @@ export default function RushPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="mailto:phideltcmu@gmail.com" 
+              href="mailto:phideltathetaparho@gmail.com" 
               className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
             >
-              Contact Recruitment Chair
+              Contact Us
             </a>
-            <Link 
-              href="https://forms.gle/YourFormLinkHere" 
-              target="_blank"
-              className="bg-transparent border border-[var(--white)] text-[var(--white)] px-6 py-3 rounded-md font-medium hover:bg-[var(--white)]/10 transition-colors inline-block"
-            >
-              Interest Form
-            </Link>
           </div>
         </section>
       </div>

@@ -114,7 +114,7 @@ export default function Home() {
                   Located in the heart of CMU&#39;s campus, our chapter house serves as the center of brotherhood activities and a home away from home for our members.
                 </p>
                 <Link 
-                  href="/about#chapter-house" 
+                  href="/about#house" 
                   className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
                 >
                   Take a tour →
@@ -125,7 +125,7 @@ export default function Home() {
             <div className="bg-[var(--white)] dark:bg-[var(--navy)] rounded-xl shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2070&auto=format&fit=crop"
+                  src="/LLL.png"
                   alt="Phi Delta Theta Philanthropy"
                   fill
                   className="object-cover"
@@ -158,44 +158,45 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">APR 15, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">Spring Rush Week</h3>
+              <div className="text-[var(--blue)] font-bold mb-2">APR 3-6, 2025</div>
+              <h3 className="text-xl font-semibold mb-3">Spring Carnival</h3>
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Join us for a week of events to learn more about Phi Delta Theta and meet our brothers.
+                Join us on Midway as we showcase our Men in Black booth!
               </p>
-              <Link 
+              {/* <Link 
                 href="/events/spring-rush" 
                 className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
               >
                 Details →
+              </Link> */}
+            </div>
+            
+            <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
+              <div className="text-[var(--blue)] font-bold mb-2">APR 19, 2025</div>
+              <h3 className="text-xl font-semibold mb-3">Spring Formal</h3>
+              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
+                Join us for a night of dancing and fun!
+              </p>
+              <Link 
+                href="https://forms.gle/gu6FKALF8zpurM4W8" 
+                target="_blank"
+                className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
+              >
+                Sign up to get a date →
               </Link>
             </div>
             
             <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">MAY 5, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">ALS Awareness 5K</h3>
+              <div className="text-[var(--blue)] font-bold mb-2">SEP 1-12, 2025</div>
+              <h3 className="text-xl font-semibold mb-3">Fall Rush</h3>
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Annual charity run to raise funds and awareness for ALS research in partnership with LiveLikeLou.
+                Interested in joining Phi Delta Theta? Join us for Fall Rush!
               </p>
               <Link 
-                href="/events/als-5k" 
+                href="/rush" 
                 className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
               >
-                Register →
-              </Link>
-            </div>
-            
-            <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">MAY 20, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">Alumni Weekend</h3>
-              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Welcome back our alumni for a weekend of brotherhood, networking, and celebration.
-              </p>
-              <Link 
-                href="/events/alumni-weekend" 
-                className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
-              >
-                RSVP →
+                Learn more →
               </Link>
             </div>
           </div>
@@ -206,7 +207,7 @@ export default function Home() {
       <section className="relative py-20 px-4">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2071&auto=format&fit=crop"
+            src="/greeksing.png"
             alt="Join Phi Delta Theta"
             fill
             className="object-cover brightness-50"

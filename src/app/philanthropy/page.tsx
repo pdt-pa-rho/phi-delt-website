@@ -1,5 +1,5 @@
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PhilanthropyPage() {
@@ -39,7 +39,12 @@ export default function PhilanthropyPage() {
             </div>
             <div className="relative h-80 w-full">
               <div className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg">
-                <p className="text-[var(--navy)]">LiveLikeLou Foundation Image</p>
+                <Image
+                  src="/LLL.png"
+                  alt="LiveLikeLou Foundation"
+                  fill
+                  className="object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
@@ -50,35 +55,15 @@ export default function PhilanthropyPage() {
           <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our Annual Philanthropy Events</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">ALS Awareness 5K</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Greek Sing</h3>
               <p className="text-[var(--navy)]">
-                Each spring, we organize a 5K run/walk on campus to raise funds for ALS research. 
-                Students, faculty, and community members come together for this event that typically 
-                raises thousands of dollars for the LiveLikeLou Foundation.
+                Greek Sing is an annual spring event put together by Greek organizations at Carnegie Mellon to raise money for charities. Generally, a fraternity and a sorority pair up to host a 15 minute musical rendition of a movie or musical.
               </p>
             </div>
             <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Iron Phi Challenge</h3>
+              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Painting Auction</h3>
               <p className="text-[var(--navy)]">
-                Brothers participate in the Iron Phi program, taking on athletic challenges while 
-                fundraising for ALS research and the Phi Delta Theta Foundation. Past challenges have 
-                included marathons, triathlons, and other endurance events.
-              </p>
-            </div>
-            <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Community Service Days</h3>
-              <p className="text-[var(--navy)]">
-                Throughout the year, our chapter organizes community service days where brothers 
-                volunteer with local organizations in Pittsburgh. These events help us give back to 
-                our community and build stronger relationships with our neighbors.
-              </p>
-            </div>
-            <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Fundraising Initiatives</h3>
-              <p className="text-[var(--navy)]">
-                From benefit concerts to charity auctions, we organize various fundraising events 
-                throughout the year. These initiatives not only raise money for important causes but 
-                also bring the campus community together.
+                The painting auction is a bi-annual event where artistic brothers come together to sell their artwork and raise money for Live Like Lou.
               </p>
             </div>
           </div>
@@ -89,7 +74,7 @@ export default function PhilanthropyPage() {
           <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our Impact</h2>
           <div className="grid grid-cols-3 gap-6 text-center">
             <div className="p-6">
-              <div className="text-4xl font-bold text-[var(--blue)] mb-2">$10,000+</div>
+              <div className="text-4xl font-bold text-[var(--blue)] mb-2">$4,000+</div>
               <p className="text-[var(--white)]">Raised for ALS research annually</p>
             </div>
             <div className="p-6">
@@ -111,7 +96,7 @@ export default function PhilanthropyPage() {
             there are many ways to get involved and make a difference.
           </p>
           <Link 
-            href="mailto:phideltcmu@gmail.com" 
+            href="mailto:phideltathetaparho@gmail.com" 
             className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
           >
             Contact Us

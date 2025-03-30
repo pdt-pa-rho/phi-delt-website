@@ -54,7 +54,7 @@ export default function AboutPage() {
                 a brotherhood based on friendship, sound learning, and moral rectitude.
               </p>
               <p className="mb-4 text-[var(--white)]">
-                Our chapter, Pennsylvania Rho, was chartered on April 21, 1996 and has since 
+                Our chapter, Pennsylvania Rho, was chartered on October 15, 2013 and has since 
                 maintained a strong presence on campus, contributing to both university life 
                 and the broader community.
               </p>
@@ -65,7 +65,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-80 w-full">
               {/* Replace with your chapter house or historical image */}
-              <div className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg relative">
+              <div id="house" className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg relative">
                 <Image
                   src="/house.jpg"
                   alt="Chapter House"
@@ -81,7 +81,6 @@ export default function AboutPage() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Chapter Leadership</h2>
           <div className="grid md:grid-cols-4 gap-6">
-            {/* Example leadership positions - customize as needed */}
             {[
               { title: 'President', name: 'Nathan Vastey' },
               { title: 'Vice President', name: 'Rohan Wadwha' },
@@ -120,7 +119,7 @@ export default function AboutPage() {
             recruitment process and how you can become a brother.
           </p>
           <Link 
-            href="/recruitment" 
+            href="/rush" 
             className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
           >
             Learn About Recruitment
