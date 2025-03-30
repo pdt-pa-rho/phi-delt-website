@@ -102,7 +102,7 @@ export default function Home() {
             <div className="bg-[var(--white)] dark:bg-[var(--navy)] rounded-xl shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image
-                  src="https://images.unsplash.com/photo-1592247350271-c5efb34dd3b1?q=80&w=2070&auto=format&fit=crop"
+                  src="/house.jpg"
                   alt="Phi Delta Theta Chapter House"
                   fill
                   className="object-cover"

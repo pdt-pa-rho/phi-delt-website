@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
@@ -64,8 +65,13 @@ export default function AboutPage() {
             </div>
             <div className="relative h-80 w-full">
               {/* Replace with your chapter house or historical image */}
-              <div className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg">
-                <p className="text-[var(--navy)]">Chapter House Image</p>
+              <div className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg relative">
+                <Image
+                  src="/house.jpg"
+                  alt="Chapter House"
+                  fill
+                  className="object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>

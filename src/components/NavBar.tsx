@@ -63,6 +63,18 @@ const NavBar = () => {
               About
             </Link>
             <Link
+              href="/philanthropy"
+              className="text-foreground/80 hover:text-foreground transition-colors"
+            >
+              Philanthropy
+            </Link>
+            <Link
+              href="/photos"
+              className="text-foreground/80 hover:text-foreground transition-colors"
+            >
+              Photos
+            </Link>
+            <Link
               href="/rush"
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
@@ -135,22 +147,22 @@ const NavBar = () => {
             About
           </Link>
           <Link
-            href="/brothers"
+            href="/philanthropy"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
           >
-            Brothers
+            Philanthropy
+          </Link>
+          <Link
+            href="/photos"
+            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+          >
+            Photos
           </Link>
           <Link
             href="/rush"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
           >
             Rush
-          </Link>
-          <Link
-            href="/events"
-            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
-          >
-            Events
           </Link>
         </div>
       </div>
