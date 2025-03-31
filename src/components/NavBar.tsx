@@ -26,6 +26,11 @@ const NavBar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close mobile menu
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -131,24 +136,28 @@ const NavBar = () => {
           <Link
             href="/"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+            onClick={closeMenu}
           >
             Home
           </Link>
           <Link
             href="/about"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+            onClick={closeMenu}
           >
             About
           </Link>
           <Link
             href="/philanthropy"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+            onClick={closeMenu}
           >
             Philanthropy
           </Link>
           <Link
             href="/rush"
             className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+            onClick={closeMenu}
           >
             Rush
           </Link>
