@@ -114,9 +114,9 @@ const TreeDisplay = ({ tree }: { tree: FamilyTree }) => {
   
   useEffect(() => {
     // Function to count total nodes in tree
-    const countNodes = (node: Member): number => {
-      return 1 + node.littles.reduce((sum, little) => sum + countNodes(little), 0);
-    };
+    // const countNodes = (node: Member): number => {
+    //   return 1 + node.littles.reduce((sum, little) => sum + countNodes(little), 0);
+    // };
     
     // Function to calculate max width at any level
     const calculateMaxWidth = (node: Member, level = 0, widthByLevel: Map<number, number> = new Map()): Map<number, number> => {
@@ -133,7 +133,7 @@ const TreeDisplay = ({ tree }: { tree: FamilyTree }) => {
     };
     
     // Calculate tree dimensions
-    const totalNodes = countNodes(tree.root);
+    // const totalNodes = countNodes(tree.root);
     const widthByLevel = calculateMaxWidth(tree.root);
     const maxNodesInAnyLevel = Math.max(...Array.from(widthByLevel.values()));
     
