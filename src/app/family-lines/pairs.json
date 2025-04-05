@@ -117,6 +117,14 @@
             "littles": ["Raymond Shen", "Ryan Wang", "Fahad Hamdan"]
         },
         {
+            "big": "Raymond Shen",
+            "littles": ["Cole Drake"]
+        },
+        {
+            "big": "Jonathan Lindstrom",
+            "littles": ["Rahul Dube"]
+        },
+        {
             "big": "Karan Shah",
             "littles": ["Alexander Blasberg", "Rohan Wadwha"]
         },
@@ -269,6 +277,10 @@
             "littles": ["Mason Wang"]
         },
         {
+            "big": "Yoona Lee",
+            "littles": ["Bennett Matthews"]
+        },
+        {
             "big": "Thomas Abraham",
             "littles": ["Aashai Avadhani", "Andres De La Garza"]
         },
@@ -283,6 +295,10 @@
         {
             "big": "Nathan Chen",
             "littles": ["Curtis Lee"]
+        },
+        {
+            "big": "Bennett Matthews",
+            "littles": ["Ryan Joyce", "Troy McBride"]
         },
         {
             "big": "Harvey Zheng",
@@ -345,6 +361,10 @@
             "littles": ["Austin Addison"]
         },
         {
+            "big": "Austin Addison",
+            "littles": ["Matthew Gershenzon"]
+        },
+        {
             "big": "Jeffrey Paulraj",
             "littles": ["Rohan Jain"]
         },
@@ -361,6 +381,10 @@
             "littles": ["Parth Harish"]
         },
         {
+            "big": "Wookho Chiang",
+            "littles": ["Rafi Zaman"]
+        },
+        {
             "big": "Rohan Jain",
             "littles": ["Rayhan Sarabu"]
         },
@@ -371,6 +395,14 @@
         {
             "big": "Alan Gallardo",
             "littles": ["Daniel Gunawan"]
+        },
+        {
+            "big": "Daniel Gunawan",
+            "littles": ["Steven Shi"]
+        },
+        {
+            "big": "Steven Shi",
+            "littles": ["Aayush Bajaj"]
         },
         {
             "big": "Justin Lechner",
@@ -415,6 +447,10 @@
         {
             "big": "Leo Chen",
             "littles": ["Cole Schaefer"]
+        },
+        {
+            "big": "Cole Schaefer",
+            "littles": ["Michael Shor"]
         },
         {
             "big": "Matthew Wilson",
@@ -501,6 +537,10 @@
             "littles": ["Marco Esperanza"]
         },
         {
+            "big": "Marco Esperanza",
+            "littles": ["Maxwell Chandar-Kouba", "Saraj Dhillon"]
+        },
+        {
             "big": "Sean Pham",
             "littles": ["Robert Dai"]
         },
@@ -561,6 +601,10 @@
             "littles": ["Wade Crum"]
         },
         {
+            "big": "Prathik Guduri",
+            "littles": ["Rohan Patel", "Jason Mok"]
+        },
+        {
             "big": "Ryan LaBarbera",
             "littles": ["Colin McCullough"]
         },
@@ -589,6 +633,14 @@
             "littles": ["Keanu Singh"]
         },
         {
+            "big": "Keanu Singh",
+            "littles": ["Ricardo Castro"]
+        },
+        {
+            "big": "Ricardo Castro",
+            "littles": ["Zach Schanker"]
+        },
+        {
             "big": "Antonio Freiria",
             "littles": ["Joseph Kim", "Will Knauth", "Juan Mejia"]
         },
@@ -606,7 +658,7 @@
         },
         {
             "big": "Aidan Powers",
-            "littles": ["Jack Laird", "Nathan Vastey", "Ervin Song"]
+            "littles": ["Jack Laird", "Nathan Vastey", "Ervin Song", "Nathan Ammerman"]
         },
         {
             "big": "Jack Laird",
@@ -614,7 +666,63 @@
         },
         {
             "big": "Nathan Vastey",
-            "littles": ["Ayden Xu", "Anagh Sangavaparu"]
+            "littles": ["Ayden Xu", "Anagh Sangavaparu", "Chibueze Ike"]
+        },
+        {
+            "big": "Chibueze Ike",
+            "littles": ["Aryan Pandalai"]
+        },
+        {
+            "big": "Nathan Ammerman",
+            "littles": ["Gabriel Pacella"]
+        },
+        {
+            "big": "Chef Chaz",
+            "littles": ["Michael Sun"]
+        },
+        {
+            "big": "Michael Sun",
+            "littles": ["Matt Rhee", "Jacob Chan"]
+        },
+        {
+            "big": "Matt Rhee",
+            "littles": ["Justin Doi", "Aidan Hong"]
+        },
+        {
+            "big": "Jacob Chan",
+            "littles": ["Alex Xu", "Arya Adusumilli"]
+        },
+        {
+            "big": "Alex Xu",
+            "littles": ["Luke Peneloza"]
+        },
+        {
+            "big": "Jose Mora",
+            "littles": ["Manuel Casasnovas", "Jose Uribe"]
+        },
+        {
+            "big": "Manuel Casasnovas",
+            "littles": ["Rafael Marmol"]
+        },
+        {
+            "big": "Rafael Marmol",
+            "littles": ["Omry Alfi"]
+        },
+        {
+            "big": "Omry Alfi",
+            "littles": ["Suhaas Sontyana", "Edison Aviles"]
+        },
+        {
+            "big": "Suhaas Sontyana",
+            "littles": ["Shreyas Hari", "Ray Luan"]
+        },
+        {
+            "big": "Shreyas Hari",
+            "littles": ["Tanish Gudise"]
+        },
+        {
+            "big": "Ray Luan",
+            "littles": ["Avyakta Sharma", "Nikhil Konkimalla"]
         }
     ]
 
