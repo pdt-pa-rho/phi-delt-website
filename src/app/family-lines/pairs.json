@@ -1,0 +1,621 @@
+{
+    "pairs": [
+        {
+            "big": "Vibhav Ganesh",
+            "littles": ["Kishan Patel", "James Yang", "Natapitt Sethpornpong"]
+        },
+        {
+            "big": "Kishan Patel",
+            "littles": ["Karamvir Sachdev"]
+        },
+        {
+            "big": "Natapitt Sethpornpong",
+            "littles": ["Lawrence Han", "Michael Powell"]
+        },
+        {
+            "big": "Karamvir Sachdev",
+            "littles": ["Tay Aras"]
+        },
+        {
+            "big": "Lawrence Han",
+            "littles": ["Sean Gao"]
+        },
+        {
+            "big": "Tay Aras",
+            "littles": ["Anthony Pan"]
+        },
+        {
+            "big": "Sean Gao",
+            "littles": ["Daniel Yeh"]
+        },
+        {
+            "big": "Anthony Pan",
+            "littles": ["Eric Lin"]
+        },
+        {
+            "big": "Daniel Yeh",
+            "littles": ["Adrien Joseph"]
+        },
+        {
+            "big": "Eric Lin",
+            "littles": ["Damian Chng"]
+        },
+        {
+            "big": "Torffick Abdul",
+            "littles": ["Parag Srivastava"]
+        },
+        {
+            "big": "Parag Srivastava",
+            "littles": ["Elliot Glasgow", "Arjun Chidambaram", "Borge Feliz"]
+        },
+        {
+            "big": "Arjun Chidambaram",
+            "littles": ["Dhruva Byrapatna"]
+        },
+        {
+            "big": "Borge Feliz",
+            "littles": ["David Buzzell"]
+        },
+        {
+            "big": "Dhruva Byrapatna",
+            "littles": ["Alejandro Garces"]
+        },
+        {
+            "big": "David Buzzell",
+            "littles": ["Vinay Ekambaram"]
+        },
+        {
+            "big": "Alejandro Garces",
+            "littles": ["Alexander Sahinidis", "Lake Lewis"]
+        },
+        {
+            "big": "Vinay Ekambaram",
+            "littles": ["Gabriel Rabell", "Roger Cheng"]
+        },
+        {
+            "big": "Alexander Sahinidis",
+            "littles": ["Yash Mittal", "Alexander Ma"]
+        },
+        {
+            "big": "Lake Lewis",
+            "littles": ["David Useche"]
+        },
+        {
+            "big": "Gabriel Rabell",
+            "littles": ["Mauricio Vargas"]
+        },
+        {
+            "big": "Roger Cheng",
+            "littles": ["Mukundh Balajee", "Victor Alfonzo"]
+        },
+        {
+            "big": "Yash Mittal",
+            "littles": ["Jonathan Lindstrom"]
+        },
+        {
+            "big": "Alexander Ma",
+            "littles": ["Justin Park"]
+        },
+        {
+            "big": "David Useche",
+            "littles": ["Edwin Chen"]
+        },
+        {
+            "big": "Mauricio Vargas",
+            "littles": ["Karan Shah"]
+        },
+        {
+            "big": "Mukundh Balajee",
+            "littles": ["Creighton Arrington"]
+        },
+        {
+            "big": "Victor Alfonzo",
+            "littles": ["Matthew Hou"]
+        },
+        {
+            "big": "Justin Park",
+            "littles": ["Raymond Shen", "Ryan Wang", "Fahad Hamdan"]
+        },
+        {
+            "big": "Karan Shah",
+            "littles": ["Alexander Blasberg", "Rohan Wadwha"]
+        },
+        {
+            "big": "Creighton Arrington",
+            "littles": ["Jack Shah"]
+        },
+        {
+            "big": "Matthew Hou",
+            "littles": ["Jeffrey Ye"]
+        },
+        {
+            "big": "Rohan Wadwha",
+            "littles": ["Julian Olschwang"]
+        },
+        {
+            "big": "Jack Shah",
+            "littles": ["Giles Lewis"]
+        },
+        {
+            "big": "Sebrand Warren",
+            "littles": ["Scott Holmes"]
+        },
+        {
+            "big": "Scott Holmes",
+            "littles": ["Luis Ball"]
+        },
+        {
+            "big": "Luis Ball",
+            "littles": ["Abdelwahab Bourai", "Mark Vella", "Jack Urbanek", "Daniel Graf"]
+        },
+        {
+            "big": "Abdelwahab Bourai",
+            "littles": ["Isaiah Bradley", "Sebastian Guerrero", "Hamza Qureshi"]
+        },
+        {
+            "big": "Mark Vella",
+            "littles": ["Brandon Hao", "Akhil Kemburu"]
+        },
+        {
+            "big": "Jack Urbanek",
+            "littles": ["Wilson Zhao"]
+        },
+        {
+            "big": "Daniel Graf",
+            "littles": ["Ian Falcon"]
+        },
+        {
+            "big": "Isaiah Bradley",
+            "littles": ["Santiago Roa"]
+        },
+        {
+            "big": "Sebastian Guerrero",
+            "littles": ["Aathreya Thuppul"]
+        },
+        {
+            "big": "Hamza Qureshi",
+            "littles": ["Michael Fernandez", "Russell Orlick"]
+        },
+        {
+            "big": "Brandon Hao",
+            "littles": ["Jeffrey Chiu"]
+        },
+        {
+            "big": "Akhil Kemburu",
+            "littles": ["Neil Desai"]
+        },
+        {
+            "big": "Wilson Zhao",
+            "littles": ["Jeremy Xue"]
+        },
+        {
+            "big": "Ian Falcon",
+            "littles": ["Charles Wang"]
+        },
+        {
+            "big": "Santiago Roa",
+            "littles": ["Ethan Wang", "Austin Hsu"]
+        },
+        {
+            "big": "Aathreya Thuppul",
+            "littles": ["Simrit Dhinsa"]
+        },
+        {
+            "big": "Michael Fernandez",
+            "littles": ["Walter Kasica"]
+        },
+        {
+            "big": "Jeffrey Chiu",
+            "littles": ["Zachary Zhao", "Neeraj Sathe"]
+        },
+        {
+            "big": "Neil Desai",
+            "littles": ["Samuel Yip", "Luke Zhang"]
+        },
+        {
+            "big": "Jeremy Xue",
+            "littles": ["Mike Xu", "Max Gamerman", "Samuel Damashek"]
+        },
+        {
+            "big": "Charles Wang",
+            "littles": ["Jason Ma"]
+        },
+        {
+            "big": "Ethan Wang",
+            "littles": ["Jaime Romero"]
+        },
+        {
+            "big": "Austin Hsu",
+            "littles": ["Tarek Sahyoun", "Joshua Yu", "Darin Chaoui", "Yoona Lee"]
+        },
+        {
+            "big": "Simrit Dhinsa",
+            "littles": ["Thomas Abraham"]
+        },
+        {
+            "big": "Walter Kasica",
+            "littles": ["Jack Cameron"]
+        },
+        {
+            "big": "Zachary Zhao",
+            "littles": ["Jason Kwok"]
+        },
+        {
+            "big": "Neeraj Sathe",
+            "littles": ["Dhruv Dixit", "Nick Zhong"]
+        },
+        {
+            "big": "Samuel Yip",
+            "littles": ["Nathan Chen"]
+        },
+        {
+            "big": "Mike Xu",
+            "littles": ["Harvey Zheng"]
+        },
+        {
+            "big": "Max Gamerman",
+            "littles": ["Winfred Wang", "Emil Balian"]
+        },
+        {
+            "big": "Jason Ma",
+            "littles": ["Eric Hong"]
+        },
+        {
+            "big": "Jaime Romero",
+            "littles": ["Ryan Tsai", "Jack Troy"]
+        },
+        {
+            "big": "Joshua Yu",
+            "littles": ["Mason Wang"]
+        },
+        {
+            "big": "Thomas Abraham",
+            "littles": ["Aashai Avadhani", "Andres De La Garza"]
+        },
+        {
+            "big": "Jack Cameron",
+            "littles": ["Jack Zych"]
+        },
+        {
+            "big": "Nick Zhong",
+            "littles": ["Caleb Oh"]
+        },
+        {
+            "big": "Nathan Chen",
+            "littles": ["Curtis Lee"]
+        },
+        {
+            "big": "Harvey Zheng",
+            "littles": ["Joshua Cai", "Allen Lu"]
+        },
+        {
+            "big": "Winfred Wang",
+            "littles": ["Rick Zhang"]
+        },
+        {
+            "big": "Emil Balian",
+            "littles": ["Ryan McGrady"]
+        },
+        {
+            "big": "Eric Hong",
+            "littles": ["Jeffrey Li"]
+        },
+        {
+            "big": "Ryan Tsai",
+            "littles": ["William Tong"]
+        },
+        {
+            "big": "Jack Troy",
+            "littles": ["Ronit Shah", "Reed Cooper", "Robert May"]
+        },
+        {
+            "big": "Aashai Avadhani",
+            "littles": ["Kartik Gupta"]
+        },
+        {
+            "big": "Andres De La Garza",
+            "littles": ["Roger Medina"]
+        },
+        {
+            "big": "Jack Zych",
+            "littles": ["Ian So"]
+        },
+        {
+            "big": "Joshua Cai",
+            "littles": ["Jeffrey Paulraj"]
+        },
+        {
+            "big": "Rick Zhang",
+            "littles": ["Jeffrey Zhang"]
+        },
+        {
+            "big": "Jeffrey Li",
+            "littles": ["Leon Lu"]
+        },
+        {
+            "big": "Ronit Shah",
+            "littles": ["Pranav Addepalli"]
+        },
+        {
+            "big": "Reed Cooper",
+            "littles": ["Wookho Chiang"]
+        },
+        {
+            "big": "Kartik Gupta",
+            "littles": ["Austin Addison"]
+        },
+        {
+            "big": "Jeffrey Paulraj",
+            "littles": ["Rohan Jain"]
+        },
+        {
+            "big": "Jeffrey Zhang",
+            "littles": ["Anirudh Rao"]
+        },
+        {
+            "big": "Leon Lu",
+            "littles": ["Alan Gallardo"]
+        },
+        {
+            "big": "Pranav Addepalli",
+            "littles": ["Parth Harish"]
+        },
+        {
+            "big": "Rohan Jain",
+            "littles": ["Rayhan Sarabu"]
+        },
+        {
+            "big": "Anirudh Rao",
+            "littles": ["Aarav Tanti"]
+        },
+        {
+            "big": "Alan Gallardo",
+            "littles": ["Daniel Gunawan"]
+        },
+        {
+            "big": "Justin Lechner",
+            "littles": ["Vivek Nangia"]
+        },
+        {
+            "big": "Vivek Nangia",
+            "littles": ["Akshay Dajee", "Jia Xing Wang"]
+        },
+        {
+            "big": "Akshay Dajee",
+            "littles": ["Vimalesh Vasu", "Carlos Cabre"]
+        },
+        {
+            "big": "Jia Xing Wang",
+            "littles": ["Chentan Somani", "Richard Chiang"]
+        },
+        {
+            "big": "Vimalesh Vasu",
+            "littles": ["Vishal Baskar"]
+        },
+        {
+            "big": "Carlos Cabre",
+            "littles": ["Daniel Fager"]
+        },
+        {
+            "big": "Chentan Somani",
+            "littles": ["Nalin Aiyar"]
+        },
+        {
+            "big": "Daniel Fager",
+            "littles": ["Will Foy"]
+        },
+        {
+            "big": "Will Foy",
+            "littles": ["Jasper Krarup"]
+        },
+        {
+            "big": "Jasper Krarup",
+            "littles": ["Leo Chen"]
+        },
+        {
+            "big": "Leo Chen",
+            "littles": ["Cole Schaefer"]
+        },
+        {
+            "big": "Matthew Wilson",
+            "littles": ["Jose Lopez"]
+        },
+        {
+            "big": "Jose Lopez",
+            "littles": ["Jonathan Farr", "John R. Marshall", "Brian Sinko"]
+        },
+        {
+            "big": "Jonathan Farr",
+            "littles": ["Louis Cannatti"]
+        },
+        {
+            "big": "John R. Marshall",
+            "littles": ["Jean Haddad"]
+        },
+        {
+            "big": "Brian Sinko",
+            "littles": ["David Stone"]
+        },
+        {
+            "big": "Louis Cannatti",
+            "littles": ["Aditya Dave"]
+        },
+        {
+            "big": "Jean Haddad",
+            "littles": ["Sidney Velado", "Nimish Goel"]
+        },
+        {
+            "big": "David Stone",
+            "littles": ["Malcolm Fitts"]
+        },
+        {
+            "big": "Aditya Dave",
+            "littles": ["Hariank Muthakana", "Tegjeev Singh", "Evan Zhang", "Gustavo Angulo"]
+        },
+        {
+            "big": "Sidney Velado",
+            "littles": ["Johnathan Cassady", "Tomas Campos"]
+        },
+        {
+            "big": "Nimish Goel",
+            "littles": ["Mayank Jain"]
+        },
+        {
+            "big": "Malcolm Fitts",
+            "littles": ["William Wang"]
+        },
+        {
+            "big": "Hariank Muthakana",
+            "littles": ["Romir Desai"]
+        },
+        {
+            "big": "Evan Zhang",
+            "littles": ["Liam Sohn"]
+        },
+        {
+            "big": "Gustavo Angulo",
+            "littles": ["Kyle Souza", "Daniel DeLuca"]
+        },
+        {
+            "big": "Johnathan Cassady",
+            "littles": ["Benjamin Galindo-Navarro", "Sean Pham"]
+        },
+        {
+            "big": "William Wang",
+            "littles": ["Shreyan Jaiswal"]
+        },
+        {
+            "big": "Liam Sohn",
+            "littles": ["Max Liu", "Justin Wang", "John Park"]
+        },
+        {
+            "big": "Kyle Souza",
+            "littles": ["Kieran Walsh"]
+        },
+        {
+            "big": "Daniel DeLuca",
+            "littles": ["Psankalp Patro", "Kade Stewart"]
+        },
+        {
+            "big": "Benjamin Galindo-Navarro",
+            "littles": ["Marco Esperanza"]
+        },
+        {
+            "big": "Sean Pham",
+            "littles": ["Robert Dai"]
+        },
+        {
+            "big": "Max Liu",
+            "littles": ["Chris Keefe"]
+        },
+        {
+            "big": "Justin Wang",
+            "littles": ["Neel Mandapati"]
+        },
+        {
+            "big": "John Park",
+            "littles": ["Simon Lee"]
+        },
+        {
+            "big": "Kieran Walsh",
+            "littles": ["Brian Balo"]
+        },
+        {
+            "big": "Psankalp Patro",
+            "littles": ["Shaan Dave"]
+        },
+        {
+            "big": "Kade Stewart",
+            "littles": ["Austin Treu", "John Foley"]
+        },
+        {
+            "big": "Robert Dai",
+            "littles": ["Daniel Lee"]
+        },
+        {
+            "big": "Chris Keefe",
+            "littles": ["Henry Perine"]
+        },
+        {
+            "big": "Shaan Dave",
+            "littles": ["Jackson Paluck"]
+        },
+        {
+            "big": "Austin Treu",
+            "littles": ["Rahul Khare"]
+        },
+        {
+            "big": "Daniel Lee",
+            "littles": ["Jay Byun", "Ryan Lee"]
+        },
+        {
+            "big": "Jackson Paluck",
+            "littles": ["Ishan Ganjoo", "Prathik Guduri"]
+        },
+        {
+            "big": "Rahul Khare",
+            "littles": ["Steven Powell"]
+        },
+        {
+            "big": "Steven Powell",
+            "littles": ["Wade Crum"]
+        },
+        {
+            "big": "Ryan LaBarbera",
+            "littles": ["Colin McCullough"]
+        },
+        {
+            "big": "Colin McCullough",
+            "littles": ["John Cutlip"]
+        },
+        {
+            "big": "John Cutlip",
+            "littles": ["Colin Tait"]
+        },
+        {
+            "big": "Colin Tait",
+            "littles": ["Jacky Lao", "Charles Li"]
+        },
+        {
+            "big": "Jacky Lao",
+            "littles": ["Andy Shen"]
+        },
+        {
+            "big": "Charles Li",
+            "littles": ["Patrick Liu", "Antonio Freiria"]
+        },
+        {
+            "big": "Patrick Liu",
+            "littles": ["Keanu Singh"]
+        },
+        {
+            "big": "Antonio Freiria",
+            "littles": ["Joseph Kim", "Will Knauth", "Juan Mejia"]
+        },
+        {
+            "big": "Will Knauth",
+            "littles": ["Shantanu Chand"]
+        },
+        {
+            "big": "Juan Mejia",
+            "littles": ["Jonathan Munoz", "Aidan Powers"]
+        },
+        {
+            "big": "Jonathan Munoz",
+            "littles": ["Jordan Bain"]
+        },
+        {
+            "big": "Aidan Powers",
+            "littles": ["Jack Laird", "Nathan Vastey", "Ervin Song"]
+        },
+        {
+            "big": "Jack Laird",
+            "littles": ["Ian Hunte", "Spencer Fisher"]
+        },
+        {
+            "big": "Nathan Vastey",
+            "littles": ["Ayden Xu", "Anagh Sangavaparu"]
+        }
+    ]
+
+}
