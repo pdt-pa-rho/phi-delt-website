@@ -534,10 +534,10 @@
         },
         {
             "big": "Benjamin Galindo-Navarro",
-            "littles": ["Marco Esperanza"]
+            "littles": ["Marco Esparza"]
         },
         {
-            "big": "Marco Esperanza",
+            "big": "Marco Esparza",
             "littles": ["Maxwell Chandar-Kouba", "Saraj Dhillon"]
         },
         {
@@ -554,11 +554,11 @@
         },
         {
             "big": "John Park",
-            "littles": ["Simon Lee"]
+            "littles": ["Simon Lee", "Kadin Zhang"]
         },
         {
             "big": "Kieran Walsh",
-            "littles": ["Brian Balo"]
+            "littles": ["Brian Balo", "Patrick Fisher"]
         },
         {
             "big": "Psankalp Patro",
@@ -701,6 +701,10 @@
             "littles": ["Manuel Casasnovas", "Jose Uribe"]
         },
         {
+            "big": "Jose Uribe",
+            "littles": ["Peter Barty"]
+        },
+        {
             "big": "Manuel Casasnovas",
             "littles": ["Rafael Marmol"]
         },
@@ -717,12 +721,40 @@
             "littles": ["Shreyas Hari", "Ray Luan"]
         },
         {
+            "big": "Edison Aviles",
+            "littles": ["Marcus Lopez"]
+        },
+        {
             "big": "Shreyas Hari",
             "littles": ["Tanish Gudise"]
         },
         {
             "big": "Ray Luan",
             "littles": ["Avyakta Sharma", "Nikhil Konkimalla"]
+        },
+        {
+            "big": "Jeffrey Chan",
+            "littles": ["Alexander Yu"]
+        },
+        {
+            "big": "Alexander Yu",
+            "littles": ["Douglas Qian"]
+        },
+        {
+            "big": "Douglas Qian",
+            "littles": ["Pedro Safi"]
+        },
+        {
+            "big": "Pedro Safi",
+            "littles": ["Harrison Lian"]
+        },
+        {
+            "big": "Harrison Lian",
+            "littles": ["Stephen Zhong"]
+        },
+        {
+            "big": "Stephen Zhong",
+            "littles": ["Eddy Yoon", "Donghoon Park"]
         }
     ]
 
