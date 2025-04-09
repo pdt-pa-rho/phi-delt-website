@@ -370,7 +370,7 @@
         },
         {
             "big": "Jeffrey Zhang",
-            "littles": ["Anirudh Rao"]
+            "littles": ["Anirudh Rao", "Timothy Kim"]
         },
         {
             "big": "Leon Lu",
@@ -379,6 +379,10 @@
         {
             "big": "Pranav Addepalli",
             "littles": ["Parth Harish"]
+        },
+        {
+            "big": "Parth Harish",
+            "littles": ["Siddhant Chakraborty", "Vivek Chelur"]
         },
         {
             "big": "Wookho Chiang",
@@ -577,6 +581,10 @@
             "littles": ["Henry Perine"]
         },
         {
+            "big": "Henry Perine",
+            "littles": ["Sebastian deLuque", "Ohany Villa"]
+        },
+        {
             "big": "Shaan Dave",
             "littles": ["Jackson Paluck"]
         },
@@ -634,7 +642,11 @@
         },
         {
             "big": "Keanu Singh",
-            "littles": ["Ricardo Castro"]
+            "littles": ["Ricardo Castro", "Abdoul Ndiongue"]
+        },
+        {
+            "big": "Abdoul Ndiongue",
+            "littles": ["Deniz Muhittinoglu", "Declan O'Melia"]
         },
         {
             "big": "Ricardo Castro",
@@ -654,7 +666,7 @@
         },
         {
             "big": "Jonathan Munoz",
-            "littles": ["Jordan Bain"]
+            "littles": ["Jordan Bain", "Gustavo Arocha"]
         },
         {
             "big": "Aidan Powers",
@@ -667,6 +679,10 @@
         {
             "big": "Nathan Vastey",
             "littles": ["Ayden Xu", "Anagh Sangavaparu", "Chibueze Ike"]
+        },
+        {
+            "big": "Ayden Xu",
+            "littles": ["Jalen Zhou"]
         },
         {
             "big": "Chibueze Ike",
@@ -755,6 +771,10 @@
         {
             "big": "Stephen Zhong",
             "littles": ["Eddy Yoon", "Donghoon Park"]
+        },
+        {
+            "big": "Edwin Chen",
+            "littles": ["Harry Schneider"]
         }
     ]
 
