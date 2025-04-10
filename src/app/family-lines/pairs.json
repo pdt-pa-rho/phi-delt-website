@@ -121,8 +121,16 @@
             "littles": ["Cole Drake"]
         },
         {
+            "big": "Cole Drake",
+            "littles": ["Sean Xue", "Saket Kelkar"]
+        },
+        {
             "big": "Jonathan Lindstrom",
             "littles": ["Rahul Dube"]
+        },
+        {
+            "big": "Rahul Dube",
+            "littles": ["Vivaan Sewant"]
         },
         {
             "big": "Karan Shah",
@@ -325,6 +333,10 @@
             "littles": ["Ronit Shah", "Reed Cooper", "Robert May"]
         },
         {
+            "big": "Robert May",
+            "littles": ["Arjun Vasudevan"]
+        },
+        {
             "big": "Aashai Avadhani",
             "littles": ["Kartik Gupta"]
         },
@@ -362,7 +374,7 @@
         },
         {
             "big": "Austin Addison",
-            "littles": ["Matthew Gershenzon"]
+            "littles": ["Matthew Gershenzon", "Vinay Venkatesh"]
         },
         {
             "big": "Jeffrey Paulraj",
@@ -390,7 +402,7 @@
         },
         {
             "big": "Rohan Jain",
-            "littles": ["Rayhan Sarabu"]
+            "littles": ["Rayhan Sarabu", "Prakash Shekhar"]
         },
         {
             "big": "Anirudh Rao",
@@ -545,6 +557,10 @@
             "littles": ["Maxwell Chandar-Kouba", "Saraj Dhillon"]
         },
         {
+            "big": "Saraj Dhillon",
+            "littles": ["Austin An"]
+        },
+        {
             "big": "Sean Pham",
             "littles": ["Robert Dai"]
         },
@@ -613,6 +629,10 @@
             "littles": ["Rohan Patel", "Jason Mok"]
         },
         {
+            "big": "Jason Mok",
+            "littles": ["Sean Hart"]
+        },
+        {
             "big": "Ryan LaBarbera",
             "littles": ["Colin McCullough"]
         },
@@ -677,6 +697,10 @@
             "littles": ["Ian Hunte", "Spencer Fisher"]
         },
         {
+            "big": "Spencer Fisher",
+            "littles": ["Fergus Waag"]
+        },
+        {
             "big": "Nathan Vastey",
             "littles": ["Ayden Xu", "Anagh Sangavaparu", "Chibueze Ike"]
         },
@@ -690,7 +714,7 @@
         },
         {
             "big": "Nathan Ammerman",
-            "littles": ["Gabriel Pacella"]
+            "littles": ["Gabriel Pacella", "Benedict Nematadzira"]
         },
         {
             "big": "Chef Chaz",
@@ -743,6 +767,10 @@
         {
             "big": "Shreyas Hari",
             "littles": ["Tanish Gudise"]
+        },
+        {
+            "big": "Tanish Gudise",
+            "littles": ["Suchir Vyasamudri", "Laxya Kumar"]
         },
         {
             "big": "Ray Luan",
