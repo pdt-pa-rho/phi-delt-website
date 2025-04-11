@@ -8,7 +8,7 @@ import classesData, { ClassesData, getAllSemesters, getAllClasses } from './clas
 export default function ClassesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState<'person' | 'class'>('person');
-  const [searchResults, setSearchResults] = useState<{[key: string]: any}>({});
+  const [searchResults, setSearchResults] = useState<{[key: string]: unknown}>({});
   const [classes, setClasses] = useState<{[key: string]: string[]}>({});
   const [semester, setSemester] = useState<string>('all');
   

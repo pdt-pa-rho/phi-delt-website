@@ -134,7 +134,7 @@ export const getAllClasses = (): { [classNumber: string]: string[] } => {
   const allClasses: { [classNumber: string]: string[] } = {};
   
   Object.entries(classesData).forEach(([person, semesters]) => {
-    Object.entries(semesters).forEach(([sem, classList]) => {
+    Object.entries(semesters).forEach(([, classList]) => {
       classList.forEach(classNum => {
         if (!allClasses[classNum]) {
           allClasses[classNum] = [];
