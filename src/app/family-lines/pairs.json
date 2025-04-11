@@ -819,6 +819,26 @@
         {
             "big": "Alex Steere",
             "littles": ["Max Sieb"]
+        },
+        {
+            "big": "Peter Masters",
+            "littles": ["Deepak Gopalakrishnan"]
+        },
+        {
+            "big": "Deepak Gopalakrishnan",
+            "littles": ["Ashutosh Sharma", "DeShawn Green"]
+        },
+        {
+            "big": "Ashutosh Sharma",
+            "littles": ["Japkirat Pannun"]
+        },
+        {
+            "big": "Japkirat Pannun",
+            "littles": ["Manav Anand"]
+        },
+        {
+            "big": "Manav Anand",
+            "littles": ["Anthony Tien"]
         }
     ]
 
