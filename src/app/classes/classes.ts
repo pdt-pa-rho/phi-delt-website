@@ -1,0 +1,177 @@
+// Define the type for the class data structure
+export interface ClassesData {
+  [personName: string]: {
+    [semester: string]: number[];
+  };
+}
+
+// Export the classes data
+const classesData: ClassesData = {
+  "Rohan Jain": {
+    "F23": [15122, 7128, 15150, 15195, 21295, 33224, 76102],
+    "S24": [5391, 15251, 15259, 21269, 21610],
+    "F24": [15210, 15756, 21235, 21603, 79316],
+    "S25": [10701, 15451, 15591, 21849]
+  },
+  "Leo Chen": {
+    "S24": [70110, 70492, 70493, 70495, 73230],
+    "F24": [70332, 70345, 70398, 82339, 82434]
+  },
+  "Cole Drake": {
+    "F23": [15112, 18100, 21127, 82171],
+    "S24": [15122, 24101, 33141, 76101]
+  },
+  "Shreyas Hari": {
+    "F23": [18213, 21259, 36200, 36218],
+    "S24": [10301, 15150, 21241, 70110, 70204, 70340]
+  },
+  "Kevin Zheng": {
+    "F23": [15112, 21127, 67100, 70100, 79189, 88230],
+    "S24": [7070, 15122, 66143, 67250, 70122, 76101]
+  },
+  "Ricky Castro": {
+    "F23": [21254, 24101, 33141, 88230],
+    "S24": [15112, 18100, 21127, 57337, 76101]
+  },
+  "Justin Doi": {
+    "F23": [18213, 18220, 33124, 36225],
+    "S24": [5391, 18240, 18290, 36220]
+  },
+  "Aidan Hong": {
+    "F23": [5410, 15122, 60223, 60236],
+    "S24": [5430, 21127, 60221, 80150, 80210]
+  },
+  "Alex Xu": {
+    "F23": [21127, 21241, 66137, 73102, 82331],
+    "S24": [15122, 15150, 36202, 76101, 80180],
+    "M24": [18213],
+    "F24": [5391, 15210, 15251]
+  },
+  "Bennett Matthews": {
+    "F23": [21254, 24101, 33124, 33142],
+    "S24": [15112, 18100, 19101, 76107, 76108]
+  },
+  "Gustavo Arocha": {
+    "S24": [15110, 70104, 73103, 76101]
+  },
+  "Rahul Dube": {
+    "F23": [21254, 24101, 33142, 84226],
+    "S24": [15112, 18100, 21260, 33100, 76101]
+  },
+  "Rohan Wadhwa": {
+    "F23": [24101, 33142, 36100, 80180]
+  },
+  "Reed Cooper": {
+    "F23": [6223, 21254, 42101, 42202, 57227],
+    "S24": [6261, 6262, 9221, 33142, 42203, 57227]
+  },
+  "Cole Schaefer": {
+    "F23": [21111, 70106, 70122, 73102, 76101],
+    "S24": [15110, 21112, 36200, 70104, 70110, 73103]
+  },
+  "Robert May": {
+    "S24": [7180, 15122, 15151, 21122, 76106, 76108]
+  },
+  "Jeffrey Ye": {
+    "F23": [15110, 51225, 51227, 51242, 51245, 51247, 51277, 51279],
+    "S24": [18095, 39245, 51248, 51249, 51282, 51284, 60125]
+  },
+  "Raymond Shen": {
+    "F23": [18290, 18341, 36225, 42203, 70415],
+    "S24": [15386, 18320, 18447, 42302, 48241]
+  },
+  "Ray Luan": {
+    "S24": [15112, 18100, 21127, 70100]
+  },
+  "Mason Wang": {
+    "F23": [15110, 51229],
+    "S24": [5410, 53471]
+  },
+  "Ervin Song": {
+    "F23": [18213, 36202, 36235, 80101]
+  },
+  "Marco Esparza": {
+    "S24": [21127, 33232, 84275]
+  },
+  "Jack Shah": {
+    "F23": [21254, 24101, 33142, 76107, 76108],
+    "S24": [9101, 21260, 49101, 70100, 70246, 73102]
+  },
+  "Ayden Xu": {
+    "S24": [5391, 10301, 15494, 67272, 85102]
+  },
+  "Jordan Bain": {
+    "S24": [5391, 21112, 70122, 88275]
+  },
+  "Aayush Bajaj": {
+    "F23": [15112, 73102, 76101],
+    "S24": [15122, 21127, 66122, 73103],
+    "F24": [21256, 36225, 70340, 70391, 73265]
+  },
+  "Julian Olschwang": {
+    "F24": [15112, 21122, 24101, 76101, 98266, 99101]
+  },
+  "Declan O'Melia": {
+    "F24": [21120, 24101, 33141, 70100, 99101]
+  }
+};
+
+// Default export for easy importing
+export default classesData;
+
+// Helper functions that could be useful
+export const getAllSemesters = (): string[] => {
+  const allSemesters = new Set<string>();
+  
+  Object.values(classesData).forEach(personData => {
+    Object.keys(personData).forEach(sem => allSemesters.add(sem));
+  });
+  
+  return Array.from(allSemesters).sort();
+};
+
+export const getAllClasses = (): { [classNumber: string]: string[] } => {
+  const allClasses: { [classNumber: string]: string[] } = {};
+  
+  Object.entries(classesData).forEach(([person, semesters]) => {
+    Object.entries(semesters).forEach(([sem, classList]) => {
+      classList.forEach(classNum => {
+        if (!allClasses[classNum]) {
+          allClasses[classNum] = [];
+        }
+        if (!allClasses[classNum].includes(person)) {
+          allClasses[classNum].push(person);
+        }
+      });
+    });
+  });
+  
+  return allClasses;
+};
+
+export const getPersonClasses = (personName: string): { [semester: string]: number[] } | null => {
+  return classesData[personName] || null;
+};
+
+export const getClassTakers = (classNumber: number, semester?: string): string[] => {
+  const people: string[] = [];
+  
+  Object.entries(classesData).forEach(([person, semesters]) => {
+    if (semester) {
+      // Filter by specific semester
+      if (semesters[semester] && semesters[semester].includes(classNumber)) {
+        people.push(person);
+      }
+    } else {
+      // Check all semesters
+      for (const sem in semesters) {
+        if (semesters[sem].includes(classNumber)) {
+          people.push(person);
+          break; // Found in one semester, no need to check others
+        }
+      }
+    }
+  });
+  
+  return people;
+};

@@ -803,6 +803,22 @@
         {
             "big": "Edwin Chen",
             "littles": ["Harry Schneider"]
+        },
+        {
+            "big": "Nick Ettlinger",
+            "littles": ["Theodore Peterson"]
+        },
+        {
+            "big": "Theodore Peterson",
+            "littles": ["Fletcher Woodruff", "Brian Brazon", "John Lennon"]
+        },
+        {
+            "big": "Fletcher Woodruff",
+            "littles": ["Alex Steere"]
+        },
+        {
+            "big": "Alex Steere",
+            "littles": ["Max Sieb"]
         }
     ]
 
