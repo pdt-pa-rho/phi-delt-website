@@ -839,6 +839,18 @@
         {
             "big": "Manav Anand",
             "littles": ["Anthony Tien"]
+        },
+        {
+            "big": "Nitsan Shai",
+            "littles": ["Miles Wilson-Toliver", "Max Kaplan"]
+        },
+        {
+            "big": "Alex O'Neill",
+            "littles": ["Pieter De Buck"]
+        },
+        {
+            "big": "Pieter De Buck",
+            "littles": ["Chaitanya Srinivasan"]
         }
     ]
 
