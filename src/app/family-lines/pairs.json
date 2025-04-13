@@ -470,7 +470,23 @@
         },
         {
             "big": "Matthew Wilson",
-            "littles": ["Jose Lopez"]
+            "littles": ["Jose Lopez", "Shashwat Srivastava"]
+        },
+        {
+            "big": "Shashwat Srivastava",
+            "littles": ["Adit Namdev"]
+        },
+        {
+            "big": "Adit Namdev",
+            "littles": ["Sam Huang"]
+        },
+        {
+            "big": "Sam Huang",
+            "littles": ["Shuo Liu"]
+        },
+        {
+            "big": "Shuo Liu",
+            "littles": ["Mason Young-Shor"]
         },
         {
             "big": "Jose Lopez",
