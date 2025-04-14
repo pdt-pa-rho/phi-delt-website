@@ -16,13 +16,14 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async signIn({ user, account, profile }) {
-      // Only allow users whose emails are in the allowed list
       if (user?.email && ALLOWED_EMAILS.includes(user.email)) {
         return true;
       }
       return false;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async session({ session, token, user }) {
       // Expose email in session
       return session;
