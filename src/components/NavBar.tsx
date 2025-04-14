@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,6 +31,8 @@ const NavBar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const { data: session, status } = useSession();
 
   return (
     <nav
@@ -161,6 +164,29 @@ const NavBar = () => {
           >
             Rush
           </Link>
+          {/* Auth buttons */}
+          <div className="flex items-center gap-4 ml-4">
+            {status === "loading" ? (
+              <span className="text-sm text-gray-500">Loading...</span>
+            ) : session ? (
+              <>
+                <span className="text-sm text-[#0D1433] hidden sm:inline">{session.user?.email}</span>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => signIn("google")}
+                className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+              >
+                Sign in
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </nav>

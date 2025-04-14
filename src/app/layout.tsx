@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import SessionProviderWrapper from "@/app/SessionProviderWrapper";
 import { geist, geistMono } from "./fonts";
 import "./globals.css";
 
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
-        <NavBar />
-        {children}
+        <SessionProviderWrapper>
+          <NavBar />
+          {children}
+        </SessionProviderWrapper>
       </body>
     </html>
   );
