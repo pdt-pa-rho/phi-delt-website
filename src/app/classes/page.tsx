@@ -73,7 +73,6 @@ export default function ClassesPage() {
       
       setSearchResults(personResults);
     } else {
-      // Search for a class
       const classResults: { [classNum: string]: string[] } = {};
       const normalizedSearchTerm = searchTerm.trim();
 

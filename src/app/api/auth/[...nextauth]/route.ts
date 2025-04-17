@@ -27,7 +27,8 @@ const ALLOWED_EMAILS = [
   "prakashs@andrew.cmu.edu",
   "sdelueque@andrew.cmu.edu",
   "jasonmok@andrew.cmu.edu",
-  "austina@andrew.cmu.edu"
+  "austina@andrew.cmu.edu",
+  "fwaag@andrew.cmu.edu"
 ];
 
 const authOptions: NextAuthOptions = {
