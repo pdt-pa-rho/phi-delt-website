@@ -6,7 +6,7 @@ import { NextAuthOptions } from "next-auth";
 const ALLOWED_EMAILS = [
   "rohanjai@andrew.cmu.edu",
   "rsarabu@andrew.cmu.edu",
-  "aayushb@andrew.cmu.edu",
+  "aayushba@andrew.cmu.edu",
   "asangava@andrew.cmu.edu",
   "mschaef2@andrew.cmu.edu",
   "alexxu@andrew.cmu.edu",
