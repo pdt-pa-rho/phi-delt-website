@@ -76,7 +76,7 @@ export default function ClassesPage() {
       // Search for a class
       const classResults: { [classNum: string]: string[] } = {};
       const normalizedSearchTerm = searchTerm.trim();
-      
+
       Object.entries(classes).forEach(([classNum, people]) => {
         if (classNum.toString().includes(normalizedSearchTerm)) {
           if (semester === 'all') {
@@ -86,7 +86,7 @@ export default function ClassesPage() {
             // Filter by semester
             const peopleInSemester = people.filter(person => {
               const personData = (classesData as ClassesData)[person];
-              return personData[semester] && personData[semester].includes(Number(classNum));
+              return personData[semester] && personData[semester].some(c => c.toString().startsWith(classNum));
             });
             
             if (peopleInSemester.length > 0) {
