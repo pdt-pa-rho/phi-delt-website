@@ -5,7 +5,29 @@ import { NextAuthOptions } from "next-auth";
 // Placeholder: update this list with allowed emails
 const ALLOWED_EMAILS = [
   "rohanjai@andrew.cmu.edu",
-  "allowed2@example.com",
+  "rsarabu@andrew.cmu.edu",
+  "aayushb@andrew.cmu.edu",
+  "asangava@andrew.cmu.edu",
+  "mschaef2@andrew.cmu.edu",
+  "alexxu@andrew.cmu.edu",
+  "rdube@andrew.cmu.edu",
+  "ervins@andrew.cmu.edu",
+  "maesparz@andrew.cmu.edu",
+  "jackshah@andrew.cmu.edu",
+  "jolschwa@andrew.cmu.edu",
+  "domelia@andrew.cmu.edu",
+  "smfisher@andrew.cmu.edu",
+  "arjunvas@andrew.cmu.edu",
+  "lpenaloz@andrew.cmu.edu",
+  "sphart@andrew.cmu.edu",
+  "gpacell2@andrew.cmu.edu",
+  "siddhanc@andrew.cmu.edu",
+  "svyasamu@andrew.cmu.edu",
+  "troym@andrew.cmu.edu",
+  "prakashs@andrew.cmu.edu",
+  "sdelueque@andrew.cmu.edu",
+  "jasonmok@andrew.cmu.edu",
+  "austina@andrew.cmu.edu"
 ];
 
 const authOptions: NextAuthOptions = {
