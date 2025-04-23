@@ -30,7 +30,8 @@ const ALLOWED_EMAILS = [
   "fwaag@andrew.cmu.edu",
   "mgershe2@andrew.cmu.edu",
   "junyounb@andrew.cmu.edu",
-  "seanx@andrew.cmu.edu"
+  "seanx@andrew.cmu.edu",
+  "nkonkima@andrew.cmu.edu"
 ];
 
 const authOptions: NextAuthOptions = {
