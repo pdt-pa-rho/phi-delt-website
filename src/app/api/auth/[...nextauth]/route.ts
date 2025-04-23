@@ -22,13 +22,15 @@ const ALLOWED_EMAILS = [
   "sphart@andrew.cmu.edu",
   "gpacell2@andrew.cmu.edu",
   "siddhanc@andrew.cmu.edu",
-  "svyasamu@andrew.cmu.edu",
   "troym@andrew.cmu.edu",
   "prakashs@andrew.cmu.edu",
   "sdelueque@andrew.cmu.edu",
   "jasonmok@andrew.cmu.edu",
   "austina@andrew.cmu.edu",
-  "fwaag@andrew.cmu.edu"
+  "fwaag@andrew.cmu.edu",
+  "mgershe2@andrew.cmu.edu",
+  "junyounb@andrew.cmu.edu",
+  "seanx@andrew.cmu.edu"
 ];
 
 const authOptions: NextAuthOptions = {
