@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PhilanthropyPage() {
+  const raised = 0;
+  const goal   = 10000;
+  const pct    = Math.min((raised / goal) * 100, 100);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-[var(--navy)]">
       <div className="max-w-5xl w-full">
@@ -14,6 +17,35 @@ export default function PhilanthropyPage() {
             service and philanthropy, with a special focus on the fight against ALS.
           </p>
         </div>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">
+            Fundraising Progress
+          </h2>
+          <div className="relative flex-1">
+            {/* track (thicker) */}
+            <div className="w-full bg-[var(--white)] bg-opacity-20 rounded-full h-12" />
+
+            {/* fill + raised text */}
+            <div
+              className="absolute top-0 left-0 bg-[var(--blue)] h-12 rounded-full flex items-center px-4"
+              style={{ width: `${pct}%` }}
+            >
+              {raised > 0 && (
+                <span className="text-xl md:text-2xl font-semibold drop-shadow-md text-[var(--white)]">
+                  ${raised.toLocaleString()}
+                </span>
+              )}
+            </div>
+
+            {/* goal text at right inside bar */}
+            <div className="absolute top-0 right-0 h-12 flex items-center pr-4 pointer-events-none">
+              <span className="text-xl md:text-2xl font-semibold drop-shadow-md text-[var(--blue)]">
+                Goal: ${goal.toLocaleString()}
+              </span>
+            </div>
+          </div>
+        </section>
 
         {/* LiveLikeLou Section */}
         <section className="mb-16">
