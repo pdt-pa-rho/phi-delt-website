@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PhilanthropyPage() {
-  const raised = 0;
+  const raised = 236;
   const goal   = 10000;
   const pct    = Math.min((raised / goal) * 100, 100);
   return (
