@@ -89,7 +89,7 @@ export default function AboutPage() {
               { title: 'Social Chair', name: 'Daniel Lee' },
               { title: 'House Manager', name: 'Spencer Fisher' },
               { title: 'Phikeia Educator', name: 'Harry Schneider' },
-              { title: 'Brotherhood Chair', name: 'Cole Schaefer'},
+              { title: 'Brotherhood Chair', name: 'Sebastian DeLuque', image: '/executive/Sebastian_DeLuque.png' },
               { title: 'Risk Management Chair', name: 'Chibueze Ike' },
               { title: 'Recruitment Chair', name: 'Prathik Guduri' },
               { title: 'Membership Development Chair', name: 'Rohan Jain' },
@@ -97,7 +97,7 @@ export default function AboutPage() {
               <div key={index} className="bg-[var(--light-blue)] p-4 rounded-lg shadow-md text-center">
                 <div className="bg-[var(--white)] h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
                   <Image 
-                    src={`/executive/${leader.name}.jpg`} 
+                    src={('image' in leader ? leader.image : `/executive/${leader.name}.jpg`) as string} 
                     alt={leader.name} 
                     width={128}
                     height={128}
