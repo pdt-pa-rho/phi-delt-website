@@ -17,7 +17,7 @@ export default function Home() {
             className="object-cover brightness-50"
           />
         </div>
-        
+
         {/* Hero Content */}
         <div className="relative z-10 text-center text-[var(--white)] px-4 max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Phi Delta Theta</h1>
@@ -26,14 +26,14 @@ export default function Home() {
             Becoming the greatest version of ourselves through the principles of Friendship, Sound Learning, and Moral Rectitude.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/rush" 
+            <Link
+              href="/rush"
               className="px-8 py-3 bg-[var(--blue)] hover:bg-[var(--primary-dark)] text-[var(--white)] font-medium rounded-full transition-colors"
             >
               Rush Phi Delt
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="px-8 py-3 bg-[var(--white)]/10 hover:bg-[var(--white)]/20 backdrop-blur-sm text-[var(--white)] font-medium rounded-full border border-[var(--white)]/30 transition-colors"
             >
               Learn More
@@ -49,7 +49,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
             <div className="w-24 h-1 bg-[var(--blue)] mx-auto"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-10">
             <div className="text-center">
               <div className="w-20 h-20 bg-[var(--light-blue)] dark:bg-[var(--blue)]/30 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -62,7 +62,7 @@ export default function Home() {
                 We foster lifelong friendships through shared experiences, support, and a commitment to each other&#39;s growth.
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-20 h-20 bg-[var(--light-blue)] dark:bg-[var(--blue)]/30 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[var(--blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +74,7 @@ export default function Home() {
                 We prioritize academic achievement and intellectual growth, supporting each other to excel at Carnegie Mellon.
               </p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-20 h-20 bg-[var(--light-blue)] dark:bg-[var(--blue)]/30 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-[var(--blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -97,7 +97,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Chapter Highlights</h2>
             <div className="w-24 h-1 bg-[var(--blue)] mx-auto"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-10">
             <div className="bg-[var(--white)] dark:bg-[var(--navy)] rounded-xl shadow-md overflow-hidden">
               <div className="relative h-64">
@@ -113,15 +113,15 @@ export default function Home() {
                 <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
                   Located in the heart of CMU&#39;s campus, our chapter house serves as the center of brotherhood activities and a home away from home for our members.
                 </p>
-                <Link 
-                  href="/about#house" 
+                <Link
+                  href="/about#house"
                   className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
                 >
                   Take a tour →
                 </Link>
               </div>
             </div>
-            
+
             <div className="bg-[var(--white)] dark:bg-[var(--navy)] rounded-xl shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image
@@ -136,8 +136,8 @@ export default function Home() {
                 <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
                   We&#39;re proud to support the LiveLikeLou Foundation in the fight against ALS, honoring Phi Delt brother Lou Gehrig&#39;s legacy.
                 </p>
-                <Link 
-                  href="/philanthropy" 
+                <Link
+                  href="/philanthropy"
                   className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
                 >
                   Learn more →
@@ -155,7 +155,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Events</h2>
             <div className="w-24 h-1 bg-[var(--blue)] mx-auto"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
               <div className="text-[var(--blue)] font-bold mb-2">APR 3-6, 2025</div>
@@ -170,30 +170,30 @@ export default function Home() {
                 Details →
               </Link> */}
             </div>
-            
+
             <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
               <div className="text-[var(--blue)] font-bold mb-2">APR 19, 2025</div>
               <h3 className="text-xl font-semibold mb-3">Spring Formal</h3>
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
                 Join us for a night of dancing and fun!
               </p>
-              <Link 
-                href="https://forms.gle/gu6FKALF8zpurM4W8" 
+              <Link
+                href="https://forms.gle/gu6FKALF8zpurM4W8"
                 target="_blank"
                 className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
               >
                 Sign up to get a date →
               </Link>
             </div>
-            
+
             <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
               <div className="text-[var(--blue)] font-bold mb-2">SEP 1-12, 2025</div>
               <h3 className="text-xl font-semibold mb-3">Fall Rush</h3>
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
                 Interested in joining Phi Delta Theta? Join us for Fall Rush!
               </p>
-              <Link 
-                href="/rush" 
+              <Link
+                href="/rush"
                 className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
               >
                 Learn more →
@@ -213,14 +213,14 @@ export default function Home() {
             className="object-cover brightness-50"
           />
         </div>
-        
+
         <div className="relative z-10 max-w-4xl mx-auto text-center text-[var(--white)]">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Become a Phi</h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">
             Ready to join a brotherhood that will shape your college experience and beyond? Rush Phi Delta Theta and become part of our legacy at Carnegie Mellon.
           </p>
-          <Link 
-            href="/rush" 
+          <Link
+            href="/rush"
             className="px-8 py-3 bg-[var(--blue)] hover:bg-[var(--primary-dark)] text-[var(--white)] font-medium rounded-full transition-colors inline-block"
           >
             Rush Information
@@ -248,7 +248,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
@@ -257,7 +257,7 @@ export default function Home() {
                 <li><Link href="/philanthropy" className="text-[var(--light-blue)] hover:text-[var(--white)]">Philanthropy</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Resources</h3>
               <ul className="space-y-2">
@@ -268,7 +268,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          
+
           <div className="mt-10 pt-6 border-t border-[var(--blue)]/30 text-center text-[var(--light-blue)]/70 text-sm">
             <p>&copy; {new Date().getFullYear()} Phi Delta Theta, Pennsylvania Rho Chapter. All rights reserved.</p>
           </div>
