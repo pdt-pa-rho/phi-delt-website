@@ -1,3 +1,6 @@
+Önce Şunu Yaz:
+cd "/Users/mac/Desktop/phi-delt-website"
+
 To run development server (note for myself):
 
 ```bash
