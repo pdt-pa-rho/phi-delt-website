@@ -19,19 +19,38 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--navy);
-    --foreground: var(--white);
-    --primary: var(--blue);
-    --primary-dark: #4A85B0;
-    --primary-light: #1E3A5F;
-    --accent: var(--light-blue);
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@keyframes blueGlowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(97, 156, 199, 0.35), 0 0 14px rgba(97, 156, 199, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(97, 156, 199, 0.7), 0 0 26px rgba(97, 156, 199, 0.45);
+  }
+}
+
+.brother-login-glow {
+  animation: blueGlowPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes fireBorderFlicker {
+  0%,
+  100% {
+    border-color: rgba(255, 84, 68, 0.75);
+    box-shadow: 0 0 10px rgba(255, 84, 68, 0.35), 0 0 22px rgba(255, 131, 55, 0.2);
+  }
+  50% {
+    border-color: rgba(255, 138, 52, 0.95);
+    box-shadow: 0 0 16px rgba(255, 79, 64, 0.55), 0 0 32px rgba(255, 153, 51, 0.35);
+  }
+}
+
+.fire-border-glow {
+  animation: fireBorderFlicker 1.6s ease-in-out infinite;
 }

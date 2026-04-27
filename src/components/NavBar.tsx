@@ -38,8 +38,8 @@ const NavBar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[var(--white)]/90 backdrop-blur-sm shadow-sm dark:bg-[var(--navy)]/90"
-          : "bg-transparent"
+          ? "bg-[var(--white)]/90 backdrop-blur-sm shadow-sm"
+          : "bg-[var(--white)]/75 backdrop-blur-sm shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,6 +81,12 @@ const NavBar = () => {
               className="text-foreground/80 hover:text-foreground transition-colors"
             >
               Rush
+            </Link>
+            <Link
+              href="/brother-login"
+              className="brother-login-glow relative rounded-md px-2 py-1 text-foreground transition-colors after:absolute after:left-2 after:right-2 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[var(--blue)] after:shadow-[0_0_12px_var(--blue)] after:transition-transform after:duration-300 hover:after:scale-x-100"
+            >
+              Brother Login
             </Link>
           </div>
 
@@ -133,7 +139,7 @@ const NavBar = () => {
       <div
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } md:hidden bg-[var(--white)] dark:bg-[var(--navy)] shadow-lg`}
+        } md:hidden bg-[var(--white)] shadow-lg`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link
@@ -163,6 +169,13 @@ const NavBar = () => {
             onClick={closeMenu}
           >
             Rush
+          </Link>
+          <Link
+            href="/brother-login"
+            className="brother-login-glow block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-[var(--light-blue)]/20"
+            onClick={closeMenu}
+          >
+            Brother Login
           </Link>
           {/* Auth buttons */}
           <div className="flex items-center gap-4 ml-4">
