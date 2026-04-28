@@ -3,15 +3,15 @@
 import fs from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+// import { getServerSession } from "next-auth";
 import { BALLS_DIR, getAllBallImages } from "@/helpers/bpl/ballImages";
 
 export async function GET() {
-  const session = await getServerSession();
+  // const session = await getServerSession();
 
-  if (!session) {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
+  // if (!session) {
+  //   return new NextResponse("Unauthorized", { status: 401 });
+  // }
 
   const files = getAllBallImages();
 

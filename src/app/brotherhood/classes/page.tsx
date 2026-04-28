@@ -96,7 +96,7 @@ export default function ClassesPage() {
   };
 
   return (
-    <div className="container mx-auto py-10 px-4 min-h-screen bg-[#F1F5F9]">
+    <div className="container mx-auto py-10 pt-28 px-4 min-h-screen bg-[#F1F5F9]">
       <h1 className="text-4xl font-bold text-center mb-8 text-[#0D1433]">Phi Delt Class Search</h1>
 
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md border border-gray-200">

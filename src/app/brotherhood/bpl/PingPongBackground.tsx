@@ -28,8 +28,8 @@ type PingPongBackgroundProps = {
   minSpawnDelayMs?: number;
   maxSpawnDelayMs?: number;
 
-  minDuration?: number;
-  maxDuration?: number;
+  minSpeed?: number;
+  maxSpeed?: number;
 
   minSize?: number;
   maxSize?: number;
@@ -68,8 +68,8 @@ function FlyingBallSystem({
   solidColorFraction = 0.5,
   minSpawnDelayMs = 900,
   maxSpawnDelayMs = 2600,
-  minDuration = 2,
-  maxDuration = 3,
+  minSpeed = 5,
+  maxSpeed = 15,
   minSize = 0.45,
   maxSize = 0.8,
   gravity = 6,
@@ -104,8 +104,8 @@ function FlyingBallSystem({
         viewport,
         colorHexes,
         solidColorFraction,
-        minDuration,
-        maxDuration,
+        minSpeed,
+        maxSpeed,
         minSize,
         maxSize,
         gravity,
@@ -142,8 +142,8 @@ function createBall({
   viewport,
   colorHexes,
   solidColorFraction,
-  minDuration,
-  maxDuration,
+  minSpeed,
+  maxSpeed,
   minSize,
   maxSize,
   gravity,
@@ -157,8 +157,8 @@ function createBall({
   viewport: { width: number; height: number };
   colorHexes: string[];
   solidColorFraction: number;
-  minDuration: number;
-  maxDuration: number;
+  minSpeed: number;
+  maxSpeed: number;
   minSize: number;
   maxSize: number;
   gravity: number;
@@ -181,21 +181,22 @@ function createBall({
     ? visibleHalfWidth + edgePadding
     : -visibleHalfWidth - edgePadding;
 
-  const startY = randomBetween(-visibleHalfHeight * 0.65, visibleHalfHeight * 0.45);
+  const startY = randomBetween(-visibleHalfHeight * 0.65, visibleHalfHeight * 1);
   const z = randomBetween(-1, 2);
   const endZ = z + randomBetween(-1, 1);
 
-  const duration = randomBetween(minDuration, maxDuration);
+  const speed = randomBetween(minSpeed, maxSpeed);
   const direction = fromLeft ? 1 : -1;
 
   const distanceX = Math.abs(endX - startX);
-  const speedX = distanceX / duration;
 
   const angleDeg = randomBetween(minLaunchAngleDeg, maxLaunchAngleDeg);
   const angleRad = THREE.MathUtils.degToRad(angleDeg);
 
-  const vx = speedX * direction;
-  const vy = Math.tan(angleRad) * speedX;
+  const duration = distanceX / (Math.cos(angleRad) * speed);
+
+  const vx = Math.cos(angleRad) * speed * direction;
+  const vy = Math.sin(angleRad) * speed;
   const vz = (endZ - z) / duration;
 
   return {
