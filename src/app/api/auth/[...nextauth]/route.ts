@@ -1,40 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { NextAuthOptions } from "next-auth";
-
-// Placeholder: update this list with allowed emails
-const ALLOWED_EMAILS = [
-  "rohanjai@andrew.cmu.edu",
-  "rsarabu@andrew.cmu.edu",
-  "aayushba@andrew.cmu.edu",
-  "asangava@andrew.cmu.edu",
-  "mschaef2@andrew.cmu.edu",
-  "alexxu@andrew.cmu.edu",
-  "rdube@andrew.cmu.edu",
-  "ervins@andrew.cmu.edu",
-  "maesparz@andrew.cmu.edu",
-  "jackshah@andrew.cmu.edu",
-  "jolschwa@andrew.cmu.edu",
-  "domelia@andrew.cmu.edu",
-  "smfisher@andrew.cmu.edu",
-  "arjunvas@andrew.cmu.edu",
-  "lpenaloz@andrew.cmu.edu",
-  "sphart@andrew.cmu.edu",
-  "gpacell2@andrew.cmu.edu",
-  "siddhanc@andrew.cmu.edu",
-  "troym@andrew.cmu.edu",
-  "prakashs@andrew.cmu.edu",
-  "sdelueque@andrew.cmu.edu",
-  "jasonmok@andrew.cmu.edu",
-  "austina@andrew.cmu.edu",
-  "fwaag@andrew.cmu.edu",
-  "mgershe2@andrew.cmu.edu",
-  "junyounb@andrew.cmu.edu",
-  "seanx@andrew.cmu.edu",
-  "nkonkima@andrew.cmu.edu",
-  "rcastro2@andrew.cmu.edu",
-  "pcandas@andrew.cmu.edu"
-];
+import { isAllowedAndrewID } from "@/helpers/auth/andrewIds";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -46,7 +13,7 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async signIn({ user, account, profile }) {
-      if (user?.email && ALLOWED_EMAILS.includes(user.email)) {
+      if (user?.email && await isAllowedAndrewID(user.email.split("@")[0])) {
         return true;
       }
       return false;
