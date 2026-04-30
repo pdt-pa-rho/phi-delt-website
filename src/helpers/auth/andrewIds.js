@@ -23,6 +23,6 @@ export async function getAllowedAndrewIDs() {
 export async function isAllowedAndrewID(andrewID) {
   if (!andrewID) return false;
 
-  const allowedEmails = await getAllowedEmails();
+  const allowedEmails = await getAllowedAndrewIDs();
   return allowedEmails.includes(andrewID.trim().toLowerCase());
 }

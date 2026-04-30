@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const NavBar = () => {
@@ -33,7 +34,6 @@ const NavBar = () => {
   };
 
   const { data: session, status } = useSession();
-
 
   return (
     <nav
@@ -83,12 +83,45 @@ const NavBar = () => {
             >
               Rush
             </Link>
-            <Link
-              href="/brother-login"
-              className="brother-login-glow relative rounded-md px-2 py-1 text-foreground transition-colors after:absolute after:left-2 after:right-2 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:bg-[var(--blue)] after:shadow-[0_0_12px_var(--blue)] after:transition-transform after:duration-300 hover:after:scale-x-100"
-            >
-              Brother Login
-            </Link>
+            {session && (
+              <Link
+                href="/brotherhood"
+                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+                onClick={closeMenu}
+              >
+                Brotherhood Hub
+              </Link>
+            )}
+            {/* Auth buttons */}
+            <div className="flex items-center gap-4 ml-4">
+              {status === "loading" ? (
+                <span className="text-sm text-gray-500">Loading...</span>
+              ) : session ? (
+                <>
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                  >
+                    {session.user?.image && <Image
+                      src={session.user.image}
+                      alt="User profile picture"
+                      width={24}
+                      height={24}
+                      className="rounded-full inline mr-3"
+                    />
+                    }
+                    Sign out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => signIn("google")}
+                  className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                >
+                  Brother Login
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -171,24 +204,33 @@ const NavBar = () => {
           >
             Rush
           </Link>
-          <Link
-            href="/brother-login"
-            className="brother-login-glow block rounded-md px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-[var(--light-blue)]/20"
-            onClick={closeMenu}
-          >
-            {/* {session ? "Brother Login" : "Brotherhood Hub"} */}
-          </Link>
+          {session && (
+            <Link
+              href="/brotherhood"
+              className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+              onClick={closeMenu}
+            >
+               Brotherhood Hub
+            </Link>
+          )}
           {/* Auth buttons */}
           <div className="flex items-center gap-4 ml-4">
             {status === "loading" ? (
               <span className="text-sm text-gray-500">Loading...</span>
             ) : session ? (
               <>
-                <span className="text-sm text-[#0D1433] hidden sm:inline">{session.user?.email}</span>
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
                   className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
                 >
+                  {session.user?.image && <Image
+                      src={session.user.image}
+                      alt="User profile picture"
+                      width={24}
+                      height={24}
+                      className="rounded-full inline mr-3"
+                    />
+                  }
                   Sign out
                 </button>
               </>
@@ -197,7 +239,7 @@ const NavBar = () => {
                 onClick={() => signIn("google")}
                 className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
               >
-                Sign in
+                Brother Login
               </button>
             )}
           </div>

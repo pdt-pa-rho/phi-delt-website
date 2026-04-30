@@ -5,12 +5,13 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { BALLS_DIR, getAllBallImages } from "@/helpers/bpl/ballImages";
+import { authOptions } from "@/lib/auth";
 
 export async function GET(
   req,
   { params }
 ) {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   if (!session) {
     return new NextResponse("Unauthorized", { status: 401 });

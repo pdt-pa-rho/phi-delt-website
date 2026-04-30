@@ -17,7 +17,7 @@ export default function BrotherhoodLayout({
       }}
     >
       {/* For debugging, just add the `bypass` flag to disable the auth check */}
-      <AuthCheck bypass>
+      <AuthCheck>
         {children}
       </AuthCheck>
     </SWRConfig>

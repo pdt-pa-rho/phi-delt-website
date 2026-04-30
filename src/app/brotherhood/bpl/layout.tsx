@@ -14,7 +14,7 @@ export default function BPLLayout({
       <Background />
       <PingPongBackground
         colorHexes={["#F06400", "#21ABCD"]}
-        solidColorFraction={0.5}
+        solidColorFraction={0.8}
         minSpawnDelayMs={300}
         maxSpawnDelayMs={1500}
         minRotationSpeed={0.1}
