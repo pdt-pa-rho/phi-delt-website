@@ -1,6 +1,6 @@
 import {
   getRosterTeams,
-  getAllWeekResults,
+  getAllStatMatchRows,
   calculateTeamStats,
   getWeekSheetNames,
   getSheetValues,
@@ -12,7 +12,7 @@ export async function getTopTeams() {
   try {
     const [rosterTeams, weekResults] = await Promise.all([
       getRosterTeams(),
-      getAllWeekResults(),
+      getAllStatMatchRows(),
     ]);
 
     const statsByTeam = calculateTeamStats(rosterTeams, weekResults);

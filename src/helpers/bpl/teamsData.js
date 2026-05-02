@@ -1,6 +1,6 @@
 import {
   getRosterTeams,
-  getAllWeekResults,
+  getAllStatMatchRows,
   calculateTeamStats,
 } from "@/helpers/bpl/sheetData";
 
@@ -8,7 +8,7 @@ export async function getTeamsData() {
   try {
     const [rosterTeams, weekResults] = await Promise.all([
       getRosterTeams(),
-      getAllWeekResults(),
+      getAllStatMatchRows(),
     ]);
 
     const statsByTeam = calculateTeamStats(rosterTeams, weekResults);

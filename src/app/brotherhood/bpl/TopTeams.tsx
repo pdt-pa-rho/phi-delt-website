@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import useSWR from "swr";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export type Team = {
   id: string,
@@ -25,7 +26,7 @@ export default function TopTeams() {
     <div className="glass-card p-6 rounded-lg animate-float">
       <h2 className="text-2xl font-semibold mb-4 gradient-text">Top Teams</h2>
 
-      {isLoading && <p className="text-center py-8">Loading...</p>}
+      {isLoading && <LoadingSpinner />}
 
       {error && (
         <div className="text-center py-4 text-red-500">

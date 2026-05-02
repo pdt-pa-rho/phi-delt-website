@@ -99,11 +99,15 @@ export function calculateTeamStats(rosterTeams, weekResults) {
   for (const match of weekResults) {
     if (!match.result) continue;
 
+    const cupDiffMagnitude = Math.abs(match.result.cupDiff ?? 0);
+    const team1Won = match.result.team1Games > match.result.team2Games;
+    const team2Won = match.result.team2Games > match.result.team1Games;
+
     applyResult(statsByTeam, rosterTeams, {
       teamName: match.homeTeam,
       wins: match.result.team1Games,
       losses: match.result.team2Games,
-      cupDiff: match.result.cupDiff,
+      cupDiff: team1Won ? cupDiffMagnitude : team2Won ? -cupDiffMagnitude : 0,
       week: match.week,
     });
 
@@ -111,7 +115,7 @@ export function calculateTeamStats(rosterTeams, weekResults) {
       teamName: match.awayTeam,
       wins: match.result.team2Games,
       losses: match.result.team1Games,
-      cupDiff: -match.result.cupDiff,
+      cupDiff: team2Won ? cupDiffMagnitude : team1Won ? -cupDiffMagnitude : 0,
       week: match.week,
     });
   }
@@ -156,22 +160,47 @@ export function parseResult(resultText) {
   };
 }
 
+export async function getAllStatMatchRows() {
+  const weekSheets = await getWeekSheetNames();
+  const sheetNames = [...weekSheets, "Play-in", "Bracket"];
+
+  const allRows = [];
+
+  for (const sheetName of sheetNames) {
+    try {
+      const values = await getSheetValues(sheetName);
+      const rows = readMatchupRows(values).map((match) => ({
+        ...match,
+        sheetName,
+        week: /^Week\s+\d+$/i.test(sheetName) ? getWeekNumber(sheetName) : null,
+      }));
+
+      allRows.push(...rows);
+    } catch {
+      // Sheet may not exist yet. That's fine.
+    }
+  }
+
+  return allRows;
+}
+
 export function readMatchupRows(values) {
   const rows = [];
 
   for (let i = 0; i < values.length; i++) {
     const row = values[i];
 
-    const homePlayers = row?.[1];
+    const homePlayers = row?.[1] ?? "";
     const homeTeam = row?.[2];
-    const awayPlayers = row?.[4];
+    const awayPlayers = row?.[4] ?? "";
     const awayTeam = row?.[5];
 
-    if (!homePlayers || !homeTeam || !awayPlayers || !awayTeam) continue;
+    if (!homeTeam || !awayTeam) continue;
 
     if (
-      String(homePlayers).toLowerCase().includes("home") ||
-      String(awayPlayers).toLowerCase().includes("away")
+      String(row?.[0] ?? "").trim().toLowerCase() === "round" ||
+      String(homeTeam).trim().toLowerCase().includes("team") ||
+      String(awayTeam).trim().toLowerCase().includes("team")
     ) {
       continue;
     }

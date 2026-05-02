@@ -6,6 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import useSWR from "swr";
 import { useSearchParams, useRouter } from "next/navigation";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 function getWeekLabel(offset: number) {
   if (offset === 0) return "This Week";
@@ -110,17 +111,7 @@ export default function ScheduleClient() {
             </div>
           </div>
 
-          {isLoading && (
-            <div className="text-center py-8">
-              <div
-                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
-                role="status"
-              >
-                <span className="sr-only">Loading...</span>
-              </div>
-              <p className="mt-2 text-gray-400">Loading schedule data...</p>
-            </div>
-          )}
+          {isLoading && <LoadingSpinner />}
 
           {error && (
             <div className="text-center py-8 text-red-500">

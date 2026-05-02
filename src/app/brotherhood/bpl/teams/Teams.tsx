@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { useEffect, useRef } from "react";
 import { nameEqual } from "@/helpers/bpl/names";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function Teams() {
   const searchParams = useSearchParams();
@@ -36,17 +37,7 @@ export default function Teams() {
             <h1 className="text-3xl font-bold gradient-text">Teams</h1>
           </div>
 
-          {isLoading && (
-            <div className="text-center py-8">
-              <div
-                className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
-                role="status"
-              >
-                <span className="sr-only">Loading...</span>
-              </div>
-              <p className="mt-2 text-gray-400">Loading teams data...</p>
-            </div>
-          )}
+          {isLoading && <LoadingSpinner />}
 
           {error && (
             <div className="text-center py-8 text-red-500">
