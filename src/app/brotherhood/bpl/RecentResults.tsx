@@ -51,7 +51,7 @@ const RecentResults = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: result.team1.strictName },
+                    query: { team: result.team1.name },
                   }}
                   className="flex justify-between items-center hover:text-white/80 transition-colors"
                 >
@@ -70,7 +70,7 @@ const RecentResults = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: result.team2.strictName },
+                    query: { team: result.team2.name },
                   }}
                   className="flex justify-between items-center hover:text-white/80 transition-colors"
                 >

@@ -40,7 +40,7 @@ export default function TopTeams() {
               key={team.id}
               href={{
                 pathname: "/brotherhood/bpl/teams",
-                query: { team: team.strictName },
+                query: { team: team.name },
               }}
               className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg hover:text-white/80 transition-colors"
             >

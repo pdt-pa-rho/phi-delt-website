@@ -38,7 +38,7 @@ const Matchups = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: match.team1.strictName },
+                    query: { team: match.team1.name },
                   }}
                   className="flex items-center justify-end gap-3 hover:text-white/80 transition-colors"
                 >
@@ -67,7 +67,7 @@ const Matchups = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: match.team2.strictName },
+                    query: { team: match.team2.name },
                   }}
                   className="flex items-center justify-start gap-3 hover:text-white/80 transition-colors"
                 >
