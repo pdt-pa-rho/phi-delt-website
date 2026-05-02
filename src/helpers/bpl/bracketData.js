@@ -1,21 +1,22 @@
 import { getSheetValues, teamFromSeedRow } from "@/helpers/bpl/sheetData";
 import { nameEqual } from "@/helpers/bpl/names";
+import { getWebsiteConfig } from "@/helpers/config";
 
 export async function getBracketData() {
-  const [seedingValues, bracketValues] = await Promise.all([
-    getSheetValues("Seeding", "A:J"),
-    getSheetValues("Bracket", "A:H"),
-  ]);
+  const config = await getWebsiteConfig();
 
-  const config = readBracketConfig(seedingValues);
-
-  if (!config.showBracket) {
+  if (!config.BPL_SHOW_BRACKET) {
     return {
       enabled: false,
       config,
       rounds: [],
     };
   }
+
+  const [seedingValues, bracketValues] = await Promise.all([
+    getSheetValues("Seeding", "A:J"),
+    getSheetValues("Bracket", "A:H"),
+  ]);
 
   const teams = seedingValues
     .slice(1)
@@ -24,7 +25,7 @@ export async function getBracketData() {
     .sort((a, b) => a.seed - b.seed);
 
   const bracketRows = parseBracketRows(bracketValues, teams);
-  const bracketSize = config.bracketSize ?? 16;
+  const bracketSize = config.BPL_BRACKET_SIZE ?? 16;
 
   const rounds = buildBracketRounds({
     teams,
@@ -247,7 +248,7 @@ function parseResult(value) {
     raw: String(value),
     team1Score: Number(match[1]),
     team2Score: Number(match[2]),
-    differential: match[3] ? Number(match[3]) : null,
+    cupDiff: match[3] ? Number(match[3]) : null,
   };
 }
 
@@ -289,28 +290,4 @@ function getRoundLabel(round, roundCount) {
 
   const teamsRemaining = 2 ** (roundCount - round + 1);
   return `Round of ${teamsRemaining}`;
-}
-
-function readBracketConfig(values) {
-  const config = {
-    topSeeds: 8,
-    playIns: 16,
-    bracketSize: 16,
-    showBracket: false,
-  };
-
-  for (const row of values) {
-    const key = row[7];
-    const value = row[8];
-
-    if (key === "TOP_SEEDS") config.topSeeds = Number(value);
-    if (key === "PLAY_INS") config.playIns = Number(value);
-    if (key === "BRACKET_SIZE") config.bracketSize = Number(value);
-    if (key === "SHOW_BRACKET") {
-      config.showBracket =
-        value === true || String(value).toLowerCase() === "true";
-    }
-  }
-
-  return config;
 }

@@ -28,7 +28,7 @@ const RecentResults = () => {
           {recentResults.map((result: {
             id: string,
             score: string,
-            differential: number
+            cupDiff: number
             team1: Team & { result: "W" | "L" },
             team2: Team & { result: "W" | "L" }
           }) => (
@@ -42,7 +42,7 @@ const RecentResults = () => {
                 <span className="flex items-center">
                   <span className="text-sm text-primary">{result.score}</span>
                   <span className="text-sm text-gray-400 ml-2">
-                    {result.differential}
+                    {result.cupDiff}
                   </span>
                 </span>
               </div>

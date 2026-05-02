@@ -15,7 +15,7 @@ type Result = {
   raw?: string;
   team1Score?: number;
   team2Score?: number;
-  differential?: number | null;
+  cupDiff?: number | null;
 };
 
 type BracketMatch = {
@@ -86,7 +86,7 @@ export default function Bracket() {
               {status.label}
             </p>
             <h2 className="text-3xl font-bold gradient-text">
-              Brotherhood Pong League Bracket
+              Bracket
             </h2>
           </div>
 
@@ -219,7 +219,7 @@ function ScoreDisplay({
   result: {
     team1Score: number | null;
     team2Score: number | null;
-    differential: string | null;
+    cupDiff: string | null;
     raw: string;
   };
 }) {
@@ -240,8 +240,8 @@ function ScoreDisplay({
         {result.team2Score}
       </span>
 
-      {result.differential && (
-        <span className="ml-2 text-gray-400">{result.differential}</span>
+      {result.cupDiff && (
+        <span className="ml-2 text-gray-400">{result.cupDiff}</span>
       )}
     </div>
   );
@@ -647,7 +647,7 @@ function normalizeResult(result: BracketMatch["result"]) {
       raw,
       team1Score: null,
       team2Score: null,
-      differential: null,
+      cupDiff: null,
     };
   }
 
@@ -655,7 +655,7 @@ function normalizeResult(result: BracketMatch["result"]) {
     raw,
     team1Score: Number(match[1]),
     team2Score: Number(match[2]),
-    differential: match[3] ?? null,
+    cupDiff: match[3] ?? null,
   };
 }
 

@@ -11,7 +11,7 @@ export type Team = {
   rank: number,
   wins: number,
   losses: number,
-  differential: number
+  cupDiff: number
 };
 
 export default function TopTeams() {
@@ -57,8 +57,8 @@ export default function TopTeams() {
                 </div>
 
                 <div className="text-gray-400 md:ml-2">
-                  {team.differential > 0 ? "+" : ""}
-                  {team.differential}
+                  {team.cupDiff > 0 ? "+" : ""}
+                  {team.cupDiff}
                 </div>
               </div>
             </Link>

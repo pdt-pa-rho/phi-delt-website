@@ -1,9 +1,12 @@
 // scheduleData.js
 import { calendar } from "@/lib/google";
+import { getWebsiteConfig } from "@/helpers/config";
 import dayjs from 'dayjs';
 
 export const getScheduleData = async (weekOffset) => {
   try {
+    const config = await getWebsiteConfig();
+
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const currentDate = new Date();
 
@@ -23,7 +26,7 @@ export const getScheduleData = async (weekOffset) => {
 
     // Fetch events from Google Calendar
     const response = await calendar.events.list({
-      calendarId: process.env.BPL_CALENDAR_ID,
+      calendarId: config.BPL_CALENDAR_ID,
       timeMin,
       timeMax,
       singleEvents: true,

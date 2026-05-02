@@ -1,29 +1,51 @@
 import {
-  getSheetValues,
+  getRosterTeams,
+  getAllWeekResults,
+  calculateTeamStats,
   getWeekSheetNames,
+  getSheetValues,
   readMatchupRows,
-  teamFromSeedRow,
 } from "@/helpers/bpl/sheetData";
 import { sanitizeName, getAbbreviation } from "@/helpers/bpl/names";
 
 export async function getTopTeams() {
   try {
-    const values = await getSheetValues("Seeding", "A:F");
+    const [rosterTeams, weekResults] = await Promise.all([
+      getRosterTeams(),
+      getAllWeekResults(),
+    ]);
 
-    return values
-      .slice(1)
-      .map(teamFromSeedRow)
-      .filter(Boolean)
+    const statsByTeam = calculateTeamStats(rosterTeams, weekResults);
+
+    return rosterTeams
+      .map((team) => {
+        const stats = statsByTeam.get(team.strictName) ?? {
+          wins: 0,
+          losses: 0,
+          gameDiff: 0,
+          cupDiff: 0,
+        };
+
+        return {
+          id: team.id,
+          name: team.name,
+          strictName: team.strictName,
+          abbreviation: team.abbreviation,
+          wins: stats.wins,
+          losses: stats.losses,
+          gameDiff: stats.gameDiff,
+          cupDiff: stats.cupDiff,
+        };
+      })
+      .sort((a, b) => {
+        if (b.gameDiff !== a.gameDiff) return b.gameDiff - a.gameDiff;
+        if (b.cupDiff !== a.cupDiff) return b.cupDiff - a.cupDiff;
+        return b.wins - a.wins;
+      })
       .slice(0, 3)
-      .map((team) => ({
-        id: team.seed,
-        rank: team.seed,
-        name: team.name,
-        strictName: team.strictName,
-        abbreviation: team.abbreviation,
-        wins: Number(team.record.match(/^(\d+)/)?.[1] ?? 0),
-        losses: Number(team.record.match(/-(\d+)/)?.[1] ?? 0),
-        differential: team.cupDiff,
+      .map((team, index) => ({
+        ...team,
+        rank: index + 1,
       }));
   } catch (err) {
     console.error("Error fetching top teams:", err);
@@ -53,22 +75,25 @@ export async function getRecentResults() {
 
 export async function getFeaturedMatches() {
   try {
-    const playInValues = await getSheetValues("Play-in");
-    const playIns = readMatchupRows(playInValues);
+    const weekSheets = await getWeekSheetNames();
 
-    if (playIns.length > 0) {
-      return playIns.map((match, index) => formatMatchup(match, index + 1));
+    for (const sheetName of [...weekSheets].reverse()) {
+      const values = await getSheetValues(sheetName);
+      const upcoming = readMatchupRows(values).filter((m) => !m.result);
+
+      if (upcoming.length > 0) {
+        return upcoming.map((match, index) => formatMatchup(match, index + 1));
+      }
     }
 
-    const weekSheets = await getWeekSheetNames();
     const latestWeek = weekSheets[weekSheets.length - 1];
-
     if (!latestWeek) return [];
 
     const values = await getSheetValues(latestWeek);
-    return readMatchupRows(values).map((match, index) =>
-      formatMatchup(match, index + 1)
-    );
+
+    return readMatchupRows(values)
+      .slice(0, 6)
+      .map((match, index) => formatMatchup(match, index + 1));
   } catch (err) {
     console.error("Error fetching featured matches:", err);
     return [];
@@ -92,12 +117,12 @@ function formatMatchup(match, id) {
 }
 
 function formatResult(match, id) {
-  const { team1Games, team2Games, differential } = match.result;
+  const { team1Games, team2Games, cupDiff } = match.result;
 
   return {
     id,
     score: `${team1Games}-${team2Games}`,
-    differential: `${differential > 0 ? "+" : ""}${differential}`,
+    cupDiff: `${cupDiff > 0 ? "+" : ""}${cupDiff}`,
     team1: {
       name: match.homeTeam,
       strictName: sanitizeName(match.homeTeam),

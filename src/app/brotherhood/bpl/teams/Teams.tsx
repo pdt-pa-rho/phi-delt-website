@@ -109,8 +109,8 @@ export default function Teams() {
                           {team.stats.wins}W - {team.stats.losses}L
                         </span>
                         <span>
-                          {team.stats.differential > 0 ? "+" : ""}
-                          {team.stats.differential}
+                          {team.stats.cupDiff > 0 ? "+" : ""}
+                          {team.stats.cupDiff}
                         </span>
                       </div>
                     </div>
