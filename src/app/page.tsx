@@ -163,8 +163,8 @@ export default function Home() {
               <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
                 Join us on Midway as we showcase our Men in Black booth!
               </p>
-              {/* <Link 
-                href="/events/spring-rush" 
+              {/* <Link
+                href="/events/spring-rush"
                 className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
               >
                 Details →

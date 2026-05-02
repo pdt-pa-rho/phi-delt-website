@@ -3,37 +3,33 @@
 import { useState, useEffect } from 'react';
 import classesData, { ClassesData, getAllSemesters, getAllClasses } from './classes';
 
-// ClassesData interface is now imported from classes.ts
-
-import AuthCheck from "./AuthCheck";
-
 export default function ClassesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState<'person' | 'class'>('person');
   const [searchResults, setSearchResults] = useState<{[key: string]: unknown}>({});
   const [classes, setClasses] = useState<{[key: string]: string[]}>({});
   const [semester, setSemester] = useState<string>('all');
-  
+
   // Extract all unique classes across all people and semesters
   useEffect(() => {
     setClasses(getAllClasses());
   }, []);
-  
+
   // Get all available semesters
   const semesterList = ['all', ...getAllSemesters()];
-  
+
   // Run search whenever search type or semester changes
   useEffect(() => {
     if (searchTerm) {
       handleSearch();
     }
   }, [searchType, semester]);
-  
+
   // Helper function to normalize search terms for better matching
   const normalizeForSearch = (text: string) => {
     return text.toLowerCase().replace(/\s+/g, '');
   };
-  
+
   // Format class number for display (add leading 0 to 4-digit classes)
   const formatClassNumber = (classNum: number): string => {
     const numStr = classNum.toString();
@@ -42,19 +38,19 @@ export default function ClassesPage() {
     }
     return numStr;
   };
-  
+
   const handleSearch = () => {
     // Clear results if search term is empty
     if (!searchTerm) {
       setSearchResults({});
       return;
     }
-    
+
     if (searchType === 'person') {
       // Search for a person
       const personResults: { [person: string]: { [semester: string]: number[] } } = {};
       const normalizedSearchTerm = normalizeForSearch(searchTerm);
-      
+
       Object.entries(classesData as ClassesData).forEach(([person, semesters]) => {
         // Normalize the person name for more flexible matching
         const normalizedPerson = normalizeForSearch(person);
@@ -70,7 +66,7 @@ export default function ClassesPage() {
           }
         }
       });
-      
+
       setSearchResults(personResults);
     } else {
       const classResults: { [classNum: string]: string[] } = {};
@@ -87,23 +83,22 @@ export default function ClassesPage() {
               const personData = (classesData as ClassesData)[person];
               return personData[semester] && personData[semester].some(c => c.toString().startsWith(classNum));
             });
-            
+
             if (peopleInSemester.length > 0) {
               classResults[classNum] = peopleInSemester;
             }
           }
         }
       });
-      
+
       setSearchResults(classResults);
     }
   };
-  
+
   return (
-    <AuthCheck>
-      <div className="container mx-auto py-10 px-4 min-h-screen bg-[#F1F5F9]">
+    <div className="container mx-auto py-10 pt-28 px-4 min-h-screen bg-[#F1F5F9]">
       <h1 className="text-4xl font-bold text-center mb-8 text-[#0D1433]">Phi Delt Class Search</h1>
-      
+
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md border border-gray-200">
         <div className="flex flex-col md:flex-row gap-4 mb-6">
           <div className="flex-1">
@@ -134,7 +129,7 @@ export default function ClassesPage() {
                 </label>
               </div>
             </div>
-            
+
             <div className="mb-4">
               <label htmlFor="searchTerm" className="block text-sm font-medium text-[#0D1433] mb-1">
                 {searchType === 'person' ? 'Person Name' : 'Class Number'}
@@ -153,7 +148,7 @@ export default function ClassesPage() {
               />
             </div>
           </div>
-          
+
           <div className="flex-1">
             <div className="mb-4">
               <label htmlFor="semester" className="block text-sm font-medium text-[#0D1433] mb-1">
@@ -172,7 +167,7 @@ export default function ClassesPage() {
                 ))}
               </select>
             </div>
-            
+
             <div className="mb-4 pt-4">
               <div className="text-sm text-[#619CC7] font-medium">
                 {searchType === 'person' ? 'Search for brothers by name' : 'Search for classes by number'}
@@ -180,14 +175,14 @@ export default function ClassesPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8">
           {Object.keys(searchResults).length > 0 ? (
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-[#0D1433]">
                 {searchType === 'person' ? 'Classes Taken' : 'Brothers Who Have Taken This Class'}
               </h2>
-              
+
               {searchType === 'person' ? (
                 <div className="space-y-6">
                   {Object.entries(searchResults).map(([person, semesters]) => (
@@ -196,7 +191,7 @@ export default function ClassesPage() {
                       {Object.entries(semesters as {[sem: string]: number[]}).map(([sem, classes]) => {
                         // Sort classes in numerical order
                         const sortedClasses = [...classes].sort((a, b) => a - b);
-                        
+
                         return (
                           <div key={sem} className="mb-3">
                             <div className="font-medium text-[#0D1433] mb-1">{sem}</div>
@@ -238,6 +233,5 @@ export default function ClassesPage() {
         </div>
       </div>
     </div>
-    </AuthCheck>
   );
 }

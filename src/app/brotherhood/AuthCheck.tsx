@@ -3,14 +3,19 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect } from "react";
 
-export default function AuthCheck({ children }: { children: React.ReactNode }) {
+export default function AuthCheck({ bypass, children }: { children: React.ReactNode, bypass?: boolean }) {
   const { data: session, status } = useSession();
 
   useEffect(() => {
+    if (bypass) return;
+
     if (status === "unauthenticated") {
       signIn("google");
     }
-  }, [status]);
+  }, [status, bypass]);
+
+  // Ignore all checks if bypass is true
+  if (bypass) return <>{children}</>;
 
   if (status === "loading") {
     return <div className="text-center py-10">Loading authentication...</div>;

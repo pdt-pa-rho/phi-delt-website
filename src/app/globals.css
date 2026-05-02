@@ -1,3 +1,4 @@
+@config "../../tailwind.config.ts";
 @import "tailwindcss";
 
 :root {
@@ -5,14 +6,14 @@
   --blue: #619CC7;
   --light-blue: #DBECF3;
   --white: #F1F5F9;
-  
+
   --background: var(--white);
   --foreground: var(--navy);
   --primary: var(--blue);
   --primary-dark: #4A85B0;
   --primary-light: var(--light-blue);
   --accent: var(--navy);
-  
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist);
@@ -53,4 +54,39 @@ body {
 
 .fire-border-glow {
   animation: fireBorderFlicker 1.6s ease-in-out infinite;
+}
+
+.glass-card {
+  @apply bg-card/80 backdrop-blur-md border border-white/10;
+}
+
+.neon-border {
+  @apply relative;
+}
+
+.neon-border::after {
+  content: "";
+  @apply absolute inset-0 rounded-lg;
+  background: linear-gradient(45deg, #9b87f5, #1eaedb, #ff719a);
+  filter: blur(5px);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 bg-clip-text text-transparent animate-shine;
+  background-size: 200% auto;
+}
+
+.animated-link {
+  @apply relative text-white/80 hover:text-white transition-colors;
+}
+
+.animated-link::after {
+  content: "";
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300;
+}
+
+.animated-link:hover::after {
+  @apply w-full;
 }

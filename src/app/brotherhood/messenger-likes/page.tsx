@@ -1,6 +1,5 @@
 import { readFile } from "fs/promises";
 import path from "path";
-import AuthGate from "../AuthGate";
 import MessengerLikesDashboard, { WrappedRow } from "./MessengerLikesDashboard";
 
 async function loadWrappedData(): Promise<WrappedRow[]> {
@@ -34,8 +33,6 @@ export default async function MessengerLikesPage() {
   const wrappedData = await loadWrappedData();
 
   return (
-    <AuthGate>
-      <MessengerLikesDashboard wrappedData={wrappedData} />
-    </AuthGate>
+    <MessengerLikesDashboard wrappedData={wrappedData} />
   );
 }
