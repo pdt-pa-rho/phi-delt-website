@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import SessionProviderWrapper from "@/app/SessionProviderWrapper";
 import { geist, geistMono } from "./fonts";
+import SWRConfigProvider from "@/components/SWRConfigProvider";
+
 import "./globals.css";
+
 
 export const metadata: Metadata = {
   title: "Phi Delta Theta | Carnegie Mellon University",
@@ -18,8 +21,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
         <SessionProviderWrapper>
-          <NavBar />
-          {children}
+          <SWRConfigProvider>
+            <NavBar />
+            {children}
+          </SWRConfigProvider>
         </SessionProviderWrapper>
       </body>
     </html>
