@@ -14,3 +14,6 @@ export async function GET(request) {
     );
   }
 }
+
+export const dynamic = "force-static";
+export const revalidate = 60

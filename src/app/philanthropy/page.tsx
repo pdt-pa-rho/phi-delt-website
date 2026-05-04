@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import FundraisingProgress from './FundraisingProgress';
 
 export default function PhilanthropyPage() {
-  const raised = 236;
-  const goal   = 10000;
-  const pct    = Math.min((raised / goal) * 100, 100);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-[var(--navy)]">
       <div className="max-w-5xl w-full">
@@ -13,7 +11,7 @@ export default function PhilanthropyPage() {
         <div className="mb-16 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[var(--white)]">Our Philanthropy</h1>
           <p className="text-xl text-[var(--white)]/80 max-w-3xl mx-auto">
-            Phi Delta Theta is committed to making a difference in our community through 
+            Phi Delta Theta is committed to making a difference in our community through
             service and philanthropy, with a special focus on the fight against ALS.
           </p>
         </div>
@@ -22,29 +20,7 @@ export default function PhilanthropyPage() {
           <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">
             Fundraising Progress
           </h2>
-          <div className="relative flex-1">
-            {/* track (thicker) */}
-            <div className="w-full bg-[var(--white)] bg-opacity-20 rounded-full h-12" />
-
-            {/* fill + raised text */}
-            <div
-              className="absolute top-0 left-0 bg-[var(--blue)] h-12 rounded-full flex items-center px-4"
-              style={{ width: `${pct}%` }}
-            >
-              {raised > 0 && (
-                <span className="text-xl md:text-2xl font-semibold drop-shadow-md text-[var(--white)]">
-                  ${raised.toLocaleString()}
-                </span>
-              )}
-            </div>
-
-            {/* goal text at right inside bar */}
-            <div className="absolute top-0 right-0 h-12 flex items-center pr-4 pointer-events-none">
-              <span className="text-xl md:text-2xl font-semibold drop-shadow-md text-[var(--blue)]">
-                Goal: ${goal.toLocaleString()}
-              </span>
-            </div>
-          </div>
+          <FundraisingProgress />
         </section>
 
         {/* LiveLikeLou Section */}
@@ -53,16 +29,16 @@ export default function PhilanthropyPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">LiveLikeLou Foundation</h2>
               <p className="mb-4 text-[var(--white)]">
-                Phi Delta Theta&apos;s national philanthropy honors Brother Lou Gehrig (Columbia University), 
-                who died of Amyotrophic Lateral Sclerosis (ALS) in 1941. The LiveLikeLou Foundation was 
+                Phi Delta Theta&apos;s national philanthropy honors Brother Lou Gehrig (Columbia University),
+                who died of Amyotrophic Lateral Sclerosis (ALS) in 1941. The LiveLikeLou Foundation was
                 established to support ALS research and families affected by this devastating disease.
               </p>
               <p className="mb-4 text-[var(--white)]">
-                Our chapter actively supports this cause through various fundraising events and awareness 
+                Our chapter actively supports this cause through various fundraising events and awareness
                 campaigns throughout the academic year.
               </p>
-              <Link 
-                href="https://www.livelikelou.org/" 
+              <Link
+                href="https://www.livelikelou.org/"
                 target="_blank"
                 className="inline-block bg-[var(--blue)] text-[var(--white)] px-6 py-3 rounded-md font-medium hover:bg-[var(--blue)]/80 transition-colors mt-4"
               >
@@ -124,11 +100,11 @@ export default function PhilanthropyPage() {
         <section className="text-center bg-[var(--blue)] p-8 rounded-lg">
           <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">Get Involved</h2>
           <p className="mb-6 max-w-2xl mx-auto text-[var(--white)]">
-            Want to support our philanthropic efforts? Whether you&apos;re a student, alumni, or community member, 
+            Want to support our philanthropic efforts? Whether you&apos;re a student, alumni, or community member,
             there are many ways to get involved and make a difference.
           </p>
-          <Link 
-            href="mailto:phideltathetaparho@gmail.com" 
+          <Link
+            href="mailto:phideltathetaparho@gmail.com"
             className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
           >
             Contact Us

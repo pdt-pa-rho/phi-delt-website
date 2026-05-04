@@ -1,4 +1,4 @@
-import { getRushEvents } from "@/helpers/rush";
+import { getRushEvents } from "@/helpers/rushData";
 
 export async function GET() {
   try {
@@ -12,3 +12,6 @@ export async function GET() {
     );
   }
 }
+
+export const dynamic = "force-static";
+export const revalidate = 60;
