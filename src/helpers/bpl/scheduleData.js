@@ -1,15 +1,18 @@
 // scheduleData.js
 import { calendar } from "@/lib/google";
+import { getWebsiteConfig } from "@/helpers/config";
 import dayjs from 'dayjs';
 
-export const getScheduleData = async () => {
+export const getScheduleData = async (weekOffset) => {
   try {
+    const config = await getWebsiteConfig();
+
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const currentDate = new Date();
 
     // Get date for Sunday (start of the week)
     const startDate = new Date(currentDate);
-    startDate.setDate(currentDate.getDate() - currentDate.getDay());
+    startDate.setDate(currentDate.getDate() - currentDate.getDay() + weekOffset * 7);
     startDate.setHours(0, 0, 0, 0);
 
     // Get date for Saturday (end of the week)
@@ -23,7 +26,7 @@ export const getScheduleData = async () => {
 
     // Fetch events from Google Calendar
     const response = await calendar.events.list({
-      calendarId: process.env.BPL_CALENDAR_ID,
+      calendarId: config.BPL_CALENDAR_ID,
       timeMin,
       timeMax,
       singleEvents: true,
@@ -38,7 +41,8 @@ export const getScheduleData = async () => {
       date.setDate(startDate.getDate() + i);
 
       return {
-        date: date.toISOString().split('T')[0], // Format as YYYY-MM-DD
+        date,
+        dateString: date.toISOString().split('T')[0], // Format as YYYY-MM-DD
         day: weekDays[i],
         dayNumber: date.getDate(),
         matches: [] // Will be populated with events
@@ -84,18 +88,18 @@ export const getScheduleData = async () => {
   } catch (error) {
     console.error('Error fetching calendar data:', error);
     // Return a fallback week structure with no matches
-    return createFallbackWeek();
+    return createFallbackWeek(weekOffset);
   }
 };
 
 // Helper function to create a fallback week structure if API call fails
-const createFallbackWeek = () => {
+const createFallbackWeek = (weekOffset) => {
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const currentDate = new Date();
 
   return Array.from({ length: 7 }, (_, i) => {
     const date = new Date(currentDate);
-    date.setDate(currentDate.getDate() - currentDate.getDay() + i);
+    date.setDate(currentDate.getDate() - currentDate.getDay() + i + weekOffset * 7);
 
     return {
       date: date.toISOString().split('T')[0],

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import useSWR from "swr";
 import { Team } from "./TopTeams";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const RecentResults = () => {
   const {
@@ -12,8 +13,7 @@ const RecentResults = () => {
   } = useSWR("/api/bpl/home/recent-results");
 
   return (
-    <div className="glass-card p-6 rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Recent Results</h2>
+    <div className="glass-card p-6 rounded-lg lg:h-full lg:min-h-0 lg:flex lg:flex-col lg:overflow-hidden">      <h2 className="text-2xl font-semibold mb-4">Recent Results</h2>
 
       {isLoading && <LoadingSpinner />}
 
@@ -24,11 +24,10 @@ const RecentResults = () => {
       )}
 
       {recentResults && !isLoading && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
-          {recentResults.map((result: {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 lg:flex-1 lg:min-h-0 lg:overflow-y-auto pr-1">          {recentResults.map((result: {
             id: string,
             score: string,
-            differential: number
+            cupDiff: number
             team1: Team & { result: "W" | "L" },
             team2: Team & { result: "W" | "L" }
           }) => (
@@ -42,7 +41,7 @@ const RecentResults = () => {
                 <span className="flex items-center">
                   <span className="text-sm text-primary">{result.score}</span>
                   <span className="text-sm text-gray-400 ml-2">
-                    {result.differential}
+                    {result.cupDiff}
                   </span>
                 </span>
               </div>
@@ -51,7 +50,7 @@ const RecentResults = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: result.team1.strictName },
+                    query: { team: result.team1.name },
                   }}
                   className="flex justify-between items-center hover:text-white/80 transition-colors"
                 >
@@ -70,7 +69,7 @@ const RecentResults = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: result.team2.strictName },
+                    query: { team: result.team2.name },
                   }}
                   className="flex justify-between items-center hover:text-white/80 transition-colors"
                 >
@@ -93,18 +92,5 @@ const RecentResults = () => {
     </div>
   );
 };
-
-function LoadingSpinner() {
-  return (
-    <div className="text-center py-8">
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
-        role="status"
-      >
-        <span className="sr-only">Loading...</span>
-      </div>
-    </div>
-  );
-}
 
 export default RecentResults;

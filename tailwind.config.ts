@@ -53,10 +53,6 @@ export default {
           foreground: "#ffffff",
         },
       },
-      fontFamily: {
-        serif: ['Financier', 'serif'],
-        sans: ['Sohne', 'sans-serif'],
-      },
       borderRadius: {
         lg: "12px",
         md: "8px",

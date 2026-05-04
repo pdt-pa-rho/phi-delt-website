@@ -3,6 +3,7 @@
 import Link from "next/link";
 import useSWR from "swr";
 import { Team } from "./TopTeams";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const Matchups = () => {
   const {
@@ -38,7 +39,7 @@ const Matchups = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: match.team1.strictName },
+                    query: { team: match.team1.name },
                   }}
                   className="flex items-center justify-end gap-3 hover:text-white/80 transition-colors"
                 >
@@ -67,7 +68,7 @@ const Matchups = () => {
                 <Link
                   href={{
                     pathname: "/brotherhood/bpl/teams",
-                    query: { team: match.team2.strictName },
+                    query: { team: match.team2.name },
                   }}
                   className="flex items-center justify-start gap-3 hover:text-white/80 transition-colors"
                 >
@@ -89,18 +90,5 @@ const Matchups = () => {
     </div>
   );
 };
-
-function LoadingSpinner() {
-  return (
-    <div className="text-center py-8">
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em]"
-        role="status"
-      >
-        <span className="sr-only">Loading...</span>
-      </div>
-    </div>
-  );
-}
 
 export default Matchups;

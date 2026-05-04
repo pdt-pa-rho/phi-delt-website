@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import useSWR from "swr";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export type Team = {
   id: string,
@@ -11,7 +12,7 @@ export type Team = {
   rank: number,
   wins: number,
   losses: number,
-  differential: number
+  cupDiff: number
 };
 
 export default function TopTeams() {
@@ -25,7 +26,7 @@ export default function TopTeams() {
     <div className="glass-card p-6 rounded-lg animate-float">
       <h2 className="text-2xl font-semibold mb-4 gradient-text">Top Teams</h2>
 
-      {isLoading && <p className="text-center py-8">Loading...</p>}
+      {isLoading && <LoadingSpinner />}
 
       {error && (
         <div className="text-center py-4 text-red-500">
@@ -40,7 +41,7 @@ export default function TopTeams() {
               key={team.id}
               href={{
                 pathname: "/brotherhood/bpl/teams",
-                query: { team: team.strictName },
+                query: { team: team.name },
               }}
               className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg hover:text-white/80 transition-colors"
             >
@@ -57,8 +58,8 @@ export default function TopTeams() {
                 </div>
 
                 <div className="text-gray-400 md:ml-2">
-                  {team.differential > 0 ? "+" : ""}
-                  {team.differential}
+                  {team.cupDiff > 0 ? "+" : ""}
+                  {team.cupDiff}
                 </div>
               </div>
             </Link>

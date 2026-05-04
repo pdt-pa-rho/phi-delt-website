@@ -1,33 +1,6 @@
-import React from 'react';
-// import Image from 'next/image';
-// import Link from 'next/link';
+import RushEvents from "./RushEvents";
 
 export default function RushPage() {
-  // Sample rush events - update with actual dates and events
-  const rushEvents = [
-    { 
-      date: "January 20, 2025", 
-      time: "3:00 PM - 5:00 PM", 
-      title: "Pancakes and Phis", 
-      location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Join us for pancakes and meet the brothers of Phi Delta Theta."
-    },
-    { 
-      date: "January 21, 2025", 
-      time: "6:00 PM - 8:00 PM", 
-      title: "Wing Night", 
-      location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Join us as we showcase our chef's culinary talents."
-    },
-    { 
-      date: "January 22, 2025", 
-      time: "6:00 PM - 8:00 PM", 
-      title: "Monte Carlo Night", 
-      location: "Phi Delta Theta House, 1055 Morewood Avenue",
-      description: "Come play some casino games and win prizes while meeting the brothers."
-    }
-  ];
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-[var(--navy)]">
       <div className="max-w-5xl w-full">
@@ -67,18 +40,7 @@ export default function RushPage() {
         {/* Rush Events Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Spring 2025 Rush Events</h2>
-          <div className="space-y-4">
-            {rushEvents.map((event, index) => (
-              <div key={index} className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                  <h3 className="text-xl font-semibold text-[var(--navy)]">{event.title}</h3>
-                  <div className="text-[var(--blue)] font-medium">{event.date} • {event.time}</div>
-                </div>
-                <p className="text-[var(--navy)]/80 mb-2">{event.description}</p>
-                <p className="text-[var(--navy)] font-medium">{event.location}</p>
-              </div>
-            ))}
-          </div>
+          <RushEvents />
         </section>
 
         {/* Rush Process Section */}
@@ -123,16 +85,16 @@ export default function RushPage() {
             <div>
               <h3 className="text-xl font-semibold mb-2 text-[var(--white)]">What is the time commitment?</h3>
               <p className="text-[var(--white)]/80">
-                We understand that academics come first. Our weekly time commitment includes a chapter meeting (2 hours), 
-                occasional study hours, and social/philanthropy events. We work with each brother&apos;s schedule to ensure a balance 
+                We understand that academics come first. Our weekly time commitment includes a chapter meeting (2 hours),
+                occasional study hours, and social/philanthropy events. We work with each brother&apos;s schedule to ensure a balance
                 between fraternity involvement and academic success.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold mb-2 text-[var(--white)]">What are the costs associated with membership?</h3>
               <p className="text-[var(--white)]/80">
-                Membership dues help cover chapter operations, social events, and national fees. We offer payment plans and 
-                scholarships to ensure that finances are not a barrier to joining. Specific cost information will be provided 
+                Membership dues help cover chapter operations, social events, and national fees. We offer payment plans and
+                scholarships to ensure that finances are not a barrier to joining. Specific cost information will be provided
                 during the rush process.
               </p>
             </div>
@@ -146,8 +108,8 @@ export default function RushPage() {
             Have questions or want to learn more about rushing Phi Delta Theta? Reach out to our Recruitment Chair!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="mailto:phideltathetaparho@gmail.com" 
+            <a
+              href="mailto:phideltathetaparho@gmail.com"
               className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
             >
               Contact Us

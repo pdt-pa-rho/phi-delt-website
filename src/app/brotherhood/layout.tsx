@@ -1,7 +1,6 @@
 "use client";
 
 import AuthCheck from "./AuthCheck";
-import { SWRConfig } from "swr";
 
 // All pages within brotherhoood are auth gated
 
@@ -10,16 +9,10 @@ export default function BrotherhoodLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // For debugging, just add the `bypass` flag to disable the auth check
   return (
-    <SWRConfig
-      value={{
-        fetcher: (resource, init) => fetch(resource, init).then(res => res.json())
-      }}
-    >
-      {/* For debugging, just add the `bypass` flag to disable the auth check */}
       <AuthCheck>
         {children}
       </AuthCheck>
-    </SWRConfig>
   );
 }

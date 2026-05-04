@@ -18,3 +18,6 @@ export async function GET(request, { params }) {
     );
   }
 }
+
+export const dynamic = "force-static";
+export const revalidate = 60
