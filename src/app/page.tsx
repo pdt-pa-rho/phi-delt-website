@@ -14,12 +14,12 @@ export default function Home() {
             src="/chapter_pic.jpg"
             alt="CMU Phi Delta Theta"
             fill
-            className="object-cover brightness-50"
+            className="object-cover brightness-60"
           />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-[var(--white)] px-4 max-w-4xl">
+        <div className="relative z-10 text-center text-[var(--white)] px-4 max-w-4xl drop-shadow-md">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Phi Delta Theta</h1>
           <h2 className="text-2xl md:text-3xl mb-8">Pennsylvania Rho Chapter • Carnegie Mellon University</h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">

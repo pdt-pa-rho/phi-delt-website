@@ -1,5 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
-import { isAllowedAndrewID } from "@/helpers/auth/andrewIDs";
+import { isAllowedAndrewID } from "@/helpers/auth/access";
 
 
 export const authOptions = {

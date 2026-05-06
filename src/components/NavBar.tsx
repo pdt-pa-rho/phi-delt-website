@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
+import clsx from "clsx";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,21 +38,29 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[var(--background)]/50 backdrop-blur-sm shadow-sm"
-          : "bg-none"
-      }`}
+      className={clsx(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        {
+          "bg-[var(--background)]/50": isScrolled && !isMenuOpen,
+          "bg-[var(--background)]/75": isMenuOpen,
+          "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
+          "bg-none": !(isScrolled || isMenuOpen)
+        }
+      )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and brand name */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="w-10 h-10 bg-[var(--blue)] rounded-full flex items-center justify-center text-[var(--white)] mr-2">
-                <span className="font-bold">ΦΔΘ</span>
-              </div>
-              <span className="text-foreground font-semibold text-lg">
+              <Image
+                src="/sword_and_shield.webp"
+                alt="Phi Delta Theta Crest"
+                width={32}
+                height={32}
+                className="rounded-full inline mr-3 drop-shadow-sm"
+              />
+              <span className="text-foreground font-semibold text-lg drop-shadow-sm">
                 Carnegie Mellon Phi Delta Theta
               </span>
             </Link>
@@ -61,39 +70,39 @@ const NavBar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
             >
               About
             </Link>
             <Link
               href="/philanthropy"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
             >
               Philanthropy
             </Link>
             <Link
               href="/rush"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
             >
               Rush
             </Link>
             {session && (
               <Link
                 href="/brotherhood"
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+                className="animated-underline blue-shine drop-shadow-sm"
                 onClick={closeMenu}
               >
                 Brotherhood Hub
               </Link>
             )}
             {/* Auth buttons */}
-            <div className="flex items-center gap-4 ml-4">
+            <div className="flex items-center gap-4 ml-4 drop-shadow-sm">
               {status === "loading" ? (
                 <span className="text-sm text-gray-500">Loading...</span>
               ) : session ? (
@@ -128,7 +137,7 @@ const NavBar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-[var(--light-blue)]/20 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-[var(--light-blue)]/20 focus:outline-none drop-shadow-sm"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -171,9 +180,7 @@ const NavBar = () => {
 
       {/* Mobile menu, show/hide based on menu state */}
       <div
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } md:hidden bg-[var(--white)] shadow-lg`}
+        className={clsx("md:hidden", { "block": isMenuOpen, "hidden": !isMenuOpen })}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link
@@ -207,7 +214,7 @@ const NavBar = () => {
           {session && (
             <Link
               href="/brotherhood"
-              className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
+              className="block px-3 py-2 rounded-md text-base font-medium blue-shine"
               onClick={closeMenu}
             >
                Brotherhood Hub

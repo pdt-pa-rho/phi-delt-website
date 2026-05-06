@@ -78,19 +78,24 @@ body {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 bg-clip-text text-transparent animate-shine;
+  @apply bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 bg-clip-text text-transparent animate-gradient;
   background-size: 200% auto;
 }
 
-.animated-link {
-  @apply relative text-white/80 hover:text-white transition-colors;
+.blue-shine {
+  @apply bg-[linear-gradient(45deg,var(--foreground)_40%,var(--blue)_50%,var(--foreground)_60%,var(--foreground)_100%)] bg-size-[250%_250%,100%_100%] bg-no-repeat bg-clip-text text-transparent animate-shine;
+  background-size: 250% auto;
 }
 
-.animated-link::after {
+.animated-underline {
+  @apply relative;
+}
+
+.animated-underline::after {
   content: "";
-  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-[var(--foreground)] transition-all duration-300;
 }
 
-.animated-link:hover::after {
+.animated-underline:hover::after {
   @apply w-full;
 }
