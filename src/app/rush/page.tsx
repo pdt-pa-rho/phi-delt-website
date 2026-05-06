@@ -6,7 +6,7 @@ export default function RushPage() {
     <SvgTiltBackground
       svgUrl="/svg/PDT_Swords.svg"
       className="min-h-screen bg-[var(--navy)]"
-      svgClassName="text-[var(--light-blue)]/15 opacity-50 drop-shadow-md drop-shadow-black"
+      svgClassName="text-[var(--light-blue)]/15 !opacity-50 drop-shadow-md drop-shadow-black"
     >
       <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 pt-28">
         <div className="max-w-5xl w-full">

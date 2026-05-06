@@ -47,7 +47,7 @@ export default function Home() {
       <SvgTiltBackground
         svgUrl="/svg/PDT_Greek_Letters.svg"
         className="bg-[var(--white)] dark:bg-[var(--navy)]"
-        svgClassName="hidden md:block text-[var(--light-blue)]/15 opacity-10 drop-shadow-md drop-shadow-white !-top-50"
+        svgClassName="hidden md:block text-[var(--light-blue)]/15 !opacity-10 drop-shadow-md drop-shadow-white !-top-50"
         scale={0.8}
       >
       <section className="py-20 px-4">
