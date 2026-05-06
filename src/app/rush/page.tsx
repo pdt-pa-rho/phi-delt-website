@@ -44,10 +44,7 @@ export default function RushPage() {
           </section>
 
           {/* Rush Events Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Spring 2025 Rush Events</h2>
-            <RushEvents />
-          </section>
+          <RushEvents />
 
           {/* Rush Process Section */}
           <section className="mb-16">
