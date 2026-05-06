@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import SvgTiltBackground from "@/components/SVGTiltBackground";
+import { ChevronRight } from "lucide-react";
+
 
 const brotherLinks = [
   {
@@ -40,12 +42,6 @@ export default function BrotherhoodHubPage() {
               {session?.user ? `Welcome ${session.user.name}! ` : ""}
               Access internal tools and chapter resources from one secure place.
             </p>
-            <button
-              onClick={() => signOut({ callbackUrl: "/" })}
-              className="mt-3 bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
-            >
-              Sign out
-            </button>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -58,10 +54,8 @@ export default function BrotherhoodHubPage() {
                 <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
                 <p className="mt-2 text-sm text-[#DBECF3]">{item.description}</p>
                 <span className="mt-6 inline-flex items-center text-sm font-medium text-[#8BC0E6] transition-colors group-hover:text-white">
-                  Open page
-                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                    {"->"}
-                  </span>
+                  Open
+                  <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </Link>
             ))}

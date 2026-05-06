@@ -9,7 +9,7 @@ export default function PhilanthropyPage() {
     <SvgTiltBackground
       svgUrl="/svg/PDT_Stars.svg"
       className="min-h-screen bg-[var(--navy)]"
-      svgClassName="text-[var(--light-blue)]/15 opacity-20 md:opacity-50 drop-shadow-md drop-shadow-white"
+      svgClassName="text-[var(--light-blue)]/15 opacity-15 md:opacity-50 drop-shadow-md drop-shadow-white"
       fullPage
     >
       <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 pt-28">

@@ -36,7 +36,7 @@ const RecentResults = () => {
               className="bg-secondary/50 p-4 rounded-lg hover:bg-secondary/100 transition-colors cursor-pointer"
             >
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-gray-400">Final</span>
+                <span className="text-sm text-gray-400">Score</span>
 
                 <span className="flex items-center">
                   <span className="text-sm text-primary">{result.score}</span>
