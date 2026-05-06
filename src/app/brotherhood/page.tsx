@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import SvgTiltBackground from "@/components/SVGTiltBackground";
 
 const brotherLinks = [
   {
@@ -25,41 +26,48 @@ export default function BrotherhoodHubPage() {
   const { data: session } = useSession();
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#0D1433] via-[#14244E] to-[#0D1433] px-4 pb-16 pt-28">
-      <section className="mx-auto max-w-5xl">
-        <div className="mb-10 text-center">
-          <h1 className="text-4xl font-bold text-white md:text-5xl">Brotherhood Hub</h1>
-          <p className="mx-auto mt-3 max-w-2xl text-[#DBECF3]">
-            {session?.user ? `Welcome ${session.user.name}! ` : ""}
-            Access internal tools and chapter resources from one secure place.
-          </p>
-          <button
-            onClick={() => signOut({ callbackUrl: "/" })}
-            className="mt-3 bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
-          >
-            Sign out
-          </button>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {brotherLinks.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group rounded-2xl border border-[#619CC7]/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#619CC7] hover:bg-white/20"
+    <SvgTiltBackground
+      svgUrl="/svg/PDT_Swords.svg"
+      className="min-h-screen bg-gradient-to-b from-[#0D1433] via-[#14244E] to-[#0D1433]"
+      svgClassName="text-[var(--light-blue)]/15 drop-shadow-md drop-shadow-black"
+      fullPage
+    >
+      <main className="min-h-screen px-4 pb-16 pt-28">
+        <section className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center">
+            <h1 className="text-4xl font-bold text-white md:text-5xl blue-shine">Brotherhood Hub</h1>
+            <p className="mx-auto mt-3 max-w-2xl text-[#DBECF3]">
+              {session?.user ? `Welcome ${session.user.name}! ` : ""}
+              Access internal tools and chapter resources from one secure place.
+            </p>
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="mt-3 bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
             >
-              <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
-              <p className="mt-2 text-sm text-[#DBECF3]">{item.description}</p>
-              <span className="mt-6 inline-flex items-center text-sm font-medium text-[#8BC0E6] transition-colors group-hover:text-white">
-                Open page
-                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                  {"->"}
+              Sign out
+            </button>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {brotherLinks.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group rounded-2xl border border-[#619CC7]/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#619CC7] hover:bg-white/20"
+              >
+                <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
+                <p className="mt-2 text-sm text-[#DBECF3]">{item.description}</p>
+                <span className="mt-6 inline-flex items-center text-sm font-medium text-[#8BC0E6] transition-colors group-hover:text-white">
+                  Open page
+                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                    {"->"}
+                  </span>
                 </span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </main>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
+    </SvgTiltBackground>
   );
 }

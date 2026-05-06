@@ -2,103 +2,110 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Exec from './Exec';
+import SvgTiltBackground from '@/components/SVGTiltBackground';
 
 export default function AboutPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-[var(--navy)]">
-      <div className="max-w-5xl w-full">
-        {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[var(--white)]">About Phi Delta Theta</h1>
-          <p className="text-xl text-[var(--white)]/80 max-w-3xl mx-auto">
-            Established on principles of friendship, sound learning, and moral rectitude,
-            we strive to cultivate excellence in our members and community.
-          </p>
-        </div>
-
-        {/* Mission and Values Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our Mission & Values</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Friendship</h3>
-              <p className="text-[var(--navy)]">
-                We foster lifelong bonds among brothers through shared experiences,
-                mutual support, and a commitment to each other&apos;s growth and well-being.
-              </p>
-            </div>
-            <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Sound Learning</h3>
-              <p className="text-[var(--navy)]">
-                We promote academic excellence and intellectual growth, encouraging
-                brothers to pursue knowledge and develop skills for future success.
-              </p>
-            </div>
-            <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Moral Rectitude</h3>
-              <p className="text-[var(--navy)]">
-                We uphold the highest standards of integrity and ethical conduct,
-                guiding brothers to make principled decisions in all aspects of life.
-              </p>
-            </div>
+    <SvgTiltBackground
+      svgUrl="/svg/PDT_Greek_Stacked_1C.svg"
+      className="min-h-screen bg-[var(--navy)]"
+      svgClassName="text-[var(--light-blue)]/15 opacity-50 drop-shadow-md drop-shadow-black"
+    >
+      <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 pt-28">
+        <div className="max-w-5xl w-full">
+          {/* Hero Section */}
+          <div className="mb-16 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[var(--white)]">About Phi Delta Theta</h1>
+            <p className="text-xl text-[var(--white)]/80 max-w-3xl mx-auto">
+              Established on principles of friendship, sound learning, and moral rectitude,
+              we strive to cultivate excellence in our members and community.
+            </p>
           </div>
-        </section>
 
-        {/* History Section */}
-        <section className="mb-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our History</h2>
-              <p className="mb-4 text-[var(--white)]">
-                Founded on December 26, 1848, at Miami University in Oxford, Ohio,
-                Phi Delta Theta was established by six visionary men who sought to create
-                a brotherhood based on friendship, sound learning, and moral rectitude.
-              </p>
-              <p className="mb-4 text-[var(--white)]">
-                Our chapter, Pennsylvania Rho, was chartered on October 15, 2013 and has since
-                maintained a strong presence on campus, contributing to both university life
-                and the broader community.
-              </p>
-              <p className="text-[var(--white)]">
-                Through the decades, we have upheld our founding principles while adapting
-                to the changing landscape of higher education and society.
-              </p>
-            </div>
-            <div className="relative h-80 w-full">
-              {/* Replace with your chapter house or historical image */}
-              <div id="house" className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg relative">
-                <Image
-                  src="/house.jpg"
-                  alt="Chapter House"
-                  fill
-                  className="object-cover rounded-lg"
-                />
+          {/* Mission and Values Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our Mission & Values</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Friendship</h3>
+                <p className="text-[var(--navy)]">
+                  We foster lifelong bonds among brothers through shared experiences,
+                  mutual support, and a commitment to each other&apos;s growth and well-being.
+                </p>
+              </div>
+              <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Sound Learning</h3>
+                <p className="text-[var(--navy)]">
+                  We promote academic excellence and intellectual growth, encouraging
+                  brothers to pursue knowledge and develop skills for future success.
+                </p>
+              </div>
+              <div className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-3 text-[var(--navy)]">Moral Rectitude</h3>
+                <p className="text-[var(--navy)]">
+                  We uphold the highest standards of integrity and ethical conduct,
+                  guiding brothers to make principled decisions in all aspects of life.
+                </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Leadership Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Chapter Leadership</h2>
-          <Exec />
-        </section>
+          {/* History Section */}
+          <section className="mb-16">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Our History</h2>
+                <p className="mb-4 text-[var(--white)]">
+                  Founded on December 26, 1848, at Miami University in Oxford, Ohio,
+                  Phi Delta Theta was established by six visionary men who sought to create
+                  a brotherhood based on friendship, sound learning, and moral rectitude.
+                </p>
+                <p className="mb-4 text-[var(--white)]">
+                  Our chapter, Pennsylvania Rho, was chartered on October 15, 2013 and has since
+                  maintained a strong presence on campus, contributing to both university life
+                  and the broader community.
+                </p>
+                <p className="text-[var(--white)]">
+                  Through the decades, we have upheld our founding principles while adapting
+                  to the changing landscape of higher education and society.
+                </p>
+              </div>
+              <div className="relative h-80 w-full">
+                {/* Replace with your chapter house or historical image */}
+                <div id="house" className="bg-[var(--light-blue)] h-full w-full flex items-center justify-center rounded-lg relative">
+                  <Image
+                    src="/house.jpg"
+                    alt="Chapter House"
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
 
-        {/* Call to Action */}
-        <section className="text-center bg-[var(--blue)] p-8 rounded-lg">
-          <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">Join Our Brotherhood</h2>
-          <p className="mb-6 max-w-2xl mx-auto text-[var(--white)]">
-            Interested in becoming part of Phi Delta Theta? Learn more about our
-            recruitment process and how you can become a brother.
-          </p>
-          <Link
-            href="/rush"
-            className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
-          >
-            Learn About Recruitment
-          </Link>
-        </section>
-      </div>
-    </main>
+          {/* Leadership Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">Chapter Leadership</h2>
+            <Exec />
+          </section>
+
+          {/* Call to Action */}
+          <section className="text-center bg-[var(--blue)] p-8 rounded-lg">
+            <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">Join Our Brotherhood</h2>
+            <p className="mb-6 max-w-2xl mx-auto text-[var(--white)]">
+              Interested in becoming part of Phi Delta Theta? Learn more about our
+              recruitment process and how you can become a brother.
+            </p>
+            <Link
+              href="/rush"
+              className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
+            >
+              Learn About Recruitment
+            </Link>
+          </section>
+        </div>
+      </main>
+    </SvgTiltBackground>
   );
 }

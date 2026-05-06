@@ -58,9 +58,9 @@ const NavBar = () => {
                 alt="Phi Delta Theta Crest"
                 width={32}
                 height={32}
-                className="rounded-full inline mr-3 drop-shadow-sm"
+                className="rounded-full inline mr-3 drop-shadow-sm drop-shadow-black/50"
               />
-              <span className="text-foreground font-semibold text-lg drop-shadow-sm">
+              <span className="text-foreground font-semibold text-lg drop-shadow-sm drop-shadow-black/50">
                 Carnegie Mellon Phi Delta Theta
               </span>
             </Link>
@@ -70,39 +70,39 @@ const NavBar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
             >
               About
             </Link>
             <Link
               href="/philanthropy"
-              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
             >
               Philanthropy
             </Link>
             <Link
               href="/rush"
-              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
             >
               Rush
             </Link>
             {session && (
               <Link
                 href="/brotherhood"
-                className="animated-underline blue-shine drop-shadow-sm"
+                className="animated-underline blue-shine drop-shadow-sm drop-shadow-black/50"
                 onClick={closeMenu}
               >
                 Brotherhood Hub
               </Link>
             )}
             {/* Auth buttons */}
-            <div className="flex items-center gap-4 ml-4 drop-shadow-sm">
+            <div className="flex items-center gap-4 ml-4 drop-shadow-sm drop-shadow-black/50">
               {status === "loading" ? (
                 <span className="text-sm text-gray-500">Loading...</span>
               ) : session ? (
@@ -137,7 +137,7 @@ const NavBar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-[var(--light-blue)]/20 focus:outline-none drop-shadow-sm"
+              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-[var(--light-blue)]/20 focus:outline-none drop-shadow-sm drop-shadow-black/50"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>

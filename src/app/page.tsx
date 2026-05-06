@@ -1,5 +1,6 @@
 "use client";
 
+import SvgTiltBackground from "@/components/SVGTiltBackground";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,12 +15,12 @@ export default function Home() {
             src="/chapter_pic.jpg"
             alt="CMU Phi Delta Theta"
             fill
-            className="object-cover brightness-60"
+            className="object-cover brightness-65"
           />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-[var(--white)] px-4 max-w-4xl drop-shadow-md">
+        <div className="relative z-10 text-center text-[var(--white)] px-4 max-w-4xl drop-shadow-lg drop-shadow-black/50">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Phi Delta Theta</h1>
           <h2 className="text-2xl md:text-3xl mb-8">Pennsylvania Rho Chapter • Carnegie Mellon University</h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">
@@ -43,7 +44,13 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-[var(--white)] dark:bg-[var(--navy)]">
+      <SvgTiltBackground
+        svgUrl="/svg/PDT_Greek_Letters.svg"
+        className="bg-[var(--white)] dark:bg-[var(--navy)]"
+        svgClassName="hidden md:block text-[var(--light-blue)]/15 opacity-10 drop-shadow-md drop-shadow-white !-top-30"
+        scale={0.75}
+      >
+      <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
@@ -89,9 +96,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </SvgTiltBackground>
+
 
       {/* Chapter Highlights */}
-      <section className="py-20 px-4 bg-[var(--light-blue)] dark:bg-[var(--navy)]/80">
+      <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Chapter Highlights</h2>
@@ -147,6 +156,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Upcoming Events */}
       <section className="py-20 px-4 bg-[var(--white)] dark:bg-[var(--navy)]">
