@@ -1,9 +1,6 @@
-"use client";
-
 import AuthCheck from "./AuthCheck";
 
 // All pages within brotherhoood are auth gated
-
 export default function BrotherhoodLayout({
   children,
 }: Readonly<{
@@ -16,3 +13,11 @@ export default function BrotherhoodLayout({
       </AuthCheck>
   );
 }
+
+// Protected pages should not be indexed
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};

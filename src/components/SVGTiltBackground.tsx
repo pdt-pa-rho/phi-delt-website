@@ -119,7 +119,7 @@ export default function SvgTiltBackground({
         }
       >
         <div
-          className={clsx("absolute scale-100 top-0 left-0 right-0 h-screen md:scale-100 md:inset-0 mix-blend-screen", { "md:h-auto": fullPage })}
+          className={clsx("animate-fade-in absolute scale-100 top-0 left-0 right-0 h-screen md:scale-100 md:inset-0 mix-blend-screen", { "md:h-auto": fullPage })}
           style={{
             ...maskStyles,
             backgroundColor: "currentColor",
