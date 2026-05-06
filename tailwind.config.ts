@@ -80,9 +80,9 @@ export default {
           '15%': { backgroundPosition: '100% 0' },
           '100%': { backgroundPosition: '100% 0' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        fadeZoom: {
+          '0%': { opacity: '0', scale: '95%' },
+          '100%': { opacity: '1', scale: '100%' },
         },
       },
       animation: {
@@ -91,7 +91,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "gradient": "gradient 8s linear infinite",
         "shine": "shine 4s linear infinite",
-        "fade-in": "fadeIn 0.22s ease-in-out forwards"
+        "fade-zoom": "fadeZoom 0.22s ease-out forwards",
       },
     },
   },

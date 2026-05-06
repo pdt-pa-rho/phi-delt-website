@@ -12,6 +12,7 @@ type SvgTiltBackgroundProps = {
   scale?: number;
   maskSize?: string;
   fullPage?: boolean;
+  fadeIn?: boolean;
 
   glareColor?: string; // rgba-friendly: "255,255,255"
   glareOpacity?: number;
@@ -27,6 +28,7 @@ export default function SvgTiltBackground({
   scale = 1.08,
   maskSize = "100% 100%",
   fullPage=false,
+  fadeIn=true,
 
   glareColor = "255,255,255",
   glareOpacity = 0.22,
@@ -122,7 +124,7 @@ export default function SvgTiltBackground({
         }
       >
         <div
-          className={clsx("animate-fade-in absolute inset-0 mix-blend-screen")}
+          className={clsx("absolute inset-0 mix-blend-screen", { "animate-fade-zoom": fadeIn })}
           style={{
             ...maskStyles,
             backgroundColor: "currentColor",

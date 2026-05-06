@@ -33,6 +33,7 @@ export default function BrotherhoodHubPage() {
       className="min-h-screen bg-gradient-to-b from-[#0D1433] via-[#14244E] to-[#0D1433]"
       svgClassName="text-[var(--light-blue)]/15 drop-shadow-md drop-shadow-black"
       fullPage
+      fadeIn={false}
     >
       <main className="min-h-screen px-4 pb-16 pt-28">
         <section className="mx-auto max-w-5xl">
