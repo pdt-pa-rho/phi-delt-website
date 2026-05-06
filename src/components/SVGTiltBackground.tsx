@@ -66,6 +66,8 @@ export default function SvgTiltBackground({
     function handleMouseMove(e: MouseEvent) {
       if (window.matchMedia("(max-width: 767px)").matches) return;
 
+      console.log(e.clientY, window.innerHeight);
+
       const x = e.clientX / window.innerWidth - 0.5;
       const y = e.clientY / window.innerHeight - 0.5;
 
@@ -104,7 +106,8 @@ export default function SvgTiltBackground({
       <div
         ref={bgRef}
         className={clsx(
-          "pointer-events-none absolute inset-0 transition-transform duration-300 ease-out",
+          "pointer-events-none absolute md:inset-0 top-0 left-0 right-0 h-screen transition-transform duration-300 ease-out",
+          { "md:h-auto": fullPage },
           svgClassName
         )}
         style={
@@ -119,7 +122,7 @@ export default function SvgTiltBackground({
         }
       >
         <div
-          className={clsx("animate-fade-in absolute scale-100 top-0 left-0 right-0 h-screen md:scale-100 md:inset-0 mix-blend-screen", { "md:h-auto": fullPage })}
+          className={clsx("animate-fade-in absolute inset-0 mix-blend-screen")}
           style={{
             ...maskStyles,
             backgroundColor: "currentColor",
