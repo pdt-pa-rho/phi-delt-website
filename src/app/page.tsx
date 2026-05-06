@@ -11,11 +11,15 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
+          {/* I used chatgpt to get a version with a blue sky, but it also downscaled the image.
+            I blended it with the original so that the buildings and brothers aren't downscaled,
+            but it still looks kinda weird where the sky blends with the foreground. This version
+            is in "/chapter_pic_blue.webp" if you want to use it. */}
           <Image
-            src="/chapter_pic.jpg"
+            src="/chapter_pic_blue.webp"
             alt="CMU Phi Delta Theta"
             fill
-            className="object-cover brightness-65"
+            className="object-cover brightness-70"
           />
         </div>
 

@@ -9,7 +9,7 @@ export default function PhilanthropyPage() {
     <SvgTiltBackground
       svgUrl="/svg/PDT_Stars.svg"
       className="min-h-screen bg-[var(--navy)]"
-      svgClassName="text-[var(--light-blue)]/15 !opacity-10 md:opacity-50 drop-shadow-md drop-shadow-white"
+      svgClassName="text-[var(--light-blue)]/15 !opacity-25 md:!opacity-15 drop-shadow-md drop-shadow-white"
       maxTilt={2}
       glareOpacity={0.1}
       fullPage
