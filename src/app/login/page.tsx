@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import SvgTiltBackground from "@/components/SVGTiltBackground";
@@ -13,7 +13,7 @@ const errorMessages: Record<string, string> = {
   Configuration: "Authentication is not configured correctly.",
 };
 
-export default function LoginPage() {
+function LoginPageContent() {
   const { status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -64,5 +64,19 @@ export default function LoginPage() {
         </div>
       </main>
     </SvgTiltBackground>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center space-x-5 items-center h-screen text-center">
+          <LoadingSpinner size="sm" />
+        </div>
+      }
+    >
+      <LoginPageContent />
+    </Suspense>
   );
 }

@@ -124,9 +124,6 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
     (best, row) => (!best || row.messages > best.messages ? row : best),
     null,
   );
-  const efficiencyWinner = wrappedData
-    .filter((row) => row.messages >= 101)
-    .reduce<WrappedRow | null>((best, row) => (!best || row.likesPerMessage > best.likesPerMessage ? row : best), null);
   const consistencyWinner = wrappedData
     .filter((row) => row.messages >= 101)
     .reduce<WrappedRow | null>(

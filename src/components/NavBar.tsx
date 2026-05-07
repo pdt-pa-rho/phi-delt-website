@@ -3,10 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import clsx from "clsx";
 
 const NavBar = () => {
+  const pathname = usePathname();
+  const classRegistryNav = pathname.startsWith("/brotherhood/classes");
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -40,12 +44,17 @@ const NavBar = () => {
     <nav
       className={clsx(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        {
-          "bg-[var(--background)]/50": isScrolled && !isMenuOpen,
-          "bg-[var(--background)]/75": isMenuOpen,
-          "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
-          "bg-none": !(isScrolled || isMenuOpen)
-        }
+        classRegistryNav
+          ? clsx(
+              "bg-[var(--navy)] border-b border-white/10 text-[var(--white)]",
+              (isScrolled || isMenuOpen) && "shadow-md backdrop-blur-sm"
+            )
+          : {
+              "bg-[var(--background)]/50": isScrolled && !isMenuOpen,
+              "bg-[var(--background)]/75": isMenuOpen,
+              "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
+              "bg-none": !(isScrolled || isMenuOpen),
+            }
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +113,14 @@ const NavBar = () => {
             {/* Auth buttons */}
             <div className="flex items-center gap-4 ml-4 drop-shadow-sm drop-shadow-black/50">
               {status === "loading" ? (
-                <span className="text-sm text-gray-500">Loading...</span>
+                <span
+                  className={clsx(
+                    "text-sm",
+                    classRegistryNav ? "text-[var(--light-blue)]" : "text-gray-500"
+                  )}
+                >
+                  Loading...
+                </span>
               ) : session ? (
                 <>
                   <button
@@ -223,7 +239,14 @@ const NavBar = () => {
           {/* Auth buttons */}
           <div className="flex items-center gap-4 ml-4">
             {status === "loading" ? (
-              <span className="text-sm text-gray-500">Loading...</span>
+              <span
+                className={clsx(
+                  "text-sm",
+                  classRegistryNav ? "text-[var(--light-blue)]" : "text-gray-500"
+                )}
+              >
+                Loading...
+              </span>
             ) : session ? (
               <>
                 <button
