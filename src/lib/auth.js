@@ -1,5 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
-import { isAllowedAndrewID } from "@/helpers/auth/access";
+import { isAllowedEmail } from "@/helpers/auth/access";
 
 
 export const authOptions = {
@@ -9,17 +9,22 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+
+  pages: {
+    signIn: "/login",
+    error: "/login",
+  },
+
   callbacks: {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async signIn({ user, account, profile }) {
-      if (user?.email && await isAllowedAndrewID(user.email.split("@")[0])) {
+    async signIn({ user }) {
+      if (user?.email && await isAllowedEmail(user.email)) {
         return true;
       }
+
       return false;
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async session({ session, token, user }) {
-      // Expose email in session
+
+    async session({ session }) {
       return session;
     },
   },

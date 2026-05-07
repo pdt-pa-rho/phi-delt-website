@@ -1,28 +1,37 @@
 import { sheets } from "@/lib/google";
 
-export async function getAllowedAndrewIDs() {
+export async function getAllowedEmails() {
   const spreadsheetId = process.env.CONFIG_SHEET_ID;
 
   if (!spreadsheetId) {
     throw new Error("CONFIG_SHEET_ID is not set");
   }
 
-  const response = await sheets.spreadsheets.values.get({
+  const andrewIds = await sheets.spreadsheets.values.get({
     spreadsheetId,
-    range: "Access!A2:A",
+    range: "Access!A2:B",
   });
 
-  const rows = response.data.values ?? [];
+  const rows = andrewIds.data.values ?? [];
+
 
   return rows
-    .map((row) => row[0])
+    .flatMap((row) => {
+      const andrewId = row[0]?.trim();
+      const customEmail = row[1]?.trim();
+
+      return [
+        andrewId ? `${andrewId}@andrew.cmu.edu` : null,
+        customEmail || null,
+      ];
+    })
     .filter(Boolean)
-    .map((andrewID) => andrewID.trim().toLowerCase());
+    .map((email) => email.toLowerCase());
 }
 
-export async function isAllowedAndrewID(andrewID) {
+export async function isAllowedEmail(andrewID) {
   if (!andrewID) return false;
 
-  const allowedEmails = await getAllowedAndrewIDs();
+  const allowedEmails = await getAllowedEmails();
   return allowedEmails.includes(andrewID.trim().toLowerCase());
 }
