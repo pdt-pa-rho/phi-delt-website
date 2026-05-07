@@ -85,9 +85,9 @@ body {
   content: "";
   @apply absolute inset-0 rounded-lg;
   background: linear-gradient(45deg, #9b87f5, #1eaedb, #ff719a);
-  filter: blur(15px);
+  filter: blur(20px);
   z-index: -1;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .gradient-text {

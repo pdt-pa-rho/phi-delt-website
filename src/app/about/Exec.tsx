@@ -6,7 +6,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
-type ExecPosition = {
+export type ExecPosition = {
   role: string;
   name: string;
   picture?: string;

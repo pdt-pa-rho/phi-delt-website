@@ -1,7 +1,9 @@
 "use client";
 
+import { ExecPosition } from "@/app/about/Exec";
 import clsx from "clsx";
 import { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import useSWR from "swr";
 
 export type FamNode = {
   name: string;
@@ -59,6 +61,8 @@ export default function FamilyTree({
   highlightName?: string;
   scrollContainerRef: RefObject<HTMLDivElement | null>
 }) {
+  const { data: exec } = useSWR("/api/exec");
+
   const layout = useMemo(() => layoutTree(root), [root]);
 
   const highlightRef = useRef<HTMLDivElement | null>(null);
@@ -78,6 +82,10 @@ export default function FamilyTree({
     const fromIndex = pathNames.indexOf(line.fromBig);
     return fromIndex !== -1 && pathNames[fromIndex + 1] === line.toLittle
   }, [pathNames])
+
+  const isExec = useCallback((name: string) => {
+    return exec && exec.some((position: ExecPosition) => position.name == name);
+  }, [exec])
 
   useEffect(() => {
     const target = highlightRef.current ?? rootRef.current;
@@ -128,22 +136,24 @@ export default function FamilyTree({
             key={`${node.name}-${x}-${y}`}
             ref={highlighted ? highlightRef : isRoot ? rootRef : null}
             className={clsx(
-              "absolute flex items-center justify-center rounded-xl border px-3 text-center text-sm shadow-lg transition",
+              "absolute flex flex-col items-center justify-center rounded-xl border px-3 text-center text-sm shadow-lg transition bg-secondary/100",
               highlighted
-                ? "border-[var(--blue)] bg-[var(--blue)]/20 text-white shadow-[0_0_24px_var(--blue)] neon-border-lg bg-secondary/100"
+                ? "border-[var(--blue)] text-white neon-border-lg"
                 : predecessor
-                  ? "border-[var(--blue)]/40 bg-[var(--blue)]/10 text-white/90 shadow-[0_0_14px_rgba(59,130,246,0.35)]"
-                  : "border-white/10 bg-secondary/70 text-white/80",
-              { "line-through decoration-red-500": node.name.includes("Stricken")}
+                  ? "border-[var(--blue)]/40 text-white/90 !shadow-[0_0_15px_var(--blue)]"
+                  : "border-white/10 text-white/80",
+              { "line-through decoration-red-500": node.name.includes("Stricken") },
+              { "!border-[var(--gold)]": isExec(node.name) }
             )}
             style={{
               left: x - NODE_W / 2,
               top: y - NODE_H / 2,
               width: NODE_W,
-              height: NODE_H,
+              minHeight: NODE_H,
             }}
           >
-            <span className="line-clamp-2">{node.name}</span>
+            <span className="line-clamp-2 my-2">{node.name}</span>
+            {isExec(node.name) && <span className="text-[var(--gold)] text-xs mb-2">{exec.find((p: ExecPosition) => p.name == node.name).role}</span>}
           </div>
         );
       })}

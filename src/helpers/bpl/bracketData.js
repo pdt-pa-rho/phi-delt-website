@@ -152,7 +152,6 @@ function parseBracketRows(values, teams) {
   );
 
   if (headerRowIndex === -1) {
-    console.log("Bracket sheet first rows:", values.slice(0, 8));
     throw new Error("Missing bracket header row with 'Round' in column A");
   }
 
