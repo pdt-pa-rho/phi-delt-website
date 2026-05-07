@@ -106,9 +106,11 @@ export default function FamilyLineCarousel({ forest }: { forest: FamTree[] }) {
             </button>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-white/60">
+          <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white/60">
             <span>{selectedNode.littles.length} direct littles</span>
+            <span className="hidden md:inline">•</span>
             <span>Generation {getGeneration(tree.root, selectedNode.name)}</span>
+            <span className="hidden md:inline">•</span>
             <span>{countPeople(selectedNode)} person subtree</span>
           </div>
         </div>
