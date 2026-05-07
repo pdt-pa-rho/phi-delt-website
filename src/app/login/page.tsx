@@ -57,7 +57,7 @@ export default function LoginPage() {
 
           <button
             onClick={() => signIn("google", { callbackUrl: "/brotherhood" })}
-            className="w-full py-2 px-4 bg-[#619CC7] text-white rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+            className="w-full py-2 px-4 bg-[var(--blue)] text-white rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
           >
             Sign in with Google
           </button>

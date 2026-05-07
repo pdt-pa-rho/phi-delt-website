@@ -109,7 +109,7 @@ const NavBar = () => {
                 <>
                   <button
                     onClick={() => signOut({ callbackUrl: "/" })}
-                    className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                    className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
                   >
                     {session.user?.image && <Image
                       src={session.user.image}
@@ -125,7 +125,7 @@ const NavBar = () => {
               ) : (
                 <button
                   onClick={() => signIn("google")}
-                  className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                  className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
                 >
                   Brother Login
                 </button>
@@ -228,7 +228,7 @@ const NavBar = () => {
               <>
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                  className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
                 >
                   {session.user?.image && <Image
                       src={session.user.image}
@@ -244,7 +244,7 @@ const NavBar = () => {
             ) : (
               <button
                 onClick={() => signIn("google")}
-                className="bg-[#619CC7] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
               >
                 Brother Login
               </button>

@@ -55,7 +55,7 @@ export default function BrotherhoodHubPage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group rounded-2xl border border-[#619CC7]/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#619CC7] hover:bg-white/20"
+                className="group rounded-2xl border border-[var(--blue)]/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue)] hover:bg-white/20"
               >
                 <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
                 <p className="mt-2 text-sm text-[#DBECF3]">{item.description}</p>

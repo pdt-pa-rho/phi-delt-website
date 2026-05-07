@@ -190,7 +190,7 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
             isDark ? "border border-[#3B5883] bg-[#101A3E]/82 text-white" : "border border-[#BFD8EB] bg-[#0D1433]/82 text-white"
           }`}
         >
-          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#619CC7]/25 blur-3xl" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[var(--blue)]/25 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 left-10 h-72 w-72 rounded-full bg-[#2E4E84]/30 blur-3xl" />
           <p className="text-sm uppercase tracking-[0.2em] text-[#8BC0E6]">Spring 2026 • Messenger Recap</p>
           <h1 className="mt-3 text-3xl font-bold md:text-5xl">Brotherhood Wrapped: Messenger Likes ❤️</h1>
@@ -325,10 +325,10 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
                   className={`rounded-xl border p-4 text-left transition-all ${
                     isActive
                       ? isDark
-                        ? "border-[#619CC7] bg-[#1A2C57]/82 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
-                        : "border-[#619CC7] bg-[#EAF4FB]/84 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
+                      ? "border-[var(--blue)] bg-[#1A2C57]/82 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
+                      : "border-[var(--blue)] bg-[#EAF4FB]/84 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
                       : isDark
-                        ? "border-[#35547F] bg-[#101D42]/82 hover:border-[#619CC7] hover:bg-[#162755]/85"
+                      ? "border-[#35547F] bg-[#101D42]/82 hover:border-[var(--blue)] hover:bg-[#162755]/85"
                         : "border-[#DBECF3] bg-white/84 hover:border-[#A7CAE3] hover:bg-[#F8FBFD]/90"
                   }`}
                 >

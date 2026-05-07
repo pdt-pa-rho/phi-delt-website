@@ -36,7 +36,7 @@ export default function Exec() {
             <>
               <div
                 className={clsx(
-                  "bg-[var(--white)] h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden transition-transform duration-200",
+                  "bg-[var(--white)] shadow-md h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden transition-transform duration-200",
                   leader.link && "group-hover:scale-105"
                 )}
               >
