@@ -42,7 +42,7 @@ export default function LoginPage() {
   return (
     <SvgTiltBackground
       svgUrl="/svg/PDT_Swords.svg"
-      className="min-h-screen bg-gradient-to-b from-[#0D1433] via-[#14244E] to-[#0D1433]"
+      className="min-h-screen bg-gradient-to-b from-[var(--navy)] via-[#14244E] to-[var(--navy)]"
       svgClassName="text-[var(--light-blue)]/15 drop-shadow-md drop-shadow-black"
       fullPage
       fadeIn={false}
