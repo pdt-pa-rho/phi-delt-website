@@ -95,7 +95,7 @@ export default function ScheduleClient() {
                 ariaLabel="Previous week"
                 onClick={() => setWeek(weekOffset - 1)}
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
               </WeekNavButton>
 
               <span className="min-w-28 text-center text-lg font-medium text-white">
@@ -106,7 +106,7 @@ export default function ScheduleClient() {
                 ariaLabel="Next week"
                 onClick={() => setWeek(weekOffset + 1)}
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </WeekNavButton>
             </div>
           </div>

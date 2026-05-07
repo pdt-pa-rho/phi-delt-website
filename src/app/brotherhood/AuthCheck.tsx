@@ -1,7 +1,7 @@
 "use client";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useSession, signIn, signOut } from "next-auth/react";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import { useSession, signIn } from "next-auth/react";
 import { useEffect } from "react";
 
 export default function AuthCheck({ bypass, children }: { children: React.ReactNode, bypass?: boolean }) {
@@ -19,7 +19,12 @@ export default function AuthCheck({ bypass, children }: { children: React.ReactN
   if (bypass) return <>{children}</>;
 
   if (status === "loading") {
-    return <div className="text-center py-10">Loading authentication...</div>;
+    return (
+      <div className="flex justify-center space-x-5 items-center h-screen text-center">
+        <p>Authenticating...</p>
+        <LoadingSpinner size="sm" />
+      </div>
+    );
   }
 
   if (!session) {

@@ -6,6 +6,10 @@
   --blue: #619CC7;
   --light-blue: #DBECF3;
   --white: #F1F5F9;
+  --blue-gray: #535B72;
+  --gray: #AFAFB4;
+  --gold: #F3BD28;
+  --red: #B33634;
 
   --background: var(--navy);
   --foreground: var(--white);
@@ -64,7 +68,7 @@ body {
   @apply bg-card/80 backdrop-blur-md border border-white/10;
 }
 
-.neon-border {
+.neon-border .neon-border-lg {
   @apply relative;
 }
 
@@ -73,6 +77,15 @@ body {
   @apply absolute inset-0 rounded-lg;
   background: linear-gradient(45deg, #9b87f5, #1eaedb, #ff719a);
   filter: blur(5px);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.neon-border-lg::after {
+  content: "";
+  @apply absolute inset-0 rounded-lg;
+  background: linear-gradient(45deg, #9b87f5, #1eaedb, #ff719a);
+  filter: blur(15px);
   z-index: -1;
   opacity: 0.5;
 }

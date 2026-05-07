@@ -22,6 +22,11 @@ const brotherLinks = [
     href: "/brotherhood/bpl",
     description: "Check out the top teams and upcoming matches for this season of BPL.",
   },
+  {
+    title: "Family Lines",
+    href: "/brotherhood/family-lines",
+    description: "Discover your lineage within the brotherhood and explore the chapter family tree across generations.",
+  },
 ];
 
 export default function BrotherhoodHubPage() {

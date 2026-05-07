@@ -17,7 +17,7 @@ export default function Home() {
             is in "/chapter_pic_blue.webp", with another version in "/chapter_pic_blue_no_clouds.webp"
             which is slightly higher quality but lacks clouds. */}
           <Image
-            src="/chapter_pic_blue.webp"
+            src="/chapter_pic_blue_no_clouds.webp"
             alt="CMU Phi Delta Theta"
             fill
             className="object-cover brightness-70"

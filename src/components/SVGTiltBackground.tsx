@@ -68,8 +68,6 @@ export default function SvgTiltBackground({
     function handleMouseMove(e: MouseEvent) {
       if (window.matchMedia("(max-width: 767px)").matches) return;
 
-      console.log(e.clientY, window.innerHeight);
-
       const x = e.clientX / window.innerWidth - 0.5;
       const y = e.clientY / window.innerHeight - 0.5;
 

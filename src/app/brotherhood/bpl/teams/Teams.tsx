@@ -60,8 +60,7 @@ export default function Teams() {
                     key={team.id}
                     className={clsx(
                       "bg-secondary/30 p-4 rounded-lg hover:bg-secondary/100 transition-colors",
-                      { "neon-border": isSelected },
-                      { "bg-secondary/100": isSelected}
+                      { "neon-border bg-secondary/100": isSelected },
                     )}
                     ref={isSelected ? selectedRef : null}
                   >
