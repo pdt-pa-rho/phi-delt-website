@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Star } from "lucide-react";
+import useSWR from "swr";
 
 type Column = { key: string; label: string };
 type Entry = Record<string, string>;
@@ -372,62 +373,28 @@ function renderFieldValue(col: Column, entry: Entry) {
 }
 
 export default function CourseCatalogPage() {
-  const [columns, setColumns] = useState<Column[]>([]);
-  const [entries, setEntries] = useState<Entry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, error } = useSWR("/api/course-catalog");
   const [query, setQuery] = useState("");
   const [semester, setSemester] = useState<string>("all");
 
-  useEffect(() => {
-    let cancelled = false;
-
-    (async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const res = await fetch("/api/course-catalog");
-        if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data.error ?? `Unable to load (${res.status})`);
-        }
-        const data = await res.json();
-        if (!cancelled) {
-          setColumns(data.columns ?? []);
-          setEntries(data.entries ?? []);
-        }
-      } catch (e) {
-        if (!cancelled) {
-          setError(e instanceof Error ? e.message : "Failed to load");
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   const visibleColumns = useMemo(
-    () => columns.filter((c) => !isHiddenCatalogColumn(c)),
-    [columns]
+    () => data ? data.columns.filter((c: Column) => !isHiddenCatalogColumn(c)) : [],
+    [data]
   );
 
-  const visibleKeySet = useMemo(
-    () => new Set(visibleColumns.map((c) => c.key)),
+  const visibleKeySet: Set<string> = useMemo(
+    () => new Set(visibleColumns.map((c: Column) => c.key)),
     [visibleColumns]
   );
 
   const columnKeys = useMemo(
-    () => visibleColumns.map((c) => c.key),
+    () => visibleColumns.map((c: Column) => c.key),
     [visibleColumns]
   );
 
   const semesterColumn = useMemo(() => {
     return visibleColumns.find(
-      (c) =>
+      (c: Column) =>
         /semester|term|reporting|when.*took/i.test(c.label) ||
         /semester|term|season/.test(c.key)
     );
@@ -436,15 +403,15 @@ export default function CourseCatalogPage() {
   const semesterOptions = useMemo(() => {
     if (!semesterColumn) return [];
     const uniq = new Set<string>();
-    for (const e of entries) {
+    for (const e of data?.entries) {
       const v = e[semesterColumn.key]?.trim();
       if (v) uniq.add(v);
     }
     return [...uniq].sort();
-  }, [entries, semesterColumn]);
+  }, [data?.entries, semesterColumn]);
 
   const filtered = useMemo(() => {
-    return entries.filter((entry) => {
+    return data ? data.entries.filter((entry: Entry) => {
       if (!entryMatchesQuery(entry, query, visibleKeySet)) return false;
       if (
         semesterColumn &&
@@ -454,12 +421,12 @@ export default function CourseCatalogPage() {
         return false;
       }
       return true;
-    });
-  }, [entries, query, semester, semesterColumn, visibleKeySet]);
+    }) : [];
+  }, [data, query, semester, semesterColumn, visibleKeySet]);
 
   const detailColumns = useCallback(
     (entry: Entry, excludedKeys: Set<string>) =>
-      visibleColumns.filter((c) => {
+      visibleColumns.filter((c: Column) => {
         const v = entry[c.key]?.trim();
         if (!v) return false;
         if (excludedKeys.has(c.key)) return false;
@@ -527,23 +494,25 @@ export default function CourseCatalogPage() {
               </div>
             ) : null}
           </div>
-          {!loading && !error ? (
+          {data && (
             <p className="mt-4 text-sm text-[#64748b]">
               Showing{" "}
               <span className="font-semibold text-[var(--navy)]">
                 {filtered.length}
               </span>{" "}
-              of {entries.length} submissions
+              of {data.entries.length} submissions
             </p>
-          ) : null}
+          )}
         </div>
 
-        {loading ? (
+        {isLoading && (
           <div className="flex flex-col items-center justify-center py-24 gap-4 text-[var(--navy)]">
             <div className="h-10 w-10 border-2 border-[var(--blue)] border-t-transparent rounded-full animate-spin" />
             <p className="text-sm font-medium">Loading catalog…</p>
           </div>
-        ) : error ? (
+        )}
+
+        {error && (
           <div
             className="rounded-2xl border border-red-200 bg-red-50 px-6 py-8 text-center text-red-800"
             role="alert"
@@ -551,7 +520,9 @@ export default function CourseCatalogPage() {
             <p className="font-semibold mb-2">Couldn’t load Course Catalog</p>
             <p className="text-sm">{error}</p>
           </div>
-        ) : entries.length === 0 ? (
+        )}
+
+        {(data && !isLoading) && data.entries.length === 0 ? (
           <div className="rounded-2xl border border-[#dce3ec] bg-white px-6 py-16 text-center text-[#64748b]">
             No rows yet in the &quot;Course Catalog&quot; sheet, or the tab is
             empty.
@@ -562,7 +533,7 @@ export default function CourseCatalogPage() {
           </div>
         ) : (
           <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {filtered.map((entry, idx) => {
+            {filtered.map((entry: Entry, idx: number) => {
               const header = pickCourseHeader(entry, visibleColumns);
               const excludedKeys = new Set(
                 [
