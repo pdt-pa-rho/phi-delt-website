@@ -42,7 +42,7 @@ export default function UpcomingEvents() {
   } = useSWR(`/api/upcoming_events`);
 
   return (
-    <div className="grid md:grid-cols-3 gap-6">
+    <>
       {isLoading && <LoadingSpinner />}
 
       {error && (
@@ -51,24 +51,28 @@ export default function UpcomingEvents() {
         </div>
       )}
 
-      {rushEvents && rushEvents.map((event: UpcomingEvent, index: number) => (
-        <div key={index} className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-          <div className="text-[var(--blue)] font-bold mb-2">{formatDateRange(event.date, event.endDate)}</div>
-          <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
-          <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-            {event.description}
-          </p>
-          {event.link && (
-            <Link
-              href={event.link}
-              className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium inline-flex items-center group"
-            >
-              {event.linkTitle || "Details"}
-              <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          )}
+      {rushEvents &&
+        <div className="grid md:grid-cols-3 gap-6 w-full">
+          {rushEvents.map((event: UpcomingEvent, index: number) => (
+            <div key={index} className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
+              <div className="text-[var(--blue)] font-bold mb-2">{formatDateRange(event.date, event.endDate)}</div>
+              <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
+              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
+                {event.description}
+              </p>
+              {event.link && (
+                <Link
+                  href={event.link}
+                  className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium inline-flex items-center group"
+                >
+                  {event.linkTitle || "Details"}
+                  <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      }
+    </>
   );
 }
