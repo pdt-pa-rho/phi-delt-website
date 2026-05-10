@@ -1,8 +1,7 @@
-"use client";
-
 import SvgTiltBackground from "@/components/SVGTiltBackground";
 import Image from "next/image";
 import Link from "next/link";
+import UpcomingEvents from "./UpcomingEvents";
 
 export default function Home() {
   return (
@@ -171,50 +170,7 @@ export default function Home() {
             <div className="w-24 h-1 bg-[var(--blue)] mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">APR 3-6, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">Spring Carnival</h3>
-              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Join us on Midway as we showcase our Men in Black booth!
-              </p>
-              {/* <Link
-                href="/events/spring-rush"
-                className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
-              >
-                Details →
-              </Link> */}
-            </div>
-
-            <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">APR 19, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">Spring Formal</h3>
-              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Join us for a night of dancing and fun!
-              </p>
-              <Link
-                href="https://forms.gle/gu6FKALF8zpurM4W8"
-                target="_blank"
-                className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
-              >
-                Sign up to get a date →
-              </Link>
-            </div>
-
-            <div className="bg-[var(--light-blue)] dark:bg-[var(--navy)]/50 p-6 rounded-xl">
-              <div className="text-[var(--blue)] font-bold mb-2">SEP 1-12, 2025</div>
-              <h3 className="text-xl font-semibold mb-3">Fall Rush</h3>
-              <p className="text-[var(--navy)]/70 dark:text-[var(--white)]/70 mb-4">
-                Interested in joining Phi Delta Theta? Join us for Fall Rush!
-              </p>
-              <Link
-                href="/rush"
-                className="text-[var(--blue)] hover:text-[var(--primary-dark)] dark:hover:text-[var(--light-blue)] font-medium"
-              >
-                Learn more →
-              </Link>
-            </div>
-          </div>
+          <UpcomingEvents />
         </div>
       </section>
 

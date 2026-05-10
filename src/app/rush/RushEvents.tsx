@@ -3,6 +3,7 @@
 import useSWR from "swr";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useMemo } from "react";
+import { MapPin } from "lucide-react";
 
 type RushEvent = {
   date: string;
@@ -59,7 +60,10 @@ export default function RushEvents() {
               <div className="text-[var(--blue)] font-medium">{event.date} • {event.time}</div>
             </div>
             <p className="text-[var(--navy)]/80 mb-2">{event.description}</p>
-            <p className="text-[var(--navy)] font-medium">{event.location}</p>
+            <p className="text-[var(--navy)] font-medium inline-flex items-center">
+              <MapPin className="h-4 w-4 mr-2" />
+              {event.location}
+            </p>
           </div>
         ))}
       </div>
