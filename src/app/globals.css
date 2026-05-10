@@ -68,7 +68,7 @@ body {
   @apply bg-card/80 backdrop-blur-md border border-white/10;
 }
 
-.neon-border .neon-border-lg {
+.neon-border, .neon-border-lg {
   @apply relative;
 }
 
