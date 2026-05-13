@@ -42,22 +42,22 @@ export default function LoginPage() {
   return (
     <SvgTiltBackground
       svgUrl="/svg/PDT_Swords.svg"
-      className="min-h-screen bg-gradient-to-b from-[var(--navy)] via-[#14244E] to-[var(--navy)]"
-      svgClassName="text-[var(--light-blue)]/15 drop-shadow-md drop-shadow-black"
+      className="min-h-screen bg-linear-to-b from-(--navy) via-[#14244E] to-(--navy)"
+      svgClassName="text-(--light-blue)/15 drop-shadow-md drop-shadow-black"
       fullPage
       fadeIn={false}
     >
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <div className="glass-card rounded-2xl p-6 !bg-black/10 max-w-md w-full text-center">
+        <div className="glass-card rounded-2xl p-6 bg-black/10! max-w-md w-full text-center">
           <h1 className="text-5xl font-bold mb-4 text-foreground">Sign in</h1>
 
           {errorText && (
-            <p className="text-md text-[var(--red)] drop-shadow-sm mb-6">{errorText}</p>
+            <p className="text-md text-(--red) drop-shadow-sm mb-6">{errorText}</p>
           )}
 
           <button
             onClick={() => signIn("google", { callbackUrl: "/brotherhood" })}
-            className="w-full py-2 px-4 bg-[var(--blue)] text-white rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+            className="w-full py-2 px-4 bg-(--blue) text-white rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
           >
             Sign in with Google
           </button>

@@ -39,12 +39,12 @@ export default function PhotosPage() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-[var(--navy)]">
+    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-(--navy)">
       <div className="max-w-6xl w-full">
         {/* Hero Section */}
         <div className="mb-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[var(--white)]">Photo Gallery</h1>
-          <p className="text-xl text-[var(--white)]/80 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-(--white)">Photo Gallery</h1>
+          <p className="text-xl text-(--white)/80 max-w-3xl mx-auto">
             A glimpse into the brotherhood, philanthropy, and social events of the Pennsylvania Rho Chapter of Phi Delta Theta.
           </p>
         </div>
@@ -53,14 +53,14 @@ export default function PhotosPage() {
         <div className="space-y-16">
           {photoCategories.map((category, categoryIndex) => (
             <section key={categoryIndex} className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">{category.title}</h2>
+              <h2 className="text-3xl font-bold mb-6 text-(--white)">{category.title}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {category.photos.map((photo, photoIndex) => (
-                  <div key={photoIndex} className="bg-[var(--light-blue)] rounded-lg overflow-hidden shadow-md">
+                  <div key={photoIndex} className="bg-(--light-blue) rounded-lg overflow-hidden shadow-md">
                     <div className="relative h-64 w-full">
                       {/* Replace with actual images when available */}
-                      <div className="bg-[var(--blue)]/20 h-full w-full flex items-center justify-center">
-                        <p className="text-[var(--navy)]">{photo.alt}</p>
+                      <div className="bg-(--blue)/20 h-full w-full flex items-center justify-center">
+                        <p className="text-(--navy)">{photo.alt}</p>
                       </div>
                       {/* Uncomment when you have actual images
                       <Image
@@ -72,7 +72,7 @@ export default function PhotosPage() {
                       */}
                     </div>
                     <div className="p-4">
-                      <p className="text-[var(--navy)] font-medium">{photo.caption}</p>
+                      <p className="text-(--navy) font-medium">{photo.caption}</p>
                     </div>
                   </div>
                 ))}
@@ -82,14 +82,14 @@ export default function PhotosPage() {
         </div>
 
         {/* Photo Submission CTA */}
-        <section className="text-center bg-[var(--blue)] p-8 rounded-lg mt-16">
-          <h2 className="text-3xl font-bold mb-4 text-[var(--white)]">Share Your Photos</h2>
-          <p className="mb-6 max-w-2xl mx-auto text-[var(--white)]">
+        <section className="text-center bg-(--blue) p-8 rounded-lg mt-16">
+          <h2 className="text-3xl font-bold mb-4 text-(--white)">Share Your Photos</h2>
+          <p className="mb-6 max-w-2xl mx-auto text-(--white)">
             Have photos from a recent Phi Delt event? We&apos;d love to add them to our gallery!
           </p>
-          <a 
-            href="mailto:phideltathetaparho@gmail.com" 
-            className="bg-[var(--white)] text-[var(--navy)] px-6 py-3 rounded-md font-medium hover:bg-[var(--light-blue)] transition-colors inline-block"
+          <a
+            href="mailto:phideltathetaparho@gmail.com"
+            className="bg-(--white) text-(--navy) px-6 py-3 rounded-md font-medium hover:bg-(--light-blue) transition-colors inline-block"
           >
             Submit Photos
           </a>

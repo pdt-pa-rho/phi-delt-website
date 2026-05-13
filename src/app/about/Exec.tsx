@@ -38,7 +38,7 @@ export default function Exec() {
               <>
                 <div
                   className={clsx(
-                    "bg-[var(--white)] shadow-md h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden transition-transform duration-200",
+                    "bg-(--white) shadow-md h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden transition-transform duration-200",
                     leader.link && "group-hover:scale-105"
                   )}
                 >
@@ -51,12 +51,12 @@ export default function Exec() {
                   />
                 </div>
 
-                <h3 className="font-semibold text-[var(--navy)]">{leader.role}</h3>
+                <h3 className="font-semibold text-(--navy)">{leader.role}</h3>
 
-                <p className="text-[var(--navy)]">
+                <p className="text-(--navy)">
                   <span
                     className={clsx(
-                      "relative inline-block after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-[var(--navy)] after:transition-transform after:duration-200",
+                      "relative inline-block after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-(--navy) after:transition-transform after:duration-200",
                       leader.link && "group-hover:after:scale-x-100"
                     )}
                   >
@@ -69,7 +69,7 @@ export default function Exec() {
             return (
               <div
                 key={index}
-                className="bg-[var(--light-blue)] p-4 rounded-lg shadow-md text-center"
+                className="bg-(--light-blue) p-4 rounded-lg shadow-md text-center"
               >
                 {leader.link ? (
                   <Link href={leader.link} className="group block cursor-pointer">

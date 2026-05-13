@@ -57,13 +57,13 @@ export default function FamilyLineSearch({ forest }: { forest: FamTree[] }) {
         </label>
 
         <ComboboxInput
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none transition focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/30 backdrop-blur-sm shadow-sm"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm"
           placeholder="Search by name..."
           displayValue={(name: string) => name}
           onChange={(event) => setQuery(event.target.value)}
         />
 
-        <ComboboxOptions className="absolute z-50 mt-2 max-h-64 w-full overflow-auto rounded-lg rounded-lg border border-white/10 bg-white/5 text-white outline-none transition focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/30 backdrop-blur-sm shadow-sm">
+        <ComboboxOptions className="absolute z-50 mt-2 max-h-64 w-full overflow-auto rounded-lg border border-white/10 bg-white/5 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm">
           {filteredNames.map((name) => (
             <ComboboxOption
               key={name}
@@ -71,7 +71,7 @@ export default function FamilyLineSearch({ forest }: { forest: FamTree[] }) {
               className={({ focus }) =>
                 clsx(
                   "cursor-pointer px-4 py-2 text-sm",
-                  focus ? "bg-[var(--blue)] text-white" : "text-white/80"
+                  focus ? "bg-(--blue) text-white" : "text-white/80"
                 )
               }
             >

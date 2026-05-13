@@ -136,14 +136,14 @@ export default function FamilyTree({
             key={`${node.name}-${x}-${y}`}
             ref={highlighted ? highlightRef : isRoot ? rootRef : null}
             className={clsx(
-              "absolute flex flex-col items-center justify-center rounded-xl border px-3 text-center text-sm shadow-lg transition bg-secondary/100",
+              "absolute flex flex-col items-center justify-center rounded-xl border px-3 text-center text-sm shadow-lg transition bg-secondary",
               highlighted
-                ? "border-[var(--blue)] text-white neon-border-lg"
+                ? "border-(--blue) text-white neon-border-lg"
                 : predecessor
-                  ? "border-[var(--blue)]/40 text-white/90 !shadow-[0_0_15px_var(--blue)]"
+                  ? "border-(--blue)/40 text-white/90 shadow-[0_0_5px_var(--blue)]!"
                   : "border-white/10 text-white/80",
               { "line-through decoration-red-500": node.name.includes("Stricken") },
-              { "!border-[var(--gold)]": isExec(node.name) }
+              { "border-(--gold)!": isExec(node.name) }
             )}
             style={{
               left: x - NODE_W / 2,
@@ -153,7 +153,7 @@ export default function FamilyTree({
             }}
           >
             <span className="line-clamp-2 my-2">{node.name}</span>
-            {isExec(node.name) && <span className="text-[var(--gold)] text-xs mb-2">{exec.find((p: ExecPosition) => p.name == node.name).role}</span>}
+            {isExec(node.name) && <span className="text-(--gold) text-xs mb-2">{exec.find((p: ExecPosition) => p.name == node.name).role}</span>}
           </div>
         );
       })}

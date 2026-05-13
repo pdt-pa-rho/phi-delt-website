@@ -95,7 +95,7 @@ body {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 bg-clip-text text-transparent animate-gradient;
+  @apply bg-linear-to-r from-purple-500 via-blue-500 to-pink-500 bg-clip-text text-transparent animate-gradient;
   background-size: 200% auto;
 }
 
@@ -110,7 +110,7 @@ body {
 
 .animated-underline::after {
   content: "";
-  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-[var(--foreground)] transition-all duration-300;
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-(--foreground) transition-all duration-300;
 }
 
 .animated-underline:hover::after {

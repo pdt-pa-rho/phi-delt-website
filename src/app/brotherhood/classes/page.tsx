@@ -110,7 +110,7 @@ export default function ClassesPage() {
                 <label className="inline-flex items-center">
                   <input
                     type="radio"
-                    className="form-radio text-[var(--blue)]"
+                    className="form-radio text-(--blue)"
                     name="searchType"
                     checked={searchType === 'person'}
                     onChange={() => setSearchType('person')}
@@ -120,7 +120,7 @@ export default function ClassesPage() {
                 <label className="inline-flex items-center">
                   <input
                     type="radio"
-                    className="form-radio text-[var(--blue)]"
+                    className="form-radio text-(--blue)"
                     name="searchType"
                     checked={searchType === 'class'}
                     onChange={() => setSearchType('class')}
@@ -144,7 +144,7 @@ export default function ClassesPage() {
                   setTimeout(() => handleSearch(), 100);
                 }}
                 placeholder={searchType === 'person' ? 'Enter a brother\'s name' : 'Enter a class number'}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--blue)] text-[#0D1433]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-(--blue) text-[#0D1433]"
               />
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function ClassesPage() {
                 id="semester"
                 value={semester}
                 onChange={(e) => setSemester(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--blue)] text-[#0D1433]"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-(--blue) text-[#0D1433]"
               >
                 {semesterList.map((sem) => (
                   <option key={sem} value={sem}>
@@ -169,7 +169,7 @@ export default function ClassesPage() {
             </div>
 
             <div className="mb-4 pt-4">
-              <div className="text-sm text-[var(--blue)] font-medium">
+              <div className="text-sm text-(--blue) font-medium">
                 {searchType === 'person' ? 'Search for brothers by name' : 'Search for classes by number'}
               </div>
             </div>

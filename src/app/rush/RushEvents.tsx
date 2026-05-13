@@ -40,7 +40,7 @@ export default function RushEvents() {
 
   return (
     <section className="mb-16">
-      <h2 className="text-3xl font-bold mb-6 text-[var(--white)]">{semester} Rush Events</h2>
+      <h2 className="text-3xl font-bold mb-6 text-(--white)">{semester} Rush Events</h2>
       <div className="space-y-4">
         {isLoading && <LoadingSpinner />}
 
@@ -54,13 +54,13 @@ export default function RushEvents() {
         )}
 
         {rushEvents && rushEvents.map((event: RushEvent, index: number) => (
-          <div key={index} className="bg-[var(--light-blue)] p-6 rounded-lg shadow-md">
+          <div key={index} className="bg-(--light-blue) p-6 rounded-lg shadow-md">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-              <h3 className="text-xl font-semibold text-[var(--navy)]">{event.title}</h3>
-              <div className="text-[var(--blue)] font-medium">{event.date} • {event.time}</div>
+              <h3 className="text-xl font-semibold text-(--navy)">{event.title}</h3>
+              <div className="text-(--blue) font-medium">{event.date} • {event.time}</div>
             </div>
-            <p className="text-[var(--navy)]/80 mb-2">{event.description}</p>
-            <p className="text-[var(--navy)] font-medium inline-flex items-center">
+            <p className="text-(--navy)/80 mb-2">{event.description}</p>
+            <p className="text-(--navy) font-medium inline-flex items-center">
               <MapPin className="h-4 w-4 mr-2" />
               {event.location}
             </p>
