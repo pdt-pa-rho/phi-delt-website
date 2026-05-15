@@ -7,6 +7,16 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+        pathname: '**'
+      }
     ],
   },
 };
