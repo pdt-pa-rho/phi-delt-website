@@ -3,9 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import clsx from "clsx";
 import LoadingSpinner from "./LoadingSpinner";
+
+const NavBar = () => {
+  const pathname = usePathname();
+  const classRegistryNav = pathname.startsWith("/brotherhood/classes");
 
 function NavLink({
   href,
@@ -92,6 +97,17 @@ export default function NavBar() {
     <nav
       className={clsx(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        classRegistryNav
+          ? clsx(
+              "bg-[var(--navy)] border-b border-white/10 text-[var(--white)]",
+              (isScrolled || isMenuOpen) && "shadow-md backdrop-blur-sm"
+            )
+          : {
+              "bg-[var(--background)]/50": isScrolled && !isMenuOpen,
+              "bg-[var(--background)]/75": isMenuOpen,
+              "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
+              "bg-none": !(isScrolled || isMenuOpen),
+            }
         {
           "bg-(--background)/50": isScrolled && !isMenuOpen,
           "bg-(--background)/75": isMenuOpen,
@@ -116,6 +132,82 @@ export default function NavBar() {
               </span>
             </Link>
 
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
+            >
+              About
+            </Link>
+            <Link
+              href="/philanthropy"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
+            >
+              Philanthropy
+            </Link>
+            <Link
+              href="/rush"
+              className="animated-underline text-foreground/80 hover:text-foreground transition-colors drop-shadow-sm drop-shadow-black/50"
+            >
+              Rush
+            </Link>
+            {session && (
+              <Link
+                href="/brotherhood"
+                className="animated-underline blue-shine drop-shadow-sm drop-shadow-black/50"
+                onClick={closeMenu}
+              >
+                Brotherhood Hub
+              </Link>
+            )}
+            {/* Auth buttons */}
+            <div className="flex items-center gap-4 ml-4 drop-shadow-sm drop-shadow-black/50">
+              {status === "loading" ? (
+                <span
+                  className={clsx(
+                    "text-sm",
+                    classRegistryNav ? "text-[var(--light-blue)]" : "text-gray-500"
+                  )}
+                >
+                  Loading...
+                </span>
+              ) : session ? (
+                <>
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                  >
+                    {session.user?.image && <Image
+                      src={session.user.image}
+                      alt="User profile picture"
+                      width={24}
+                      height={24}
+                      className="rounded-full inline mr-3"
+                    />
+                    }
+                    Sign out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => signIn("google")}
+                  className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                >
+                  Brother Login
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen((open) => !open)}
               className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-(--light-blue)/20 focus:outline-none drop-shadow-sm drop-shadow-black/50"
@@ -168,6 +260,41 @@ export default function NavBar() {
               href="/"
               onClick={closeMenu}
             >
+               Brotherhood Hub
+            </Link>
+          )}
+          {/* Auth buttons */}
+          <div className="flex items-center gap-4 ml-4">
+            {status === "loading" ? (
+              <span
+                className={clsx(
+                  "text-sm",
+                  classRegistryNav ? "text-[var(--light-blue)]" : "text-gray-500"
+                )}
+              >
+                Loading...
+              </span>
+            ) : session ? (
+              <>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+                >
+                  {session.user?.image && <Image
+                      src={session.user.image}
+                      alt="User profile picture"
+                      width={24}
+                      height={24}
+                      className="rounded-full inline mr-3"
+                    />
+                  }
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => signIn("google")}
+                className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
               Home
             </NavLink>
 

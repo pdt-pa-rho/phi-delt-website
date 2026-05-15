@@ -8,9 +8,10 @@ import { ChevronRight } from "lucide-react";
 
 const brotherLinks = [
   {
-    title: "Class Registry",
+    title: "Course Catalog",
     href: "/brotherhood/classes",
-    description: "Connect with brothers who have taken classes that you're interested in.",
+    description:
+      "Browse peer reviews from the chapter — classes others have taken and notes from the form.",
   },
   {
     title: "Brotherhood Wrapped: Messenger Likes",
