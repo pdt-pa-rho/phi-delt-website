@@ -228,4 +228,4 @@ Checklist:
 - When adding brothers, update the **Access** sheet rather than hardcoding emails.
 - For new Sheet-driven pages, follow existing patterns in `src/helpers/` and `src/app/api/`.
 
-Questions about access or data sources: contact the chapter’s web chair or exec board.
+Questions about access or data sources: contact the chapter’s memdev.
