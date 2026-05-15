@@ -6,39 +6,92 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import clsx from "clsx";
+import LoadingSpinner from "./LoadingSpinner";
 
 const NavBar = () => {
   const pathname = usePathname();
   const classRegistryNav = pathname.startsWith("/brotherhood/classes");
 
+function NavLink({
+  href,
+  onClick,
+  children,
+  className,
+}: {
+  href: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={clsx(
+        "drop-shadow-sm drop-shadow-black/50 transition-colors",
+        "block rounded-md px-3 py-2 font-medium text-foreground hover:bg-(--light-blue)/20",
+        "md:inline-block md:rounded-none md:px-0 md:py-0 md:font-normal md:text-foreground/80 md:hover:bg-transparent md:hover:text-foreground md:animated-underline!",
+        className
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function AuthButton({ onClick }: { onClick?: () => void }) {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <LoadingSpinner className="py-0!" size="sm"/>;
+  }
+
+  return session ? (
+    <button
+      onClick={() => {
+        onClick?.();
+        signOut({ callbackUrl: "/" });
+      }}
+      className="bg-(--blue) text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+    >
+      {session.user?.image && (
+        <Image
+          src={session.user.image}
+          alt="User profile picture"
+          width={24}
+          height={24}
+          className="rounded-full inline mr-3"
+        />
+      )}
+      Sign out
+    </button>
+  ) : (
+    <button
+      onClick={() => {
+        onClick?.();
+        signIn("google");
+      }}
+      className="bg-(--blue) text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+    >
+      Brother Login
+    </button>
+  );
+}
+
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { data: session } = useSession();
 
-  // Handle scroll effect for navbar
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle mobile menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Close mobile menu
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  const { data: session, status } = useSession();
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
@@ -55,13 +108,18 @@ const NavBar = () => {
               "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
               "bg-none": !(isScrolled || isMenuOpen),
             }
+        {
+          "bg-(--background)/50": isScrolled && !isMenuOpen,
+          "bg-(--background)/75": isMenuOpen,
+          "backdrop-blur-sm shadow-sm": isScrolled || isMenuOpen,
+          "bg-none": !(isScrolled || isMenuOpen),
+        }
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo and brand name */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
+        <div className="flex min-h-16 flex-col md:flex-row md:items-center md:justify-between">
+          <div className="flex h-16 items-center justify-between">
+            <Link href="/" className="flex min-w-0 items-center">
               <Image
                 src="/sword_and_shield.webp"
                 alt="Phi Delta Theta Crest"
@@ -69,11 +127,10 @@ const NavBar = () => {
                 height={32}
                 className="rounded-full inline mr-3 drop-shadow-sm drop-shadow-black/50"
               />
-              <span className="text-foreground font-semibold text-lg drop-shadow-sm drop-shadow-black/50">
+              <span className="truncate text-foreground font-semibold text-lg drop-shadow-sm drop-shadow-black/50">
                 Carnegie Mellon Phi Delta Theta
               </span>
             </Link>
-          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -152,14 +209,14 @@ const NavBar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-[var(--light-blue)]/20 focus:outline-none drop-shadow-sm drop-shadow-black/50"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:bg-(--light-blue)/20 focus:outline-none drop-shadow-sm drop-shadow-black/50"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {/* Icon when menu is closed */}
+
               <svg
-                className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`}
+                className={clsx("h-6 w-6", isMenuOpen ? "hidden" : "block")}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -173,9 +230,9 @@ const NavBar = () => {
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
-              {/* Icon when menu is open */}
+
               <svg
-                className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`}
+                className={clsx("h-6 w-6", isMenuOpen ? "block" : "hidden")}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -191,46 +248,16 @@ const NavBar = () => {
               </svg>
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
-      <div
-        className={clsx("md:hidden", { "block": isMenuOpen, "hidden": !isMenuOpen })}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link
-            href="/"
-            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
-            onClick={closeMenu}
+          <div
+            className={clsx(
+              "pb-3 md:pb-0",
+              "md:flex md:items-center md:space-x-8",
+              isMenuOpen ? "block" : "hidden md:flex"
+            )}
           >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
-            onClick={closeMenu}
-          >
-            About
-          </Link>
-          <Link
-            href="/philanthropy"
-            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
-            onClick={closeMenu}
-          >
-            Philanthropy
-          </Link>
-          <Link
-            href="/rush"
-            className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-[var(--light-blue)]/20"
-            onClick={closeMenu}
-          >
-            Rush
-          </Link>
-          {session && (
-            <Link
-              href="/brotherhood"
-              className="block px-3 py-2 rounded-md text-base font-medium blue-shine"
+            <NavLink
+              href="/"
               onClick={closeMenu}
             >
                Brotherhood Hub
@@ -268,15 +295,46 @@ const NavBar = () => {
               <button
                 onClick={() => signIn("google")}
                 className="bg-[var(--blue)] text-white px-3 py-1 rounded-md font-medium hover:bg-[#4A85B0] transition-colors"
+              Home
+            </NavLink>
+
+            <NavLink
+              href="/about"
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              href="/philanthropy"
+              onClick={closeMenu}
+            >
+              Philanthropy
+            </NavLink>
+
+            <NavLink
+              href="/rush"
+              onClick={closeMenu}
+            >
+              Rush
+            </NavLink>
+
+            {session && (
+              <NavLink
+                href="/brotherhood"
+                onClick={closeMenu}
+                className="blue-shine"
               >
-                Brother Login
-              </button>
+                Brotherhood Hub
+              </NavLink>
             )}
+
+            <div className="mt-2 flex items-center gap-4 px-3 shadow-md md:mt-0 md:ml-4 md:px-0">
+              <AuthButton onClick={closeMenu} />
+            </div>
           </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default NavBar;
+}

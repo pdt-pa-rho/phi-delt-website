@@ -264,6 +264,8 @@ function MatchCard({
   const result = normalizeResult(match.result);
   const isFinal = match.roundLabel === "Final";
 
+  console.log(match, complete, isFinal);
+
   return (
     <div
       className={clsx(
@@ -273,7 +275,7 @@ function MatchCard({
           : "border-white/10 bg-black/35",
         complete &&
         isFinal &&
-        "border-amber-300/40 bg-amber-300/10 shadow-[0_0_30px_rgba(251,191,36,0.25)]"
+        "border-amber-300/40 bg-amber-300/10 shadow-[0_0_30px_rgba(251,191,36,0.25)]!"
       )}
       style={{
         left: x,

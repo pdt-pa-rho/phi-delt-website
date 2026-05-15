@@ -409,6 +409,39 @@ export default function CourseCatalogPage() {
     }
     return [...uniq].sort();
   }, [data?.entries, semesterColumn]);
+    <div className="container mx-auto py-10 pt-28 px-4 min-h-screen bg-[#F1F5F9]">
+      <h1 className="text-4xl font-bold text-center mb-8 text-[#0D1433]">Phi Delt Class Search</h1>
+
+      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex-1">
+            <div className="mb-4">
+              <label htmlFor="searchType" className="block text-sm font-medium text-[#0D1433] mb-1">
+                Search Type
+              </label>
+              <div className="flex space-x-4">
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    className="form-radio text-(--blue)"
+                    name="searchType"
+                    checked={searchType === 'person'}
+                    onChange={() => setSearchType('person')}
+                  />
+                  <span className="ml-2 text-[#0D1433] font-medium">Person</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    className="form-radio text-(--blue)"
+                    name="searchType"
+                    checked={searchType === 'class'}
+                    onChange={() => setSearchType('class')}
+                  />
+                  <span className="ml-2 text-[#0D1433] font-medium">Class</span>
+                </label>
+              </div>
+            </div>
 
   const filtered = useMemo(() => {
     return data ? data.entries.filter((entry: Entry) => {
@@ -468,6 +501,16 @@ export default function CourseCatalogPage() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Professor, number, course name, tips…"
                 className="w-full rounded-xl border border-[#cbd5e1] px-4 py-3 text-[var(--navy)] placeholder:text-[#94a3b8] focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:border-transparent"
+                type="text"
+                id="searchTerm"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  // Use setTimeout to debounce the search for better performance
+                  setTimeout(() => handleSearch(), 100);
+                }}
+                placeholder={searchType === 'person' ? 'Enter a brother\'s name' : 'Enter a class number'}
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-(--blue) text-[#0D1433]"
               />
             </div>
             {semesterColumn && semesterOptions.length > 0 ? (
@@ -519,6 +562,30 @@ export default function CourseCatalogPage() {
           >
             <p className="font-semibold mb-2">Couldn’t load Course Catalog</p>
             <p className="text-sm">{error}</p>
+          <div className="flex-1">
+            <div className="mb-4">
+              <label htmlFor="semester" className="block text-sm font-medium text-[#0D1433] mb-1">
+                Semester
+              </label>
+              <select
+                id="semester"
+                value={semester}
+                onChange={(e) => setSemester(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-(--blue) text-[#0D1433]"
+              >
+                {semesterList.map((sem) => (
+                  <option key={sem} value={sem}>
+                    {sem === 'all' ? 'All Semesters' : sem}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="mb-4 pt-4">
+              <div className="text-sm text-(--blue) font-medium">
+                {searchType === 'person' ? 'Search for brothers by name' : 'Search for classes by number'}
+              </div>
+            </div>
           </div>
         )}
 

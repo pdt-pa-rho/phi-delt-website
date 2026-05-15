@@ -36,8 +36,8 @@ export default function BrotherhoodHubPage() {
   return (
     <SvgTiltBackground
       svgUrl="/svg/PDT_Swords.svg"
-      className="min-h-screen bg-gradient-to-b from-[var(--navy)] via-[#14244E] to-[var(--navy)]"
-      svgClassName="text-[var(--light-blue)]/15 drop-shadow-md drop-shadow-black"
+      className="min-h-screen bg-linear-to-b from-(--navy) via-[#14244E] to-(--navy)"
+      svgClassName="text-(--light-blue)/15 drop-shadow-md drop-shadow-black"
       fullPage
       fadeIn={false}
     >
@@ -56,7 +56,7 @@ export default function BrotherhoodHubPage() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group rounded-2xl border border-[var(--blue)]/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[var(--blue)] hover:bg-white/20"
+                className="group rounded-2xl border border-(--blue)/40 bg-white/10 p-6 shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-(--blue) hover:bg-white/20"
               >
                 <h2 className="text-2xl font-semibold text-white">{item.title}</h2>
                 <p className="mt-2 text-sm text-[#DBECF3]">{item.description}</p>

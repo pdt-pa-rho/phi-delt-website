@@ -146,6 +146,13 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
       cardClass: isDark ? "from-[#2A1A4A]/82 to-[#4F2F8A]/82 border-[#7652BA]" : "from-[#F3E8FF]/86 to-[#E9D5FF]/86 border-[#D8B4FE]",
     },
     {
+      title: "The Mokstar ⭐️",
+      description: "Highest overall likes per message for high-message posters (100+ messages).",
+      winner: efficiencyWinner,
+      value: efficiencyWinner ? `${efficiencyWinner.likesPerMessage.toLocaleString()} likes/message` : "N/A",
+      cardClass: isDark ? "from-[#204a1a]/82 to-[#2f8a37]/82 border-[#52ba6c]" : "from-[#e8ffe9]/86 to-[#d5ffd8]/86 border-[#b4feb7]",
+    },
+    {
       title: "The Megaphone 📣",
       description: "Most total messages sent in chat.",
       winner: volumeWinner,
@@ -187,7 +194,7 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
             isDark ? "border border-[#3B5883] bg-[#101A3E]/82 text-white" : "border border-[#BFD8EB] bg-[#0D1433]/82 text-white"
           }`}
         >
-          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[var(--blue)]/25 blur-3xl" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-(--blue)/25 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 left-10 h-72 w-72 rounded-full bg-[#2E4E84]/30 blur-3xl" />
           <p className="text-sm uppercase tracking-[0.2em] text-[#8BC0E6]">Spring 2026 • Messenger Recap</p>
           <h1 className="mt-3 text-3xl font-bold md:text-5xl">Brotherhood Wrapped: Messenger Likes ❤️</h1>
@@ -225,7 +232,7 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
 
         <section
           className={`fire-border-glow mt-6 rounded-2xl p-5 shadow-sm ${
-            isDark ? "border border-[#8B2A21] bg-gradient-to-br from-[#3C0F10]/82 to-[#5E1718]/82" : "border border-[#F07A62] bg-gradient-to-br from-[#FFE2DB]/86 to-[#FFC5B3]/86"
+            isDark ? "border border-[#8B2A21] bg-linear-to-br from-[#3C0F10]/82 to-[#5E1718]/82" : "border border-[#F07A62] bg-linear-to-br from-[#FFE2DB]/86 to-[#FFC5B3]/86"
           }`}
         >
           <p className={`text-xs font-semibold uppercase tracking-wide ${isDark ? "text-[#FFC2B6]" : "text-[#9B2F1D]"}`}>Top 3 most liked this semester</p>
@@ -322,10 +329,10 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
                   className={`rounded-xl border p-4 text-left transition-all ${
                     isActive
                       ? isDark
-                      ? "border-[var(--blue)] bg-[#1A2C57]/82 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
-                      : "border-[var(--blue)] bg-[#EAF4FB]/84 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
+                      ? "border-(--blue) bg-[#1A2C57]/82 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
+                      : "border-(--blue) bg-[#EAF4FB]/84 shadow-[0_0_0_2px_rgba(97,156,199,0.25)]"
                       : isDark
-                      ? "border-[#35547F] bg-[#101D42]/82 hover:border-[var(--blue)] hover:bg-[#162755]/85"
+                      ? "border-[#35547F] bg-[#101D42]/82 hover:border-(--blue) hover:bg-[#162755]/85"
                         : "border-[#DBECF3] bg-white/84 hover:border-[#A7CAE3] hover:bg-[#F8FBFD]/90"
                   }`}
                 >
@@ -422,7 +429,7 @@ export default function MessengerLikesDashboard({ wrappedData }: { wrappedData: 
             {semesterAwards.map((award) => (
               <article
                 key={award.title}
-                className={`rounded-xl border bg-gradient-to-br p-4 shadow-sm ${award.cardClass}`}
+                className={`rounded-xl border bg-linear-to-br p-4 shadow-sm ${award.cardClass}`}
               >
                 <p className={`text-xs font-semibold uppercase tracking-wide ${isDark ? "text-[#E5EDFF]" : "text-[#1F3C67]"}`}>
                   {award.title}

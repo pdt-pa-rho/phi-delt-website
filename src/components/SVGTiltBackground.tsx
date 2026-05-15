@@ -23,7 +23,7 @@ export default function SvgTiltBackground({
   children,
   svgUrl,
   className,
-  svgClassName = "text-[var(--light-blue)]/10",
+  svgClassName = "text-(--light-blue)/10",
   maxTilt = 8,
   scale = 1.08,
   maskSize = "100% 100%",

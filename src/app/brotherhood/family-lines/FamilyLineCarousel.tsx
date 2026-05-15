@@ -51,7 +51,7 @@ export default function FamilyLineCarousel({ forest }: { forest: FamTree[] }) {
 
   return (
     <section className="glass-card relative rounded-2xl p-6 shadow-xl">
-      <div className="mb-6 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-4">
+      <div className="mb-6 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr) items-start gap-4">
         <button
           type="button"
           onClick={() => setRoot(prevTree.root.name)}
@@ -90,7 +90,7 @@ export default function FamilyLineCarousel({ forest }: { forest: FamTree[] }) {
       </div>
 
       {selectedNode && (
-        <div className="my-4 rounded-xl border border-[var(--blue)]/30 bg-[var(--blue)]/10 px-4 py-3 text-sm text-white">
+        <div className="my-4 rounded-xl border border-(--blue)/30 bg-(--blue)/10 px-4 py-3 text-sm text-white">
           <div className="mb-2 flex items-center justify-center gap-2">
             <span className="text-xl font-semibold blue-shine">
               {selectedNode.name}
@@ -107,7 +107,7 @@ export default function FamilyLineCarousel({ forest }: { forest: FamTree[] }) {
           </div>
 
           <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-x-4 gap-y-1 text-white/60">
-            <span>{selectedNode.littles.length} direct littles</span>
+            <span>{selectedNode.littles.length} direct little{selectedNode.littles.length !== 1 ? "s" : ""}</span>
             <span className="hidden md:inline">•</span>
             <span>Generation {getGeneration(tree.root, selectedNode.name)}</span>
             <span className="hidden md:inline">•</span>
