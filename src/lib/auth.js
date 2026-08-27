@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import { isAllowedEmail } from "@/helpers/auth/access";
 
-
+/** @type {import("next-auth").NextAuthOptions} */
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 
