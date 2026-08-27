@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import SvgTiltBackground from '@/components/SVGTiltBackground';
+import LoadingSpinner from '@/components/LoadingSpinner';
 import FamilyLinesDisplay from './FamilyLinesDisplay';
 
 export const metadata: Metadata = {
@@ -28,7 +30,9 @@ export default function FamilyLines() {
             </p>
           </div>
 
-          <FamilyLinesDisplay />
+          <Suspense fallback={<LoadingSpinner />}>
+            <FamilyLinesDisplay />
+          </Suspense>
         </div>
       </main>
     </SvgTiltBackground>

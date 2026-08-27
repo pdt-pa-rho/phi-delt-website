@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import LoginPageContent from "./LoginPageContent";
 import SvgTiltBackground from "@/components/SVGTiltBackground";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export const metadata: Metadata = {
   title: "Sign In | Phi Delta Theta PA Rho"
@@ -16,7 +18,9 @@ export default function LoginPage() {
           fadeIn={false}
     >
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <LoginPageContent />
+        <Suspense fallback={<LoadingSpinner />}>
+          <LoginPageContent />
+        </Suspense>
       </main>
     </SvgTiltBackground>
   );
