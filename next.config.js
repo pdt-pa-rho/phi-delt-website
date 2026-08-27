@@ -16,6 +16,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media.licdn.com',
         pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+        pathname: '**'
       }
     ],
   },
