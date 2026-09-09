@@ -1,4 +1,3 @@
-// helpers/bpl/google.js
 import { google } from "googleapis";
 
 // Initialize the Google Sheets API client with the API key
