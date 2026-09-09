@@ -425,7 +425,7 @@ function StarRatingInput({
         value={value}
         onChange={onChange}
         aria-label={label}
-        className="flex items-center gap-1"
+        className="flex items-center gap-0.5"
       >
         {["1", "2", "3", "4", "5"].map((rating) => (
           <Radio
