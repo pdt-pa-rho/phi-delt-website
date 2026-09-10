@@ -27,10 +27,8 @@ export const authOptions = {
     },
 
     async jwt({ token, user }) {
-      const email = user?.email ?? token.email;
-
-      if (email) {
-        const access = await getAccessForEmail(email);
+      if (user?.email) {
+        const access = await getAccessForEmail(user.email);
         token.alumn = Boolean(access?.alumn);
       }
 
