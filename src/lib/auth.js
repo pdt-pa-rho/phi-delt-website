@@ -1,5 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
-import { isAllowedEmail } from "@/helpers/auth/access";
+import { getAccessForEmail } from "@/helpers/auth/access";
 
 /** @type {import("next-auth").NextAuthOptions} */
 export const authOptions = {
@@ -23,10 +23,25 @@ export const authOptions = {
 
   callbacks: {
     async signIn({ user }) {
-      return user?.email && await isAllowedEmail(user.email)
+      return Boolean(user?.email && await getAccessForEmail(user.email));
     },
 
-    async session({ session }) {
+    async jwt({ token, user }) {
+      const email = user?.email ?? token.email;
+
+      if (email) {
+        const access = await getAccessForEmail(email);
+        token.alumn = Boolean(access?.alumn);
+      }
+
+      return token;
+    },
+
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.alumn = Boolean(token.alumn);
+      }
+
       return session;
     },
   },

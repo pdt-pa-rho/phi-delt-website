@@ -1,5 +1,6 @@
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { useMemo, useState } from "react";
 import clsx from "clsx";
 
@@ -16,6 +17,7 @@ export default function FamilyLineSearch({ forest }: { forest: FamTree[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { data: session } = useSession();
   const [query, setQuery] = useState(searchParams.get("person") ?? "");
 
   const names = useMemo(() => {
@@ -36,6 +38,11 @@ export default function FamilyLineSearch({ forest }: { forest: FamTree[] }) {
       : names
         .filter((name) => name.toLowerCase().includes(query.toLowerCase()))
         .slice(0, 12);
+  const sessionName = session?.user?.name?.trim() ?? "";
+  const loggedInPersonName = useMemo(() => {
+    if (!sessionName) return "";
+    return names.find((name) => name.toLowerCase() === sessionName.toLowerCase()) ?? sessionName;
+  }, [names, sessionName]);
 
   function selectPerson(name: string | null) {
     const params = new URLSearchParams(searchParams.toString());
@@ -49,37 +56,53 @@ export default function FamilyLineSearch({ forest }: { forest: FamTree[] }) {
     router.push(`${pathname}?${params.toString()}`);
   }
 
+  function viewYourFamLine() {
+    if (!loggedInPersonName) return;
+    setQuery(loggedInPersonName);
+    selectPerson(loggedInPersonName);
+  }
+
   return (
-    <Combobox value={searchParams.get("person") ?? ""} onChange={selectPerson}>
-      <div className="relative mb-6 max-w-md">
-        <label className="mb-2 block text-sm text-white/60">
-          Search family lines
-        </label>
+    <div className="mb-6 flex max-w-2xl flex-col gap-3 sm:flex-row sm:items-end">
+      <Combobox value={searchParams.get("person") ?? ""} onChange={selectPerson}>
+        <div className="relative flex-1">
+          <label className="mb-2 block text-sm text-white/60">
+            Search family lines
+          </label>
 
-        <ComboboxInput
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm"
-          placeholder="Search by name..."
-          displayValue={(name: string) => name}
-          onChange={(event) => setQuery(event.target.value)}
-        />
+          <ComboboxInput
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm"
+            placeholder="Search by name..."
+            displayValue={(name: string) => name}
+            onChange={(event) => setQuery(event.target.value)}
+          />
 
-        <ComboboxOptions className="absolute z-50 mt-2 max-h-64 w-full overflow-auto rounded-lg border border-white/10 bg-white/5 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm">
-          {filteredNames.map((name) => (
-            <ComboboxOption
-              key={name}
-              value={name}
-              className={({ focus }) =>
-                clsx(
-                  "cursor-pointer px-4 py-2 text-sm",
-                  focus ? "bg-(--blue) text-white" : "text-white/80"
-                )
-              }
-            >
-              {name}
-            </ComboboxOption>
-          ))}
-        </ComboboxOptions>
-      </div>
-    </Combobox>
+          <ComboboxOptions className="absolute z-50 mt-2 max-h-64 w-full overflow-auto rounded-lg border border-white/10 bg-white/5 text-white outline-none transition focus:border-(--blue) focus:ring-2 focus:ring-(--blue)/30 backdrop-blur-sm shadow-sm">
+            {filteredNames.map((name) => (
+              <ComboboxOption
+                key={name}
+                value={name}
+                className={({ focus }) =>
+                  clsx(
+                    "cursor-pointer px-4 py-2 text-sm",
+                    focus ? "bg-(--blue) text-white" : "text-white/80"
+                  )
+                }
+              >
+                {name}
+              </ComboboxOption>
+            ))}
+          </ComboboxOptions>
+        </div>
+      </Combobox>
+      <button
+        type="button"
+        onClick={viewYourFamLine}
+        disabled={!loggedInPersonName}
+        className="rounded-lg border border-white/10 bg-white/10 px-4 py-2 font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        View your fam line
+      </button>
+    </div>
   );
 }

@@ -13,6 +13,13 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  if (session.user?.alumn) {
+    return NextResponse.json(
+      { error: "Course Catalog is available to active brothers only" },
+      { status: 403 }
+    );
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const data = await getCourseCatalogFromSheet({
