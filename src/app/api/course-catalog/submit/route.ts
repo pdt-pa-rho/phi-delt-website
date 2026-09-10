@@ -45,6 +45,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  if (session.user?.alumn) {
+    return NextResponse.json(
+      { error: "Course reviews can only be submitted by active brothers" },
+      { status: 403 }
+    );
+  }
+
   try {
     const body = await request.json();
     const review = {
